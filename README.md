@@ -1,33 +1,45 @@
-# Cheetah connectivity manuscript (Overleaf mirror)
+# Cheetah connectivity manuscript
 
-This repo is a **synced mirror**, not the canonical source. The real project,
-including the analysis, protocol history, and Decision Log, lives at
+The manuscript, predeclared analysis protocol, and bibliography for a study
+of temporal structural connectivity, unprotected pinch points, and monitoring
+priorities for free-ranging cheetahs in southern Africa. This is the
+canonical home for the paper and connects to Overleaf via GitHub sync.
+
+The analysis itself, ArcGIS project, decision log, and processing scripts,
+lives in a separate repo:
 [cheetah-connectivity](https://github.com/liamcrettol/cheetah-connectivity).
-This repo exists only so Overleaf has something small and LFS-free to sync
-against, the main repo carries a full ArcGIS project and Git LFS binaries
-that Overleaf's GitHub integration cannot handle.
+That repo carries a full ArcGIS geodatabase and Git LFS binaries that
+Overleaf's GitHub integration can't handle, which is why the two are split.
 
 ## Layout
 
-    tex/       manuscript (main.tex + sections/)
-    protocol/  predeclared analysis protocol
-    refs/      bibliography
-
-## Keeping this in sync
-
-From the main `cheetah-connectivity` checkout:
-
-    tools/sync_manuscript_repo.sh
-
-Run it after any commit that touches `tex/`, `protocol/`, or `refs/`. It
-mirrors those three directories here and pushes. Edits made directly in
-Overleaf get pulled back into the main repo the same way, in reverse, see
-that script's header comment.
+    tex/          manuscript (main.tex + sections/)
+    protocol/     predeclared analysis protocol, landcover_crosswalk.csv,
+                  temporal_alignment.csv
+    refs/         bibliography (methods_canon.bib verified; cheetah_lit.bib)
+    .github/      CI: builds both PDFs on every push
 
 ## Building
 
-    cd tex && latexmk -pdf main.tex
-    cd protocol && latexmk -pdf protocol.tex
+    make            # both PDFs
+    make watch      # continuous rebuild while writing
+    make clean
 
 Requires TeX Live with biblatex-apa and biber, or open in a Codespace, the
-devcontainer supplies both.
+devcontainer supplies both. Overleaf compiles independently of this.
+
+## Protocol lock
+
+The protocol is fixed before any connectivity result is generated. When it is
+signed, tag it:
+
+    git tag -a protocol-v1.0 -m "protocol locked"
+    git push origin protocol-v1.0
+
+Amendments after that point go in the protocol's amendment log AND get their
+own commit, so the sequence of changes is externally checkable.
+
+Note: an earlier protocol-v1.0 tag from before this repo split exists on
+cheetah-connectivity, dated 18 August 2026. It remains the authoritative
+record of that lock date. Any future re-lock or amendment tag belongs here
+instead, since this is now where protocol.tex lives.
