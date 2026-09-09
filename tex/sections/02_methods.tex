@@ -35,9 +35,8 @@ FACTS: final model = anthropogenic 0.60, vegetation 0.20, terrain 0.20, then mul
 by a fence multiplier running 1.0 to 25.0. Inside the anthropogenic 0.60: built 30,
 roads 30, livestock 30, lights 10. Sensitivity scenarios = vegetation low
 (0.7/0.1/0.2), balanced (0.6/0.2/0.2), high (0.4/0.4/0.2).
-TRAP: RES-01 to RES-06 never existed as such. Either map the real scenarios onto those
-IDs or say the set changed, and log it in protocol section 19. \nscen\ in main.tex
-says five and needs fixing.
+TRAP: RES-01 to RES-06 never existed as such. Say what actually ran. \nscen\ in
+main.tex says five and needs fixing.
 CITE: \textcite{zeller2012resistance} on transformation mattering as much as weights.}
 
 \begin{outline}
@@ -155,8 +154,8 @@ assumed spatial block size. Lean on direction holding across all four years and 
 % Sentence starters: "I considered a result robust when ..." / "A link was classified as sensitive when ..." / "Locations with low agreement were treated as ..."
 \TODO{WF-022.
 NOT DONE: the planned 144-run grid. One core definition, 1 km only, no 2 km or 5 km
-check, no cell-level agreement map. Amend, and move the resolution claim in
-\S\ref{sec:scale} down into Limitations.
+check, no cell-level agreement map. Say so, and move the resolution claim in
+\S\ref{sec:scale} down into Limitations since nothing tested it.
 SAY: what "robust" actually meant here. It is a link-level screen, three gates, all
 must pass.
   1. Weight. Both alternative weightings keep 80 percent of the route within 5 km of
@@ -195,9 +194,9 @@ THE PROBLEM: the independent check we predeclared, the Limpopo tracking data and
 Namibian camera-trap work, was never run. What exists is a comparison against
 2010-2016 occurrence records from the same archive that built the cores, so it cannot
 be independent.
-DECIDE: run the Limpopo check, or rename this subsection and say outright that the
-predeclared independent check was not done. Either is defensible. Presenting the
-existing screen as if it were the predeclared analysis is not.
+DECIDE: run the Limpopo check, or rename this subsection and say the independent check
+was not done. Either is fine. Just do not let the existing screen read as though it
+were the independent one, because it is built from the same records as the cores.
 IF IT STAYS: early 2010-2012 = 413 thinned 10 km cells, late 2013-2016 = 450, Jaccard
 0.239. And say there are no records after 2016, so 2020 and 2024 have no check at all.
 \textcite{roberts2017cv} only matters if the empirical-resistance route comes back.}
@@ -206,9 +205,9 @@ IF IT STAYS: early 2010-2012 = 413 thinned 10 km cells, late 2013-2016 = 450, Ja
 \label{sec:mcda}
 \TODO{WF-023, WF-024, CAU-020.
 NOT BUILT: the six-component MCDA at 10 km with weight sets W1-W3.
-DECISION: amend O3 to a link-level decision table instead of building it. A weighted
-composite would imply we can trade these things off against each other, and we cannot
-justify the exchange rates.
+SUGGESTION: a link-level decision table instead. A weighted composite would imply you
+can trade these things off against each other, and there is no basis for the exchange
+rates.
 SAY: the output is a table with the fields kept separate, not scored together.
 Structural importance (betweenness, with its k-sensitivity), 2012-2024 cost direction
 and size, route-location stability, fence uncertainty, protected-area context. State

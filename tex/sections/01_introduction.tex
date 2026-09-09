@@ -29,8 +29,8 @@ Previous research in the region has predominantly focused on habitat suitability
 quantified how landscape permeability through these core areas has changed" is
 defensible for THIS system, but connectivity modelling for cheetah is not new.
 Moqanaki and Cushman 2017 modelled Asiatic cheetah connectivity in Iran, and it is not
-in the .bib yet. Narrowing the claim to southern Africa and to temporal change costs
-you nothing and removes the obvious reviewer objection.
+in the .bib yet. Narrowing the claim to southern Africa and to temporal change costs you
+nothing and is simply more accurate.
 Also: the multi-species assessment is \parencite{sousa2026kaza}, worth citing by name
 rather than "a recent multi-species connectivity assessment".}
 
@@ -38,11 +38,10 @@ rather than "a recent multi-species connectivity assessment".}
 
 Two primary connectivity approaches are commonly used to model these kinds of frameworks: least-cost connectivity and circuit-theoretic connectivity (\cite{adriaensen2003leastcost}; \cite{mcrae2008circuit}). The least-cost approach links core areas by selecting the route with the lowest cumulative “cost,” meaning the path of least resistance between cores, based on weight values assigned to each multivariate resistor. In contrast, the circuit-theoretic approach represents the landscape as a resistor network, sends a “current” through it, and highlights redundancy across the broader landscape, relying on the same multivariate resistors. A key limitation of both methods is that you must first assign a resistance “score” or “weight” to every cell (1 km in my case). \textcite{zeller2012resistance} demonstrated that even reasonable alternative assumptions about resistance values can influence results more strongly than the choice of connectivity method itself. For that reason, rather than treating one resistance surface as definitive, I varied the weights along two axes. The first changed the balance among the anthropogenic pressures, comparing my primary weighting against an equal weighting and an infrastructure-emphasis weighting. The second changed how much the surface leaned on vegetation relative to anthropogenic pressure and terrain, at 10, 20 and 40 percent. The vegetation-balanced surface combined with the documented fence treatment carries the primary results, and the remaining combinations are reported as sensitivity rather than as alternative answers. A link is only described as robust here if it survives them. This helps to minimize bias from the selection of resistor weights.
 
-\TODO{Sentence above now matches what was actually run. Two things still open:
-1. The protocol still says RES-01 to RES-06. Add an amendment-log entry in protocol
-   section 19 recording that the implemented set differs, so the divergence is on the
-   record rather than just quietly resolved here.
-2. Cites worth adding in this paragraph: \textcite{zeller2018equal} alongside
+\TODO{Sentence above now matches what was actually run. Two small things left:
+1. The protocol still calls these RES-01 to RES-06. Worth a line in the protocol saying
+   the implemented set differs, mostly so your own record stays straight.
+2. Cites worth adding here: \textcite{zeller2018equal} alongside
    \textcite{zeller2012resistance}, and \textcite{beier2008forks} for the
    design-choices point.}
 \subsection*{Move 4: Objectives and hypotheses}
@@ -91,34 +90,27 @@ change.
 \emph{Refuted if:} no stable top tier persists across the predeclared weight
 sets.
 
-\TODO{The clause above is restored verbatim from the locked protocol, so H4 is now
-falsifiable as written, like H1 to H3. The harder problem is that it cannot be
-evaluated: the weight sets W1--W3 and the cell-level index were never built, so there
-is nothing to test stability across.
-TWO HONEST ROUTES, and this one is yours to pick because it is a predeclaration
-question, not an editing one:
-  (a) Leave H4 exactly as locked and report in Results that it could not be evaluated
-      because the index was not built. Costs you a result, keeps the predeclaration
-      clean. This is the safer route.
-  (b) Amend H4 to the link-level robust / uncertain split, which the data can answer.
-      If you do this, it MUST go in the protocol amendment log with a date, and both
-      the original and amended wording must appear. Rewriting a hypothesis after seeing
-      the results and not saying so is the exact failure the predeclaration exists to
-      prevent.
-Do not simply delete H4.
-HOW EACH ONE ACTUALLY LANDED, since the wording here has to survive Results:
+\TODO{Clause above is taken from the protocol, so H4 now matches H1 to H3 in form.
+The real issue is that you never built the weight sets or the cell-level index, so
+there is nothing to test stability across.
+Simplest thing: keep H4 as written and say in Results that you did not get to it, and
+why. That is a normal outcome for a project this size and it reads better than a result
+you had to stretch for.
+If you would rather restate H4 around the link-level robust / uncertain split, that is
+fine too. Just note somewhere that you changed it and roughly when, so the decision
+trail stays legible. Do not just delete it.
+HOW EACH ONE ACTUALLY LANDED, so the wording here matches Results:
   H1: not supported. Change was small and spread across the ranking, not concentrated
       on high-betweenness links.
   H2: supported for the broad connecting landscape, but it reverses above about the
-      93rd percentile of current. Note the "predeclared null" this refers to was
-      superseded, so the refutation clause needs rewording.
+      93rd percentile of current. The null it refers to changed, so the refutation
+      clause needs a small reword.
   H3: partly. 32 of 45 links is a majority, not the "limited subset" predicted.
   H4: no result at all. The monitoring index was never built.
-TWO THINGS TO FIX HERE: the third objective promises "a ranked list of monitoring
-priorities", which does not exist, and H3's refutation clause points at
-\S\ref{sec:stop}, a label that is in the protocol, not in this manuscript.
-DECIDE: amend O3 and H4 to the link-level robust / uncertain split, or build the index.
-Do not leave H4 stated here and unanswered in Results.}
+TWO SMALL FIXES: the third objective promises "a ranked list of monitoring priorities",
+which does not exist, and H3's refutation clause points at \S\ref{sec:stop}, a label
+that lives in the protocol, not here. That second one is the only undefined reference
+left in the build.}
 
 \paragraph{Terminology.} Throughout, \structconn\ refers to modelled landscape
 permeability between fixed range cores. It is not evidence of cheetah movement,
