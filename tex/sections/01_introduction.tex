@@ -1,4 +1,4 @@
-\section{Introduction}
+ \section{Introduction}
 \label{sec:intro}
 
 % Four moves, roughly one paragraph each. Do not exceed ~900 words for the
@@ -19,51 +19,92 @@
 %      claim yet, so those need sourcing before they can stay.
 % =====================================================================
 
-\subsection*{Move 1: Why cheetah connectivity, and why outside protected areas}
-% Sentence starters: "Cheetah connectivity matters because ..." / "This issue is especially important outside protected areas because ..." / "In this study, we focus on ..."
-
-The southern African cheetah has had their range substantially reduced, with their current range estimated to be on majority unprotected land. Cheetah range on protected land is governed by centralized park-management initiatives \TODO{Maybe get an example of that?}. Unprotected land poses a different type of challenge, with landowners, local communities and governmental entities involved. This paper looks at the landscape connectivity change between 2012 and 2024, but also provides a predictive look at what future land permeability for cheetah movement may be based on three scenarios: conservation of the land/low-growth, continuation, and high-development. The predictive scenarios are based on the assumption that the core range of cheetahs is fixed at the 2010-2016 baseline, and that any change in permeability is due to landscape changes rather than changes in the core range itself. Which is to say, the core range is not expected to change in the future, but the landscape surrounding it may become more or less permeable to cheetah movement. Based on a multivariate analysis, the results of this study show that the southern African cheetah is at risk of further range contraction and isolation due to anthropogenic development, and that conservation efforts should focus on maintaining and enhancing connectivity between core range areas.
+The southern African cheetah has had their range substantially reduced, with their current range estimated to be on majority unprotected land. Cheetah range on protected land is governed by centralized park-management initiatives \parencite{buk2018metapopulation}. Unprotected land poses a different type of challenge, with landowners, local communities and governmental entities involved. This paper looks at the landscape connectivity change between 2012 and 2024, but also provides a predictive look at what future land permeability for cheetah movement may be based on three scenarios: conservation of the land/low-growth, continuation, and high-development. The predictive scenarios are based on the assumption that the core range of cheetahs is fixed at the 2010-2016 baseline, and that any change in permeability is due to landscape changes rather than changes in the core range itself. Which is to say, the core range is not expected to change in the future, but the landscape surrounding it may become more or less permeable to cheetah movement. Based on a multivariate analysis, the results of this study show that the southern African cheetah is at risk of further range contraction and isolation due to anthropogenic development, and that conservation efforts should focus on maintaining and enhancing connectivity between core range areas.
 
 \subsection*{Move 2: What is already modelled, and what is not}
-% Sentence starters: "Previous studies have mainly examined ..." / "Those studies do not answer whether ..." / "The gap addressed here is ..."
-\TODO{SAY: suitability for this species and region is already well covered. This
-project does not add another suitability model. The pivot is that suitability is not
-permeability, and nobody has reported how permeability between established cheetah
-range cores has \emph{changed}.
-The KAZA assessment \parencite{sousa2026kaza} excluded cheetah for insufficient data,
-which is both the justification and the constraint. Saying that explicitly is stronger
-than just reporting it.
-TRAP: connectivity modelling for cheetah is not new. Moqanaki and Cushman 2017 did it
-for Asiatic cheetah. Claim the temporal and uncertainty framing as the contribution,
-not novelty of method. Add that citation to the .bib.}
+
+Previous research in the region has predominantly focused on habitat suitability, a topic that is already comprehensively addressed in the existing literature. The objective of my study is not to develop an additional suitability model, but rather to identify and evaluate spatial “pinch points” (i.e., constricted linkages) among areas of suitable habitat that occur on unprotected lands. Importantly, habitat suitability does not necessarily correspond to land that is functionally usable by the species its identified for. Therefore, assessing connectivity among usable habitat is a key gap that this study seeks to address. To my knowledge, no published studies have quantified how landscape permeability through these core areas has \textit{changed} over time. The study most comparable to the present work is a recent multi-species connectivity assessment; however, that analysis explicitly excluded cheetah due to insufficient data. Data limitations were therefore explicitly considered and mitigated to the extent possible in this study, and they provide both the primary justification for the existence of this paper and its principal constraint.
+
+\TODO{Check the novelty claim before this goes out. "No published studies have
+quantified how landscape permeability through these core areas has changed" is
+defensible for THIS system, but connectivity modelling for cheetah is not new.
+Moqanaki and Cushman 2017 modelled Asiatic cheetah connectivity in Iran, and it is not
+in the .bib yet. Narrowing the claim to southern Africa and to temporal change costs
+you nothing and removes the obvious reviewer objection.
+Also: the multi-species assessment is \parencite{sousa2026kaza}, worth citing by name
+rather than "a recent multi-species connectivity assessment".}
 
 \subsection*{Move 3: The methodological frame}
-% Sentence starters: "I used a resistance-based connectivity framework because ..." / "Because resistance values are uncertain, I ..." / "Rather than treating one parameterisation as definitive, I ..."
-\TODO{SAY: least-cost and circuit-theoretic connectivity
-\parencite{adriaensen2003leastcost, mcrae2008circuit}. Resistance parameterisation is
-the biggest source of uncertainty in this kind of model
-\parencite{zeller2012resistance,zeller2018equal}, which is why we ran a scenario
-ensemble rather than one preferred surface. Design choices framed against
-\textcite{beier2008forks}. Metric choice against \textcite{keeley2021metrics}.
-TRAP: drop \textcite{saura2007pc}. PC and dPC were never computed and are being
-dropped on purpose. Do not promise a graph metric in the Introduction that the
-Methods then does not deliver.}
 
-\subsection*{Move 4 --- Objectives and hypotheses}
+Two primary connectivity approaches are commonly used to model these kinds of frameworks: least-cost connectivity and circuit-theoretic connectivity (\cite{adriaensen2003leastcost}; \cite{mcrae2008circuit}). The least-cost approach links core areas by selecting the route with the lowest cumulative “cost,” meaning the path of least resistance between cores, based on weight values assigned to each multivariate resistor. In contrast, the circuit-theoretic approach represents the landscape as a resistor network, sends a “current” through it, and highlights redundancy across the broader landscape, relying on the same multivariate resistors. A key limitation of both methods is that you must first assign a resistance “score” or “weight” to every cell (1 km in my case). \textcite{zeller2012resistance} demonstrated that even reasonable alternative assumptions about resistance values can influence results more strongly than the choice of connectivity method itself. For that reason, rather than settling on a single resistance surface as definitive, I specified six separate weighting scenarios (RES-01–RES-06) and used these as outputs. This helps to minimize bias from the selection of resistor weights.
+
+\TODO{FACTUAL PROBLEM in the sentence above. RES-01 to RES-06 were predeclared but
+never built under those IDs. What actually ran was three anthropogenic weightings
+(primary, equal, infrastructure-emphasis) and three vegetation weightings (0.7/0.1/0.2,
+0.6/0.2/0.2, 0.4/0.4/0.2), plus fence variants, with vegetation-balanced as the final
+model. Either rename them here or say the implemented set differs, and log it in
+protocol section 19. As written this claims a predeclared design the Methods cannot
+back up.
+Smaller: \textcite{zeller2018equal} belongs alongside \textcite{zeller2012resistance}
+here, and \textcite{beier2008forks} is the natural cite for the design-choices point.}
+\subsection*{Move 4: Objectives and hypotheses}
 % Sentence starters: "The first objective was to ..." / "I predicted that ..." / "This prediction would be unsupported if ..."
-\TODO{State the three objectives and H1--H4 with directional predictions, each
-falsifiable in one clause. See the Hypotheses sheet.
-BEFORE WRITING, know how each one landed, because the wording has to survive Results:
-  H1 (loss concentrated on high-betweenness links): not supported. Change was small
-     and spread across the ranking.
-  H2 (high-value connectivity disproportionately unprotected): supported for the broad
-     connecting landscape, reverses above about the 93rd percentile.
-  H3 (limited robust subset): partly. 32 of 45 is a majority, not the small subset the
-     hypothesis expected.
-  H4 (stable top tier of monitoring cells): no result. The index was never built.
-O3 needs amending from a monitoring index to a link-level decision table.
-TRAP: do not write predictions the Results then quietly fails to address, especially
-H4.}
+
+The first objective was to measure changes in modeled structural connectivity among fixed-range cores across four time points from 2012--2024. The second was to determine pinch points that remain influential across the entire sensitivity grid and describe their protected-area status. The final objective was to produce and stress-test a ranked list of monitoring priorities. I made the following not mutually exclusive predictions in support of each hypothesis. 
+
+
+
+\textbf{H1 (revised from the workbook).} Connectivity loss is concentrated on a
+minority of network links rather than distributed across the network, and the
+affected links are disproportionately those with high betweenness in the
+baseline network.
+
+\emph{Note on the revision.} H1 as originally drafted predicted that cells with
+larger increases in human pressure would show larger increases in resistance.
+That is true by construction, since the pressure layers are the resistance
+inputs. It cannot fail and therefore is not a hypothesis. The revised form asks
+a question the model can answer negatively: pressure change might fall on
+redundant links, in which case network-level connectivity is robust to it and
+the conservation implication reverses.
+
+\emph{Refuted if:} connectivity loss is approximately uniform across links, or
+loss falls preferentially on low-betweenness links.
+
+\textbf{H2.} High-value connectivity area is disproportionately located outside
+formal protected areas.
+
+\emph{Refuted if:} the outside-PA share of high-current area does not exceed the
+predeclared null (\S\ref{sec:pa}) at the stated significance level, or the
+result does not hold across current-flow thresholds.
+
+\textbf{H3.} A limited subset of transboundary linkages remains important across
+all resistance assumptions, while other apparent corridors are strongly
+model-sensitive.
+
+\emph{Refuted if:} agreement is uniformly high (in which case the ensemble adds
+nothing) or uniformly low (in which case no robust set exists and the paper's
+primary output becomes the uncertainty map, per the decision rule in
+\S\ref{sec:stop}).
+
+\textbf{H4.} The highest-priority monitoring cells occur where structural
+importance coincides with old or sparse cheetah evidence and rapid landscape
+change.
+
+\TODO{H4 has no \emph{Refuted if} clause. H1, H2 and H3 all do. Add one, or H4 is not
+falsifiable as written.
+HOW EACH ONE ACTUALLY LANDED, since the wording here has to survive Results:
+  H1: not supported. Change was small and spread across the ranking, not concentrated
+      on high-betweenness links.
+  H2: supported for the broad connecting landscape, but it reverses above about the
+      93rd percentile of current. Note the "predeclared null" this refers to was
+      superseded, so the refutation clause needs rewording.
+  H3: partly. 32 of 45 links is a majority, not the "limited subset" predicted.
+  H4: no result at all. The monitoring index was never built.
+TWO THINGS TO FIX HERE: the third objective promises "a ranked list of monitoring
+priorities", which does not exist, and H3's refutation clause points at
+\S\ref{sec:stop}, a label that is in the protocol, not in this manuscript.
+DECIDE: amend O3 and H4 to the link-level robust / uncertain split, or build the index.
+Do not leave H4 stated here and unanswered in Results.}
 
 \paragraph{Terminology.} Throughout, \structconn\ refers to modelled landscape
 permeability between fixed range cores. It is not evidence of cheetah movement,
