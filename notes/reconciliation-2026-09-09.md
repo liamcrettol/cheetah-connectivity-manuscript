@@ -28,15 +28,35 @@ landscape findings:
 
 1. **The protected-area result.** The 35.47 / 27.62 / 33.90 percent figures
    describe protected-area coverage of core cells, not of connecting landscape.
-   Astra's outside-core recomputation is the real result and it points the other
-   way: the highest-current tenth outside cores is 25.54% protected against a
-   30.13% background (less protected than chance), while the highest-current 1%
-   outside cores is 44.63% protected (more protected). The direction holds under
-   1, 5 and 10 km exclusion buffers around cores.
+   Recomputed on the outside-core domain (see
+   `resistances/` in the analysis repo), against a matched background of
+   **31.26%**:
+
+   | Percentile of current | 2012 | 2024 |
+   |---|---:|---:|
+   | 80th (minimum) | 24.23% | 23.27% |
+   | 90th | 26.31% | 25.54% |
+   | 95th | 35.57% | 33.45% |
+   | 99th | 44.17% | 44.63% |
+
+   Coverage is lowest at the **80th percentile**, not the top, crosses background
+   at about the **93rd**, and the gap **widened** over the study period, from
+   -7.03 to -7.99 points at the 80th. Direction is stable under 0/1/5/10 km core
+   buffers.
 
    **So H2 is supported for the broad connecting landscape and reverses only in
    the most concentrated tail.** The earlier reading in this note, that H2 was
    refuted, was wrong. It was reading core geography.
+
+   Note the background: 31.26% is coverage across the outside-core
+   *positive-current* domain, which is the population the selection is drawn
+   from. The Astra audit used 30.13%, which includes 165,765 zero-current cells
+   that could never be selected, so it understates the gap slightly.
+
+   Do not quote a p-value. Under a block null the top-decile gap gives p = 0.006
+   at 25 km blocks and p = 0.096 at 50 km. Significance here is mostly a function
+   of the assumed autocorrelation scale, which the original uniform null hid by
+   returning 0.001 everywhere.
 
 2. **The temporal stationarity of current.** The near-identical 90th percentile
    and high-current cell counts across 2012 to 2024 are stationarity of the fixed
