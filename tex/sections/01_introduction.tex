@@ -36,17 +36,15 @@ rather than "a recent multi-species connectivity assessment".}
 
 \subsection*{Move 3: The methodological frame}
 
-Two primary connectivity approaches are commonly used to model these kinds of frameworks: least-cost connectivity and circuit-theoretic connectivity (\cite{adriaensen2003leastcost}; \cite{mcrae2008circuit}). The least-cost approach links core areas by selecting the route with the lowest cumulative “cost,” meaning the path of least resistance between cores, based on weight values assigned to each multivariate resistor. In contrast, the circuit-theoretic approach represents the landscape as a resistor network, sends a “current” through it, and highlights redundancy across the broader landscape, relying on the same multivariate resistors. A key limitation of both methods is that you must first assign a resistance “score” or “weight” to every cell (1 km in my case). \textcite{zeller2012resistance} demonstrated that even reasonable alternative assumptions about resistance values can influence results more strongly than the choice of connectivity method itself. For that reason, rather than settling on a single resistance surface as definitive, I specified six separate weighting scenarios (RES-01–RES-06) and used these as outputs. This helps to minimize bias from the selection of resistor weights.
+Two primary connectivity approaches are commonly used to model these kinds of frameworks: least-cost connectivity and circuit-theoretic connectivity (\cite{adriaensen2003leastcost}; \cite{mcrae2008circuit}). The least-cost approach links core areas by selecting the route with the lowest cumulative “cost,” meaning the path of least resistance between cores, based on weight values assigned to each multivariate resistor. In contrast, the circuit-theoretic approach represents the landscape as a resistor network, sends a “current” through it, and highlights redundancy across the broader landscape, relying on the same multivariate resistors. A key limitation of both methods is that you must first assign a resistance “score” or “weight” to every cell (1 km in my case). \textcite{zeller2012resistance} demonstrated that even reasonable alternative assumptions about resistance values can influence results more strongly than the choice of connectivity method itself. For that reason, rather than treating one resistance surface as definitive, I varied the weights along two axes. The first changed the balance among the anthropogenic pressures, comparing my primary weighting against an equal weighting and an infrastructure-emphasis weighting. The second changed how much the surface leaned on vegetation relative to anthropogenic pressure and terrain, at 10, 20 and 40 percent. The vegetation-balanced surface combined with the documented fence treatment carries the primary results, and the remaining combinations are reported as sensitivity rather than as alternative answers. A link is only described as robust here if it survives them. This helps to minimize bias from the selection of resistor weights.
 
-\TODO{FACTUAL PROBLEM in the sentence above. RES-01 to RES-06 were predeclared but
-never built under those IDs. What actually ran was three anthropogenic weightings
-(primary, equal, infrastructure-emphasis) and three vegetation weightings (0.7/0.1/0.2,
-0.6/0.2/0.2, 0.4/0.4/0.2), plus fence variants, with vegetation-balanced as the final
-model. Either rename them here or say the implemented set differs, and log it in
-protocol section 19. As written this claims a predeclared design the Methods cannot
-back up.
-Smaller: \textcite{zeller2018equal} belongs alongside \textcite{zeller2012resistance}
-here, and \textcite{beier2008forks} is the natural cite for the design-choices point.}
+\TODO{Sentence above now matches what was actually run. Two things still open:
+1. The protocol still says RES-01 to RES-06. Add an amendment-log entry in protocol
+   section 19 recording that the implemented set differs, so the divergence is on the
+   record rather than just quietly resolved here.
+2. Cites worth adding in this paragraph: \textcite{zeller2018equal} alongside
+   \textcite{zeller2012resistance}, and \textcite{beier2008forks} for the
+   design-choices point.}
 \subsection*{Move 4: Objectives and hypotheses}
 % Sentence starters: "The first objective was to ..." / "I predicted that ..." / "This prediction would be unsupported if ..."
 
