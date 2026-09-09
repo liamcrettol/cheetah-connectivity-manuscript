@@ -6,56 +6,105 @@
 
 \subsection{Connectivity change, \studyperiod}
 % Sentence starters: "Across the study period, modelled connectivity ..." / "The largest changes occurred ..." / "At the core-pair level, ..."
-\TODO{H1. Magnitude and geography of change in current flow and effective distance.
-Report per country and per core-pair. Figure~\ref{fig:change}.}
+\TODO{H1. Magnitude and geography of change.
+PRIMARY MEASURE: effective resistance. Least-cost path cost is secondary and gives
+bigger numbers for the same links; say which is which.
+FACTS: 253 pairs, median -1.224 percent, median absolute 2.822, 90th percentile 6.089,
+92 up and 161 down. The 45 selected links: median -1.557. The 32 priority links:
+median -2.618, 12 up and 20 down. Biggest single move +13.1 percent on 33-38.
+Outside-core current: median relative change 4.3 percent, top-decile agreement between
+years 0.91 to 0.93.
+TRAP: "report per country" cannot be done. Cores have no country attribution and the
+only per-country table is covariate change, not connectivity. Either build the
+attribution or drop the promise.
+Figure~\ref{fig:change}.}
 
 \subsection{Robust priority links}
 % Sentence starters: "I identified [number] robust priority links ..." / "These links were concentrated ..." / "Their agreement across scenarios was ..."
-\TODO{H3. How many links met the robustness criterion, and how concentrated they
-are. Figure~\ref{fig:prioritylinks}, Table~\ref{tab:top20}.}
+\TODO{H3. How many links met the criterion and how concentrated they are.
+FACTS: 32 of 45 primary, 13 uncertainty. Weight screen passes 34, fence screen removes
+2 more. Vegetation-direction removes none that were still in.
+TRAP: H3 predicted a LIMITED subset. 32 of 45 is most of the network, so H3 is only
+partly supported. Say that rather than reporting 32 as if it confirmed the prediction.
+Figure~\ref{fig:prioritylinks}, Table~\ref{tab:top20}.}
 
 \subsection{Protected-area coverage of priority connectivity}
 % Sentence starters: "Of the priority connectivity area, [value] was located ..." / "Compared with the predeclared null, this represented ..." / "The permutation test returned ..."
-\TODO{H2. Observed share outside protected areas versus the predeclared null, with
-the permutation result. Table~\ref{tab:pa}.}
+\TODO{H2. Protection of the connecting landscape. Rewrite, do not fill in.
+WHY: the predeclared comparison included the fixed cores, and the whole top decile of
+current sits inside them, so it measured a footprint that cannot change.
+FACTS, outside cores, background 31.26 percent: 80th percentile 23.27, 90th 25.54,
+95th 33.45, 99th 44.63. Crossover near the 93rd. Gap widened from -7.03 to -7.99
+points at the 80th between 2012 and 2024. Direction holds at 0, 1, 5 and 10 km core
+buffers.
+TRAP: no p-value. It swings 0.006 to 0.096 on block size alone. Also drop the word
+"observed"; this is modelled current.
+Table~\ref{tab:pa}.}
 
 \subsection{Model sensitivity}
 % Sentence starters: "Results were consistent across ..." / "The links most sensitive to assumptions were ..." / "This indicates that ..."
-\TODO{Agreement across the sensitivity grid. This subsection should be substantial.
-If corridor rankings are unstable, say so here plainly; the Discussion then pivots
-to the uncertainty-guided monitoring framing rather than a corridor map.
-Figure~\ref{fig:agreement}.}
+\TODO{Model sensitivity. Still substantial, but not the subsection that was planned.
+DOES NOT EXIST: the cell-level agreement grid, and any agreement raster or map.
+WHAT TO REPORT INSTEAD, and this is the paper's strongest material:
+  1. Cost is stable, location is not. 49 of 180 route-years fell below 80 percent
+     overlap at 1 km, covering 21 of the 32 "robust" links. Pair 17-24 hit zero in 2020.
+  2. Vegetation weighting barely changes direction (43 of 45 links keep their sign) but
+     strongly changes magnitude (median absolute change 3.6 percent at veg-low, 9.3 at
+     veg-high).
+  3. The ranking depends on the link graph. At k = 2/3/4/5 you get 31/45/61/77 edges,
+     only k = 3 has a bridge, and the top links change at k = 4 and 5.
+TRAP: do not present a single ranking as if the graph construction were given.}
 
 \subsection{Independent plausibility assessment}
 % Sentence starters: "The plausibility assessment showed ..." / "Agreement was strongest for ..." / "The assessment was limited by ..."
-\TODO{Outcome of \S\ref{sec:validation}. Report it even if weak or mixed.}
+\TODO{Outcome of \S\ref{sec:validation}. Report it even if weak.
+FACTS: early 2010-2012 = 413 thinned 10 km cells, late 2013-2016 = 450, Jaccard 0.239.
+Late cells sit in slightly higher modelled resistance (medians 2.28 vs 2.13, Cliff's
+delta 0.11). More late cells fall inside the fixed cores (67.8 vs 45.8 percent).
+Almost none fall near a priority path (0 of 413, 3 of 450).
+TRAP: this is not independent. The same archive defined the cores, so the core result
+is circular by construction. And there are no records after 2016, so 2020 and 2024 have
+no check at all. Say both.}
 
 \subsection{Monitoring priorities}
 % Sentence starters: "The highest-ranked monitoring cells were ..." / "Rank stability across weight sets was ..." / "These locations were prioritized because ..."
-\TODO{H4. Ranked cells and their stability. Figure~\ref{fig:priority},
-Table~\ref{tab:priority}.}
+\TODO{H4. No result. The cell-level index and the W1--W3 weight sets were never
+built, so H4 cannot be evaluated as written.
+DECIDE: either build it, or amend O3 and state plainly in Results that the monitoring
+output is the link-level robust / uncertain split rather than a ranked cell index.
+Do not leave H4 stated in the Introduction and unanswered here.}
 
 %------------------------------------------------------------------ float stubs
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_2_temporal_current_evidence.png}
-  \caption{Temporal current-flow evidence across the four environmental snapshots.
-  High-current classes are descriptive structural-flow evidence, not validated corridors.}
+  \caption{\TODO{Caption describes a superseded figure. The rebuilt version is
+  fig2\_current\_change\_outside\_cores in resistances/figures, which shows percent
+  change 2012 to 2024 outside the cores. Rewrite for that, and keep the line that these
+  are modelled structural flow, not validated corridors.}}
   \label{fig:change}
 \end{figure}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_3_robust_priority_links.png}
-  \caption{Robust priority links retained across the sensitivity analyses.}\label{fig:prioritylinks}
+  \caption{\TODO{Superseded. This file draws straight centroid-to-centroid lines, not
+  routes. Use fig3\_priority\_links\_least\_cost\_paths in resistances/figures, which
+  draws the real least-cost paths and separates the 32 primary from the 13 uncertainty
+  links.}}\label{fig:prioritylinks}
 \end{figure}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_1_high_current_concentration_2024.png}
-  \caption{Ensemble agreement across the sensitivity grid.}\label{fig:agreement}
+  \caption{\TODO{Caption and figure do not match. This file is high current
+  concentration in 2024, not ensemble agreement, and no agreement surface exists. Either
+  point this at fig1\_current\_outside\_cores\_2024 and retitle, or cut the float.}}\label{fig:agreement}
 \end{figure}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_4_protected_area_context.png}
-  \caption{Protected-area context for modeled priority connectivity.}\label{fig:priority}
+  \caption{\TODO{Replace with the coverage-versus-percentile curve,
+  outside\_core\_pa\_coverage\_curve in resistances/figures. It carries the actual
+  finding: coverage dips to a minimum near the 80th percentile and crosses background
+  near the 93rd.}}\label{fig:priority}
 \end{figure}
 
 \begin{table}[htbp]\centering
@@ -64,16 +113,22 @@ Table~\ref{tab:priority}.}
 \end{table}
 
 \begin{table}[htbp]\centering
-  \caption{Top 20 robust priority links with country, protection status, and agreement score.}
+  \caption{\TODO{There are 32 priority links, not 20. No country attribution exists
+  and no agreement score exists. Source is table\_primary\_priority\_links in the
+  results package; usable columns are rank, betweenness, link type, straight-line
+  distance, the three robustness flags, and effective resistance per year.}}
   \label{tab:top20}
 \end{table}
 
 \begin{table}[htbp]\centering
-  \caption{Protected-area coverage of high-current area against the predeclared null.}
+  \caption{\TODO{Rewrite for the outside-core domain and drop "predeclared null".
+  Source is outside\_core\_current\_pa\_curve in resistances/reports.}}
   \label{tab:pa}
 \end{table}
 
 \begin{table}[htbp]\centering
-  \caption{Monitoring priority ranking with component scores under alternative weightings.}
+  \caption{\TODO{No composite score and no alternative weightings exist. If the
+  decision table replaces the index, retitle to the fields kept separate. Otherwise cut
+  this float.}}
   \label{tab:priority}
 \end{table}

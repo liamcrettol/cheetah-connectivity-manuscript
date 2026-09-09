@@ -32,4 +32,34 @@ no temporal signal; consequences for interpreting change.}
 % Sentence starter: "The results should not be transferred to other regions without ..."
 
 \paragraph{Scope.} \TODO{CAU-018. Climate, conflict and occupancy are deliberately out.}
+
+\paragraph{Rainfall is not in the model.} \TODO{CHIRPS was never acquired. Vegetation
+carries most of the temporal signal and the vegetation term is effectively bare-cover
+fraction, which in a semi-arid system tracks rainfall. So some of what is reported as
+landscape change may be interannual rainfall. This is a real limitation, not a
+footnote.}
+
+\paragraph{The vegetation term is narrower than it sounds.} \TODO{The transform reduces
+to 1 + 0.09 x bare whenever the three VCF fractions sum to 100. Swapping tree for
+non-tree cover at fixed bare cover changes nothing. Describe it as a bare-cover proxy,
+not a model of vegetation structure.}
+
+\paragraph{Only one core definition, one resolution.} \TODO{The planned three core
+definitions and the 2 km and 5 km resolution checks were never run, so the claim in
+\S\ref{sec:scale} that conclusions are not resolution artefacts is currently
+unsupported. Either run them or move that claim here.}
+
+\paragraph{Current is reported outside the cores.} \TODO{In a pairwise formulation the
+cores inject and drain the current, so they carry the top decile by construction.
+Masking them cleans up what is reported but does not remove focal-region influence from
+the underlying solve. Also note the resistance graph has 34 connected components.}
+
+\paragraph{Route location is less certain than route cost.} \TODO{49 of 180 route-years
+fell below 80 percent overlap at 1 km, including 21 of the 32 priority links. A link can
+be confidently cheap and still not have a confidently located route.}
+
+\paragraph{Input series are not perfectly comparable.} \TODO{VIIRS switches from V21 to
+V22 at the 2024 snapshot, breaking the pin-one-version rule. GHSL 2010 stands in for
+2012, exactly at the two-year tolerance. Lights carry the smallest weight, which limits
+the damage, but say it.}
 % Sentence starter: "This study did not include ... and therefore cannot ..."
