@@ -4,6 +4,77 @@ Working note, 9 September 2026. Audit of `cheetah-connectivity` (analysis) again
 `protocol/protocol.tex` (locked 18 Aug, tag `protocol-v1.0`) and `tex/sections/`.
 Not manuscript prose. Every number below is traceable to a file named in the row.
 
+Revised 9 September after the Astra evidence audit, which ran read-only
+diagnostics on the rasters themselves and found a problem upstream of most of
+what is recorded here. Corrections are marked inline.
+
+---
+
+## 0. Corrections from the Astra audit
+
+**The high-current maps select input cores, not corridors.** Every cell in the
+top 10%, 5% and 1% of positive final current is inside an input core, in all four
+years. Independently corroborated here by area arithmetic: the 23 cores total
+246,654 km2, which is 9.85% of the 2,503,870-cell valid domain, while the
+top-decile selection is 233,812 cells, or 9.34% of the domain. The top decile
+fits inside the core footprint with room to spare.
+
+Mechanism: each focal region participates in 22 of 253 pairwise experiments, and
+22/253 = 0.08696, against a reported 90th-percentile positive current of 0.08702.
+Core cells sit on a plateau created by focal-node current injection.
+
+This invalidates two things reported in sections 1 and 2 below as if they were
+landscape findings:
+
+1. **The protected-area result.** The 35.47 / 27.62 / 33.90 percent figures
+   describe protected-area coverage of core cells, not of connecting landscape.
+   Astra's outside-core recomputation is the real result and it points the other
+   way: the highest-current tenth outside cores is 25.54% protected against a
+   30.13% background (less protected than chance), while the highest-current 1%
+   outside cores is 44.63% protected (more protected). The direction holds under
+   1, 5 and 10 km exclusion buffers around cores.
+
+   **So H2 is supported for the broad connecting landscape and reverses only in
+   the most concentrated tail.** The earlier reading in this note, that H2 was
+   refuted, was wrong. It was reading core geography.
+
+2. **The temporal stationarity of current.** The near-identical 90th percentile
+   and high-current cell counts across 2012 to 2024 are stationarity of the fixed
+   core geometry, not evidence that the corridor network held steady. Outside
+   cores, the 2012/2024 top-decile Jaccard overlap is 91.19%, which is the
+   defensible version of that statement and is still conditional on fixed cores.
+
+The Circuitscape solves are fine. This is an output-domain and interpretation
+problem, not a failed model run. Note also that
+`set_focal_node_currents_to_zero` is documented as not implemented in
+Circuitscape 5 (installed version 5.17.1), so this is not fixable by a config
+flag; it needs post-hoc masking of the core domain with the changed domain
+reported.
+
+**Two further Astra findings not caught here.** The vegetation transform reduces
+to `V = 1 + 0.09 x bare` whenever the three VCF fractions sum to 100, so swapping
+tree for non-tree cover at fixed bare cover changes nothing; it is a bare-cover
+proxy, not a vegetation-structure model. And the 2030 scenario vegetation
+fractions are clipped independently, so their sums are not preserved: maxima of
+151.5% and 194% against a historical range of 98 to 102%. The 2030 inputs are
+physically inconsistent, which matters more than the incomplete run recorded
+below.
+
+**One disagreement worth recording.** Section 7 below lists "compute dPC" as an
+option. Astra argues against adding PC/dPC because it would import dispersal
+assumptions this evidence cannot calibrate. That is the better call. The
+protocol's own lock note concedes the 100 km value comes from hub spacing rather
+than a dispersal study, and no cheetah natal-dispersal telemetry exists for this
+system. Amend and drop rather than compute.
+
+**Synthesis point across both audits.** CHIRPS precipitation was never acquired
+(section 3 below). Combined with the vegetation function collapsing to bare
+cover, and with the vegetation term dominating the 2030 mean resistance change,
+this means a substantial share of the project's temporal signal is bare-cover
+fraction in a semi-arid system with no rainfall covariate. Bare cover there is
+strongly rainfall-driven. Some of what is currently described as landscape change
+may be interannual rainfall variability.
+
 ---
 
 ## 1. What was actually run
@@ -98,7 +169,11 @@ These two metrics disagree in magnitude for the same links (e.g. link 1-9:
 Circuitscape +10.97%, veg_balanced LCP +18.63%). The paper has to name one as
 primary and label the other.
 
-### Current surfaces are effectively stationary
+### Current surfaces are effectively stationary (SUPERSEDED, see section 0)
+
+The table below measures the fixed core footprint, not the corridor network.
+Retained for provenance.
+
 
 (`manuscript_results_package/table_current_temporal_evidence_20260909_084224.csv`)
 
@@ -135,7 +210,11 @@ Edge weights (effective distances) are **not** used.
 
 Top five: 38-40 (0.409), 24-38 (0.316), 17-24 (0.300), 30-40 (0.238), 27-41 (0.103).
 
-### Protected areas
+### Protected areas (SUPERSEDED, see section 0)
+
+The bands below are core cells. Use Astra's outside-core recomputation instead:
+top decile 25.54% protected vs 30.13% background, top percentile 44.63%.
+Retained for provenance.
 
 WDPA August 2026, terrestrial and coastal polygons, status not Proposed,
 dissolved. 2,301 polygons in extent. 748,864 of 2,503,870 valid model cells
@@ -149,9 +228,7 @@ protected = **29.91%**. Null is 999 hypergeometric draws, seed 20260909. 2024 on
 
 p = 0.001 is the floor of (0+1)/(999+1), not an exact value.
 
-**H2 is refuted for the high-current band.** High-value modelled connectivity is
-more protected than chance, not less. Only the narrow >= 99th tail runs the other
-way, and it does so by 2.3 points.
+Do not read H2 from this table. It describes core cells. See section 0.
 
 ### Occurrence consistency screen
 
@@ -293,26 +370,77 @@ superseded or deleted so it cannot be cited by accident.
 
 ---
 
-## 7. Decisions needed
+## 7. Graph and route sensitivity (from the Astra audit)
 
-Ordered by how much downstream writing they unblock.
+**The priority ranking depends on the neighbour rule.** Rebuilding the graph at
+k = 2, 3, 4, 5 on the existing core centroids gives 31, 45, 61 and 77 edges. The
+k=3 graph used here has exactly one bridge, 17-24. The k=4 and k=5 graphs have no
+bridge at all and their leading betweenness edges differ substantially. So
+"robust priority links" is conditional on k=3, and that condition is currently
+unstated. Testing this needs no new solves.
 
-1. **Which temporal metric is primary**, Circuitscape effective resistance or
-   LCP path cost. Sets every number in Results section 1.
-2. **H2**: report the refutation as the finding, or rerun the PA test to the
-   predeclared spec (network denominator, configuration null) and see whether the
-   sign changes. Protocol section on decision rules already says what to do if H2
-   is not significant.
-3. **H4 / monitoring**: build the MCDA, or amend O3 to a link-level robust vs
-   uncertain split and say so.
-4. **Network metrics**: compute dPC, or drop to betweenness-only and amend.
-   If dropping, note the betweenness is unweighted and decide whether to
-   recompute it with effective-distance weights.
-5. **Plausibility assessment**: run the Limpopo route, or rename what exists and
+**Restricting the graph to the 32 eligible links isolates core 1.** The shortlist
+is not a complete network-maintenance plan.
+
+**Route location is much less stable than route cost.** 49 of 180 route-years
+fell below 80% bidirectional overlap at 1 km in the VCF comparison, covering 29
+pairs in at least one year, including 21 of the 32 supposedly eligible pairs.
+Pair 17-24 recorded a 2020 overlap of zero. The single graph bridge is also the
+most geographically unstable link in the set.
+
+Note the two overlap rules are not the same test: the weight screen used 80%
+within 5 km, the VCF comparison used 80% bidirectional at 1 km. Do not report
+them as one robustness criterion.
+
+This separation is a genuine result rather than a defect. Confidence that two
+regions are cheaply connected is not confidence in where the line runs, and a
+spatially uncertain link is a good survey target.
+
+---
+
+## 8. Decisions needed
+
+Reordered after the Astra audit. The first item now gates almost everything else.
+
+1. **Recompute every current-derived result outside the core domain.** The PA
+   comparison, the temporal persistence claim, and the high-current figures all
+   currently describe core geography. Post-hoc masking with the changed domain
+   stated, since the Circuitscape 5 focal-current option is not implemented.
+   No solver run required.
+2. **Which temporal metric is primary**, Circuitscape effective resistance or LCP
+   path cost. Sets every number in Results section 1.
+3. **State the graph condition, and report rank ranges across k** rather than one
+   ranking from k=3. Cheap, and it changes what "robust" can mean.
+4. **Split robustness into separate reported fields**: connection-cost stability,
+   route-location stability, fence uncertainty, data coverage. Stop collapsing
+   them into one eligibility flag.
+5. **2030 scenarios**: fix the cover-closure problem (fractions summing to 194%)
+   and finish high_development, or cut the forecasting scope and remove it from
+   the Introduction. Renaming does not repair the inputs.
+6. **H4 / monitoring**: amend O3 to the link-level decision table rather than
+   building the MCDA. A weighted composite adds false precision here.
+7. **Network metrics**: drop PC/dPC and amend, per section 0. Decide separately
+   whether to recompute betweenness with effective-distance weights.
+8. **Plausibility assessment**: run the Limpopo route, or rename what exists and
    state that the predeclared independent check was not performed.
-6. **Resolution sensitivity**: run 2 km and 5 km, or amend and move the claim in
+9. **Resolution sensitivity**: run 2 km and 5 km, or amend and move the claim in
    the scale subsection into Limitations.
-7. **2030 scenarios**: finish high_development, or cut the forecasting scope
-   entirely and remove it from the Introduction.
-8. **Scenario naming**: map the implemented set onto RES IDs or declare the
-   divergence, and fix `\nscen`.
+10. **Scenario naming**: map the implemented set onto RES IDs or declare the
+    divergence, and fix `\nscen`.
+
+---
+
+## 9. Citations to add
+
+Neither `.bib` file currently has these, and three of them are load-bearing.
+
+- **Weise et al. 2017**, PeerJ 5:e4096. The range and density source. Currently
+  `\TODO{find citation}` in Methods.
+- **Moqanaki & Cushman 2017**, Animal Conservation. Prior cheetah connectivity
+  modelling (Asiatic cheetah, Iran). Rules out any "first connectivity study"
+  novelty claim in the Introduction.
+- **Mills, Broomhall & du Toit 2004**, Wildlife Biology 10:177-186. Cheetah
+  habitat use is context-dependent, not open-grassland-only. Relevant to the
+  unsourced terrain-affinity claim in the resistance subsection.
+- **McRae et al. 2012**, PLOS ONE 7:e52604. Barrier detection and restoration
+  benefit, if the intervention framing is kept.
