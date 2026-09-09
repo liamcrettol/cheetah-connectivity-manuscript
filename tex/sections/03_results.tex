@@ -77,34 +77,44 @@ built, and why the gap, is a perfectly good thing to have in a capstone.}
 %------------------------------------------------------------------ float stubs
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_2_temporal_current_evidence.png}
-  \caption{\TODO{Caption describes a superseded figure. The rebuilt version is
-  fig2\_current\_change\_outside\_cores in resistances/figures, which shows percent
-  change 2012 to 2024 outside the cores. Rewrite for that, and keep the line that these
-  are modelled structural flow, not validated corridors.}}
+  \caption{\TODO{Remake this one. The current file is near-uniform because it is
+  showing the fixed core footprint, which cannot change.
+  Build from current\_change\_pct\_outside\_cores\_2012\_2024.tif in
+  C:\textbackslash cheetah\textbackslash rasters\textbackslash outside\_core. Clamp the
+  ramp to roughly +/-20 percent; the raw range runs -79 to +300 and will wash out
+  otherwise. Keep the line that these are modelled structural flow, not validated
+  corridors.}}
   \label{fig:change}
 \end{figure}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_3_robust_priority_links.png}
-  \caption{\TODO{Superseded. This file draws straight centroid-to-centroid lines, not
-  routes. Use fig3\_priority\_links\_least\_cost\_paths in resistances/figures, which
-  draws the real least-cost paths and separates the 32 primary from the 13 uncertainty
-  links.}}\label{fig:prioritylinks}
+  \caption{\TODO{Remake this one. The current file draws straight
+  centroid-to-centroid lines, not routes, so it reads as a corridor map and is not one.
+  The real geometry is already in cheetah\_working.gdb:
+  conservation\_priority\_paths\_temporal (32 links) and
+  conservation\_uncertainty\_paths\_temporal (13). Symbolise the two sets differently.
+  Do NOT use cheetah\_core\_neighbor\_links or final\_priority\_core\_links\_paper;
+  both are straight lines.}}\label{fig:prioritylinks}
 \end{figure}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_1_high_current_concentration_2024.png}
-  \caption{\TODO{Caption and figure do not match. This file is high current
-  concentration in 2024, not ensemble agreement, and no agreement surface exists. Either
-  point this at fig1\_current\_outside\_cores\_2024 and retitle, or cut the float.}}\label{fig:agreement}
+  \caption{\TODO{Caption and figure do not match. The file is high current
+  concentration in 2024, not ensemble agreement, and no agreement surface exists.
+  Either cut this float, or remake it as a 2024 current map from
+  current\_pctrank\_outside\_cores\_2024.tif and retitle. That raster holds each cell's
+  percentile rank 0 to 100, so you can set thresholds directly rather than classifying a
+  distribution that includes the cores.}}\label{fig:agreement}
 \end{figure}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_4_protected_area_context.png}
-  \caption{\TODO{Replace with the coverage-versus-percentile curve,
-  outside\_core\_pa\_coverage\_curve in resistances/figures. It carries the actual
-  finding: coverage dips to a minimum near the 80th percentile and crosses background
-  near the 93rd.}}\label{fig:priority}
+  \caption{\TODO{Remake as a coverage-versus-percentile curve rather than a map. It
+  carries the actual finding: protected-area coverage dips to a minimum near the 80th
+  percentile of current and crosses the 31.26 percent background near the 93rd.
+  Numbers are one row per year and percentile in
+  resistances/reports/outside\_core\_current\_pa\_curve\_*.csv.}}\label{fig:priority}
 \end{figure}
 
 \begin{table}[htbp]\centering
