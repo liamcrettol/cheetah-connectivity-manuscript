@@ -1,4 +1,4 @@
-\section{Introduction}
+ \section{Introduction}
 \label{sec:intro}
 
 % Four moves, roughly one paragraph each. Do not exceed ~900 words for the
@@ -19,33 +19,58 @@
 %      claim yet, so those need sourcing before they can stay.
 % =====================================================================
 
-\subsection*{Move 1: Why cheetah connectivity, and why outside protected areas}
-% Sentence starters: "Cheetah connectivity matters because ..." / "This issue is especially important outside protected areas because ..." / "In this study, we focus on ..."
-
-The southern African cheetah has had their range substantially reduced, with their current range estimated to be on majority unprotected land. Cheetah range on protected land is governed by centralized park-management initiatives \TODO{Maybe get an example of that?}. Unprotected land poses a different type of challenge, with landowners, local communities and governmental entities involved. This paper looks at the landscape connectivity change between 2012 and 2024, but also provides a predictive look at what future land permeability for cheetah movement may be based on three scenarios: conservation of the land/low-growth, continuation, and high-development. The predictive scenarios are based on the assumption that the core range of cheetahs is fixed at the 2010-2016 baseline, and that any change in permeability is due to landscape changes rather than changes in the core range itself. Which is to say, the core range is not expected to change in the future, but the landscape surrounding it may become more or less permeable to cheetah movement. Based on a multivariate analysis, the results of this study show that the southern African cheetah is at risk of further range contraction and isolation due to anthropogenic development, and that conservation efforts should focus on maintaining and enhancing connectivity between core range areas.
+The southern African cheetah has had their range substantially reduced, with their current range estimated to be on majority unprotected land. Cheetah range on protected land is governed by centralized park-management initiatives \parencite{buk2018metapopulation}. Unprotected land poses a different type of challenge, with landowners, local communities and governmental entities involved. This paper looks at the landscape connectivity change between 2012 and 2024, but also provides a predictive look at what future land permeability for cheetah movement may be based on three scenarios: conservation of the land/low-growth, continuation, and high-development. The predictive scenarios are based on the assumption that the core range of cheetahs is fixed at the 2010-2016 baseline, and that any change in permeability is due to landscape changes rather than changes in the core range itself. Which is to say, the core range is not expected to change in the future, but the landscape surrounding it may become more or less permeable to cheetah movement. Based on a multivariate analysis, the results of this study show that the southern African cheetah is at risk of further range contraction and isolation due to anthropogenic development, and that conservation efforts should focus on maintaining and enhancing connectivity between core range areas.
 
 \subsection*{Move 2: What is already modelled, and what is not}
-% Sentence starters: "Previous studies have mainly examined ..." / "Those studies do not answer whether ..." / "The gap addressed here is ..."
-\TODO{Habitat suitability for this species and region is now well covered, including
-current and projected suitability with protected-area mismatch. State plainly that
-this project does not add another suitability model. Then the pivot: suitability is
-not permeability, and no published work reports how permeability between established
-cheetah range cores has \emph{changed}. Note that the recent regional multispecies
-connectivity assessment excluded cheetah for insufficient data, which is
-simultaneously the justification and the constraint.}
+
+Previous research in the region has predominantly focused on habitat suitability, a topic that is already comprehensively addressed in the existing literature. The objective of my study is not to develop an additional suitability model, but rather to identify and evaluate spatial “pinch points” (i.e., constricted linkages) among areas of suitable habitat that occur on unprotected lands. Importantly, habitat suitability does not necessarily correspond to land that is functionally usable by the species its identified for. Therefore, assessing connectivity among usable habitat is a key gap that this study seeks to address. To my knowledge, no published studies have quantified how landscape permeability through these core areas has \textit{changed} over time. The study most comparable to the present work is a recent multi-species connectivity assessment; however, that analysis explicitly excluded cheetah due to insufficient data. Data limitations were therefore explicitly considered and mitigated to the extent possible in this study, and they provide both the primary justification for the existence of this paper and its principal constraint.
 
 \subsection*{Move 3: The methodological frame}
-% Sentence starters: "I used a resistance-based connectivity framework because ..." / "Because resistance values are uncertain, I ..." / "Rather than treating one parameterisation as definitive, I ..."
-\TODO{Least-cost and circuit-theoretic connectivity \parencite{adriaensen2003leastcost,
-mcrae2008circuit}; resistance parameterisation is the dominant source of uncertainty
-in this class of model \parencite{zeller2012resistance,zeller2018equal}; hence a
-predeclared scenario ensemble rather than a single preferred surface. Graph-level
-importance follows \textcite{saura2007pc}; metric choice follows
-\textcite{keeley2021metrics}. Design choices are framed against
-\textcite{beier2008forks}.}
 
-\subsection*{Move 4 --- Objectives and hypotheses}
+Two primary connectivity approaches are commonly used to model these kinds of frameworks: least-cost connectivity and circuit-theoretic connectivity (\cite{adriaensen2003leastcost}; \cite{mcrae2008circuit}). The least-cost approach links core areas by selecting the route with the lowest cumulative “cost,” meaning the path of least resistance between cores, based on weight values assigned to each multivariate resistor. In contrast, the circuit-theoretic approach represents the landscape as a resistor network, sends a “current” through it, and highlights redundancy across the broader landscape, relying on the same multivariate resistors. A key limitation of both methods is that you must first assign a resistance “score” or “weight” to every cell (1 km in my case). \textcite{zeller2012resistance} demonstrated that even reasonable alternative assumptions about resistance values can influence results more strongly than the choice of connectivity method itself. For that reason, rather than settling on a single resistance surface as definitive, I specified six separate weighting scenarios (RES-01–RES-06) and used these as outputs. This helps to minimize bias from the selection of resistor weights.
+\subsection*{Move 4: Objectives and hypotheses}
 % Sentence starters: "The first objective was to ..." / "I predicted that ..." / "This prediction would be unsupported if ..."
+
+The first objective was to measure changes in modeled structural connectivity among fixed-range cores across four time points from 2012--2024. The second was to determine pinch points that remain influential across the entire sensitivity grid and describe their protected-area status. The final objective was to produce and stress-test a ranked list of monitoring priorities. I made the following not mutually exclusive predictions in support of each hypothesis. 
+
+
+
+\textbf{H1 (revised from the workbook).} Connectivity loss is concentrated on a
+minority of network links rather than distributed across the network, and the
+affected links are disproportionately those with high betweenness in the
+baseline network.
+
+\emph{Note on the revision.} H1 as originally drafted predicted that cells with
+larger increases in human pressure would show larger increases in resistance.
+That is true by construction, since the pressure layers are the resistance
+inputs. It cannot fail and therefore is not a hypothesis. The revised form asks
+a question the model can answer negatively: pressure change might fall on
+redundant links, in which case network-level connectivity is robust to it and
+the conservation implication reverses.
+
+\emph{Refuted if:} connectivity loss is approximately uniform across links, or
+loss falls preferentially on low-betweenness links.
+
+\textbf{H2.} High-value connectivity area is disproportionately located outside
+formal protected areas.
+
+\emph{Refuted if:} the outside-PA share of high-current area does not exceed the
+predeclared null (\S\ref{sec:pa}) at the stated significance level, or the
+result does not hold across current-flow thresholds.
+
+\textbf{H3.} A limited subset of transboundary linkages remains important across
+all resistance assumptions, while other apparent corridors are strongly
+model-sensitive.
+
+\emph{Refuted if:} agreement is uniformly high (in which case the ensemble adds
+nothing) or uniformly low (in which case no robust set exists and the paper's
+primary output becomes the uncertainty map, per the decision rule in
+\S\ref{sec:stop}).
+
+\textbf{H4.} The highest-priority monitoring cells occur where structural
+importance coincides with old or sparse cheetah evidence and rapid landscape
+change.
+
 \TODO{State the three objectives (change, protection gap, monitoring priority) and
 list H1--H4 with their directional predictions. Every hypothesis must be falsifiable
 as written; if you cannot describe the result that would refute it in one clause,
