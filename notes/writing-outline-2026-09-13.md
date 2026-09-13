@@ -1,333 +1,330 @@
-# Manuscript writing outline
+# Simple writing outline
 
-This is a writing checklist, not manuscript prose. Delete each TODO as it is
-completed. The main paper covers 2012--2024 only. Do not include the exploratory
-2030 scenarios.
+Use this as a checklist. It is not text to copy into the paper. Delete each TODO
+after you finish it. This paper covers 2012 to 2024. Leave out the unfinished 2030
+work.
 
-## Central answer to keep consistent throughout
+## Main answer
 
-TODO: Express this in Liam's own words in the Abstract, Results, Discussion and
-Conclusion:
+Keep this answer the same throughout the paper:
 
-- Modelled connectivity did not decline broadly between 2012 and 2024.
-- Effective resistance changed little overall and decreased slightly on balance.
-- Deterioration was localized to a minority of links.
-- Thirty-two links passed the final robustness screen; thirteen are uncertainty
-  priorities rather than failed or unimportant links.
-- Moderately high-current connecting landscape was less protected than the
-  outside-core background, while the most concentrated current was more protected.
+- The model does not show a large loss of connectivity across the whole region.
+- Connections changed only a little and became slightly easier overall.
+- Some individual links became harder.
+- Of the 45 links studied closely, 32 passed all checks. The other 13 need more
+  research.
+- Land with moderately high current was less protected than the rest of the land
+  outside the cores. The very highest-current land was more protected.
 
-Claim boundary: these are modelled structural connections and candidate priority
-areas. They are not observed cheetah movements, verified crossings or demonstrated
-gene flow.
+The model shows where movement may be easier or harder. It does not prove that
+cheetahs use a route. Call the lines "modelled links" or "possible corridors," not
+confirmed corridors or crossings.
 
-## Abstract: one paragraph, approximately 200--250 words
+## Abstract
 
-TODO: Write one or two sentences for each item:
-
-1. Context: range contraction and the importance of connectivity outside protected
-   areas.
-2. Question: how potential structural connectivity among fixed cheetah cores changed
-   from 2012 to 2024, and which links were robust to tested assumptions.
-3. Methods: 23 fixed cores, 1-km resistance surfaces, four time points, least-cost
-   paths, pairwise current flow and link-level robustness screens.
-4. Headline result: all 253 pairs had a median effective-resistance change of -1.224%;
-   161 decreased and 92 increased.
-5. Priority result: 32 of 45 selected links were primary and 13 were retained as
-   uncertainty priorities.
-6. Protection result: outside-core protected-area coverage was 31.26% in the
-   background, 23.27% above the 80th current percentile, and 44.63% above the 99th.
-7. Boundary and implication: results identify model-based priorities for targeted
-   field assessment, not confirmed movement corridors.
-
-Do not mention 2030, a monitoring index, observed connectivity loss or validated
-pinch points.
-
-## Introduction: four paragraphs, no subsections needed
-
-### Paragraph 1: conservation problem
+Write this last as one short paragraph.
 
 TODO:
 
-- Establish cheetah range contraction and the large proportion of range outside
-  formal protected areas.
-- Explain why connections among remaining areas matter.
-- Cite the regional range assessment and protected/unprotected-land literature.
+1. Explain why connections between cheetah areas matter.
+2. State your question: how did modelled connections change from 2012 to 2024?
+3. Briefly describe the work: 23 fixed cores, 1-km cells, four years, least-cost
+   paths and current-flow modelling.
+4. Give the main result. Across all 253 pairs, the middle change was -1.224%. A
+   negative value means the connection became easier in the model. Of the 253 pairs,
+   161 became easier and 92 became harder.
+5. State that 32 of 45 selected links passed the checks and 13 were uncertain.
+6. Give the protection result: 31.26% of available land outside the cores was
+   protected, compared with 23.27% above the 80th current percentile and 44.63%
+   above the 99th percentile.
+7. Say the results can guide field surveys and planning but do not prove where
+   cheetahs move.
 
-### Paragraph 2: knowledge gap
+Do not mention 2030, a monitoring score, confirmed pinch points or broad
+connectivity loss.
 
-TODO:
+## Introduction
 
-- Distinguish habitat suitability from connectivity.
-- Summarize the closest southern African connectivity studies.
-- Explain that cheetah-specific regional temporal connectivity change remains poorly
-  described.
-- Avoid claiming that no previous study exists unless the literature search supports
-  that absolute statement.
+Use four paragraphs. You do not need subsections.
 
-### Paragraph 3: analytical approach
-
-TODO:
-
-- Briefly contrast least-cost paths with circuit theory.
-- Explain why resistance assumptions require sensitivity checks.
-- State that fixed historical cores isolate landscape-side change; they do not show
-  changes in cheetah distribution.
-
-### Paragraph 4: objectives and expectations
+### Paragraph 1: Why this matters
 
 TODO:
 
-- Objective 1: measure 2012--2024 change among fixed cores.
-- Objective 2: identify influential links that remain usable across tested resistance,
-  fence and vegetation assumptions.
-- Objective 3: describe protected-area coverage of outside-core current.
-- Keep H1--H3 only if hypotheses are required by the capstone format. If retained,
-  align them with these three objectives and evaluate them honestly in Results.
-- End with the structural-connectivity claim boundary.
+- Explain that cheetah range has become smaller.
+- Explain that much of the remaining range is outside protected areas.
+- Explain why connections between important areas matter.
+- Add sources for these facts.
 
-## Methods: five subsections
-
-### 1. Study design, extent and cores
+### Paragraph 2: What past research is missing
 
 TODO:
 
-- Describe the southern African extent, projection and 1-km grid.
-- Cite the 2010--2016 source dataset used to derive cores.
-- State the threshold: density >=0.51 cheetahs per 100 km2, contiguous eight-neighbor
-  patches, minimum area 500 km2.
-- Report 23 fixed cores and explain why they were held constant across 2012, 2016,
-  2020 and 2024.
-- Explain that 45 selected links were the union of the k=3 nearest-neighbor graph and
-  the minimum spanning tree.
+- Explain that habitat suitability and connectivity answer different questions.
+- Briefly describe similar studies, including the Asiatic cheetah paper.
+- Explain what your study adds: change through time for southern African cheetahs.
+- Do not say nobody has done this unless your literature search proves it.
 
-### 2. Resistance surfaces
+### Paragraph 3: Your approach
 
 TODO:
 
-- Provide a source/year/resolution/static-or-dynamic table for every covariate.
-- Dynamic inputs: built-up fraction, nighttime lights and vegetation continuous
-  fields.
-- Static inputs: roads, livestock, terrain/slope and fences. Protected areas are an
-  overlay, not a resistance input.
-- State the final weights: anthropogenic 0.60, vegetation 0.20, terrain 0.20.
-- Within anthropogenic resistance: built 0.30, roads 0.30, livestock 0.30, lights
-  0.10.
-- Describe the slope transformation: <=10 degrees low resistance, 10--30 degrees
-  increasing linearly, >=30 degrees capped, then scaled 1--10.
-- Describe vegetation-low, balanced and high weights as sensitivity assumptions.
-- Explain the documented finite fence multiplier and its 1--25 range.
-- Describe vegetation as a bare-cover proxy, not a complete vegetation-structure
-  model.
+- Explain that a least-cost path shows the single lowest-cost route between two
+  cores.
+- Explain that current flow shows several places where movement may occur.
+- Explain that results depend on the resistance values, so you tested other weights.
+- Explain that using the same cores every year measures landscape change, not changes
+  in cheetah range.
 
-### 3. Connectivity and network metrics
+### Paragraph 4: Your questions
 
 TODO:
 
-- Explain least-cost path calculation for the 45 selected links.
-- Explain pairwise Circuitscape: 23 focal regions, 253 pairs per year, four years,
-  1,012 completed solves, eight-neighbor connectivity, double precision and CG+AMG.
-- State that current summaries exclude core cells because focal regions accumulate
-  high current by construction.
-- Define effective resistance as the primary temporal measure and least-cost path cost
-  as secondary.
-- Explain unweighted edge betweenness and its normalization by 253 core pairs.
-- State that PC/dPC and dispersal-kernel metrics were not calculated.
+- How did modelled connectivity change from 2012 to 2024?
+- Which links stayed important when model settings changed?
+- How much connecting land was protected?
+- Keep H1 to H3 only if your program requires hypotheses.
+- End by saying the model does not prove animal movement.
 
-### 4. Temporal and protected-area comparisons
+## Methods
 
-TODO:
+Use five subsections.
 
-- Define absolute and percentage change from 2012 to 2024.
-- State that cores, grid and modelling procedure were held constant.
-- Explain outside-core current percentile ranks.
-- Describe the August 2026 protected-area layer: polygons only, terrestrial/coastal,
-  proposed areas excluded and features dissolved.
-- Explain comparison of PA coverage across current percentiles with the 31.26%
-  eligible outside-core background.
-- Do not report the unstable permutation p-value.
-
-### 5. Robustness, uncertainty and reproducibility
+### 1. Study area and cores
 
 TODO:
 
-- Define all three link-level gates separately:
-  1. Weight test: both alternatives retain at least 80% of the route within 5 km;
-     34 of 45 pass.
-  2. Fence test: five affected links are removed by the final screen.
-  3. Vegetation test: the sign of 2012--2024 change must agree across low, balanced
+- Describe the study area, map projection and 1-km cells.
+- Cite the 2010 to 2016 cheetah data used to make the cores.
+- Explain the core rules: at least 0.51 cheetahs per 100 km2, touching cells joined,
+  and a minimum size of 500 km2.
+- State that there were 23 cores and that the same cores were used in all four years.
+- Explain that the 45 links included each core's three nearest neighbors plus the
+  links needed to keep the network connected.
+
+### 2. Resistance maps
+
+TODO:
+
+- Make a table of every input, source, year, original cell size and whether it
+  changed through time.
+- Inputs that changed: built-up land, nighttime lights and vegetation.
+- Inputs kept the same: roads, livestock, slope and fences.
+- Protected areas were compared with results. They were not part of resistance.
+- Give the main weights: human pressures 60%, vegetation 20% and slope 20%.
+- Within human pressures, built-up land, roads and livestock were each 30%; lights
+  were 10%.
+- Explain the slope scores: low through 10 degrees, increasing from 10 to 30 degrees,
+  and highest above 30 degrees.
+- Explain that you tested lower and higher vegetation weights.
+- Explain how fences increased resistance.
+- Call the vegetation layer a measure of bare cover, not full vegetation structure.
+
+### 3. Connectivity modelling
+
+TODO:
+
+- Explain how least-cost paths were made for the 45 selected links.
+- Explain that current flow was calculated for all 253 possible core pairs in each
+  of four years. All 1,012 runs finished successfully.
+- State the Circuitscape version and main settings.
+- Explain that core cells were removed from current summaries because the model
+  automatically gives them very high current.
+- Explain effective resistance: lower means an easier modelled connection; higher
+  means a harder connection.
+- Explain the link importance score: a high score means many shortest trips through
+  the core network use that link.
+- State that PC and dPC were not calculated.
+
+### 4. Comparing years and protected areas
+
+TODO:
+
+- Explain how change from 2012 to 2024 was calculated.
+- State that the cores, cell size and modelling steps stayed the same.
+- Explain current percentile: how high a cell's current was compared with other
+  cells outside the cores.
+- Describe the August 2026 protected-area data and say proposed areas were excluded.
+- State that 31.26% of land available for this comparison was protected.
+- Do not give the p-value because it changed too much when the test settings changed.
+
+### 5. Checks and uncertainty
+
+TODO:
+
+- Explain the three checks:
+  1. Weight check: both other weight choices had to keep at least 80% of the path
+     within 5 km of the main path. Thirty-four of 45 passed.
+  2. Fence check: five links changed enough to be removed from the main group.
+  3. Vegetation check: the direction of change had to stay the same with low, medium
      and high vegetation weights.
-- Report the final result: 32 primary links and 13 uncertainty links.
-- Explain the separate 1-km temporal route-overlap diagnostic; do not merge it with
-  the 5-km weight test.
-- Record software versions. Known: Circuitscape.jl 5.17.1. Still fill in ArcGIS Pro,
+- State that 32 links passed all checks. The other 13 remained uncertain links.
+- Explain that the separate 1-km overlap test measured route movement between years.
+  Do not combine it with the 5-km weight check.
+- Add software versions. Circuitscape.jl was 5.17.1. You still need ArcGIS Pro,
   Python and Julia versions.
-- State repository/archive locations and redistribution restrictions.
+- Add the repository and final data archive information.
 
-## Results: four subsections
+## Results
 
-Keep interpretation out of this section. Report numbers, directions and locations.
+Use three subsections. Report what happened here. Explain why it matters later in
+the Discussion.
 
-### 1. Overall connectivity change
+### 1. Change from 2012 to 2024
 
-TODO: Report:
+TODO:
 
-- All 253 pairs: median effective-resistance change -1.224%; 161 decreased and 92
-  increased; median absolute change 2.822%; 90th percentile absolute change 6.089%.
-- Forty-five selected links: median change -1.557%.
-- Thirty-two primary links: median change -2.618%; 20 decreased and 12 increased.
-- Largest increase: link 33--38, approximately +13.1%.
-- Outside-core current was spatially similar among years: top-decile agreement
-  approximately 0.91--0.93.
-- Describe the result as mixed and close to stable overall, not regional connectivity
-  loss.
+- All 253 pairs: middle change -1.224%; 161 became easier and 92 became harder.
+- The middle size of change was 2.822%. Ninety percent changed by no more than 6.089%.
+- The 45 selected links: middle change -1.557%.
+- The 32 main links: middle change -2.618%; 20 easier and 12 harder.
+- Link 33 to 38 had the largest increase, about +13.1%.
+- The highest 10% of current was similar among years, with agreement of 0.91 to 0.93.
+- Do not call this broad connectivity loss. Overall change was small and mixed.
 
-Figure TODO: Map 2012--2024 percentage change in current outside cores, with a bounded
-color scale so extremes do not wash out the map.
+Figure TODO: Map current change outside the cores from 2012 to 2024.
 
-### 2. Priority links and model sensitivity
+### 2. Main and uncertain links
 
-TODO: Report:
+TODO:
 
-- 32 primary links and 13 uncertainty links.
-- 34 of 45 pass the weight test; the full three-gate screen leaves 32.
-- H3 is only partly supported because 32 of 45 is a majority, not a small subset.
-- Highest final corrected betweenness links: 38--40 (0.409), 24--38 (0.316), 17--24
-  (0.300), 30--40 (0.238), and 27--41 (0.103).
-- Vegetation direction agrees for 43 of 45 links; 28--38 and 40--45 do not.
-- Cost direction is comparatively stable, but route location is not: 49 of 180
-  route-years fall below 80% overlap within 1 km, involving 21 of the 32 primary
-  links. Link 17--24 has zero overlap in 2020.
-- Graph construction matters: k=2/3/4/5 produces 31/45/61/77 edges, and only k=3
-  makes 17--24 a bridge.
+- Report 32 main links and 13 uncertain links.
+- Say 34 passed the weight check and 32 passed all checks.
+- If you keep H3, say it was partly supported because 32 of 45 is most of the network,
+  not a small group.
+- Highest link importance scores: 38 to 40 (0.409), 24 to 38 (0.316), 17 to 24
+  (0.300), 30 to 40 (0.238), and 27 to 41 (0.103).
+- Forty-three of 45 links kept the same direction under all vegetation weights. Links
+  28 to 38 and 40 to 45 did not.
+- Exact routes were less stable. Forty-nine of 180 paths had less than 80% overlap
+  within 1 km. This affected 21 of the 32 main links. Link 17 to 24 had no overlap
+  in 2020.
+- Say the importance ranking changed when the number of neighbors changed. The ranks
+  are useful but not exact.
 
-Figure TODO: Map the real 32 primary path geometries and 13 uncertainty path
-geometries with different symbols. Do not use straight centroid links.
+Figure TODO: Map the real 32 main paths and 13 uncertain paths in different colors.
+Do not use straight lines between core centers as corridors.
 
-Table TODO: List the 32 primary links with betweenness, change, and each robustness
-flag. Keep the fields separate; do not create a composite score.
+Table TODO: List the 32 main links, change, importance and each check separately. Do
+not make one combined score.
 
 ### 3. Protected-area coverage
 
-TODO: Report the outside-core values:
+TODO:
 
-- Eligible background: 31.26% protected.
-- Above 80th current percentile: 23.27%.
-- Above 90th: 25.54%.
-- Above 95th: 33.45%.
-- Above 99th: 44.63%.
-- Coverage crosses the background near the 93rd percentile.
-- At the 80th percentile, the gap widens from -7.03 percentage points in 2012 to
-  -7.99 in 2024.
-- Direction is stable after excluding 0, 1, 5 and 10 km around cores.
+- All available land outside cores: 31.26% protected.
+- Above the 80th current percentile: 23.27% protected.
+- Above the 90th: 25.54%.
+- Above the 95th: 33.45%.
+- Above the 99th: 44.63%.
+- Protection passed the 31.26% background near the 93rd percentile.
+- At the 80th percentile, the protection gap grew from 7.03 percentage points in
+  2012 to 7.99 points in 2024.
+- The same basic pattern remained after removing land within 0, 1, 5 and 10 km of
+  the cores.
 
-Figure TODO: Use a coverage-versus-current-percentile curve. This communicates the
-result better than a single protected-area map.
+Figure TODO: Make a line graph of protected-area coverage at each current percentile.
 
-### 4. Evidence limitations relevant to the results
+## Discussion
 
-TODO: Keep this brief or move it to the supplement:
+Use four subsections.
 
-- The occurrence consistency screen is not independent because the same 2010--2016
-  archive helped define the cores.
-- There are no comparable occurrence records for 2020 or 2024.
-- Therefore, do not call the model empirically validated.
-
-## Discussion: four subsections
-
-### 1. Main interpretation
+### 1. What the change means
 
 TODO:
 
-- Explain why small average change can coexist with important localized increases.
-- Discuss link 33--38 as the clearest increase without claiming a causal driver.
-- Relate stable current patterns and unstable exact path locations.
+- Explain that a small overall change can hide larger changes on individual links.
+- Discuss link 33 to 38 as the clearest increase.
+- Do not say one input caused the change. This analysis did not test cause and effect.
+- Explain that cost can stay similar even when the exact route moves.
 
-### 2. Protection and management implications
-
-TODO:
-
-- Explain the non-linear PA result: moderately high-flow connecting areas are least
-  protected, while the most concentrated tail overlaps PAs more strongly.
-- Discuss cooperation with private, communal and other non-PA land managers.
-- Avoid saying simply that "connectivity is unprotected."
-
-### 3. Robust links and survey priorities
+### 2. Protected areas and management
 
 TODO:
 
-- Explain that primary links are supported by the tested assumptions.
-- Treat the 13 uncertainty links as places where field data could change management
-  conclusions.
-- Use 17--24 as the main example: structurally influential but spatially unstable.
-- Suggest targeted telemetry, camera surveys or ground verification without claiming
-  that the study designed or ranked a field-monitoring program.
+- Explain that moderately high-current land was less protected.
+- Explain that the very highest-current land was more protected.
+- Discuss work with private, communal and other land managers outside protected areas.
+- Do not simply say connectivity is unprotected.
 
-### 4. Comparison with other connectivity research
+### 3. Where fieldwork is needed
 
 TODO:
 
-- Compare the framework with the Asiatic cheetah, elephant and multispecies studies.
-- Explain which methods transfer and why species-specific resistance values do not.
-- State that the 1-km regional model is for strategic screening, not fine-scale route
-  placement.
+- Explain that the 32 main links passed the checks you completed.
+- Explain that the 13 uncertain links are useful places for more research.
+- Use link 17 to 24 as an example. It is important to the network, but its route moved.
+- Suggest telemetry, cameras or field checks. Do not claim you made a full monitoring
+  plan or ranked survey sites.
 
-## Limitations: combine into four paragraphs
+### 4. Comparison with other studies
 
-### Paragraph 1: biological interpretation
+TODO:
 
-TODO: Combine fixed historical cores, structural-versus-functional connectivity,
-sampling bias and lack of independent movement validation.
+- Compare your approach with the Asiatic cheetah and southern African studies.
+- Explain which methods are similar.
+- Explain that resistance values from another species or place cannot simply be copied.
+- State that a 1-km regional model finds broad areas for attention. It cannot choose
+  an exact place for a fence opening or other action.
 
-### Paragraph 2: resistance and temporal inputs
+## Limitations
 
-TODO: Combine expert-assigned resistance, static roads/livestock/fences, rainfall not
-modelled, vegetation acting mainly as a bare-cover proxy, and the VIIRS version change.
+Use four paragraphs instead of many small sections.
 
-### Paragraph 3: spatial and network sensitivity
+### Paragraph 1: What the model shows
 
-TODO: Combine one core definition, one 1-km resolution, graph k sensitivity, route
-location instability, outside-core current masking and uneven mapping completeness.
+TODO: Explain that the cores came from older data and stayed fixed. The model shows
+possible connections, not real movement. Missing records do not prove absence. You
+did not have independent movement data to test the model.
 
-### Paragraph 4: scope
+### Paragraph 2: Resistance-map limits
 
-TODO: State that climate forecasts, conflict, occupancy, functional connectivity,
-future scenarios, PC/dPC, fine-scale corridor delineation and the planned MCDA are
-outside the completed analysis.
+TODO: Explain that resistance scores came from past research and expert reasoning.
+Roads, livestock and fences did not change through time. Rainfall was not included.
+Vegetation mostly measured bare cover. The nighttime-lights version changed in 2024.
 
-## Conclusion: one short paragraph
+### Paragraph 3: Map and network limits
 
-TODO: Write four sentences:
+TODO: Explain that you tested one core map and one 1-km cell size. Exact routes changed
+more than their costs. Link importance changed when the number of neighbors changed.
+Data quality also differed among countries.
 
-1. Overall 2012--2024 connectivity changed little and slightly improved on balance.
-2. Localized deterioration and structurally influential links still create management
-   priorities.
-3. The PA pattern makes the broader connecting landscape, not only the highest-current
-   cells, important for cross-boundary conservation.
-4. The 32 primary and 13 uncertainty links provide a transparent basis for management
-   screening and targeted field assessment, not confirmed corridors.
+### Paragraph 4: Work not completed
 
-## Final figure and table set
+TODO: State that you did not complete future forecasts, other core maps, other cell
+sizes, PC/dPC, a monitoring score or a fine-scale corridor study.
 
-Keep the main paper compact:
+## Conclusion
 
-1. Figure: study area, 23 fixed cores and four descriptive nuclei.
-2. Figure: outside-core current change, 2012--2024.
-3. Figure: 32 primary and 13 uncertainty path geometries.
-4. Figure: protected-area coverage across current percentiles.
-5. Table: covariates, sources, years, resolution and temporal treatment.
-6. Table: 32 primary links and their separate evidence fields.
-7. Supplement: complete 45-link results, sensitivity diagnostics and workflow details.
+Write one short paragraph.
 
-## Final prohibited-claim check
+TODO:
 
-Before considering a section complete, search for and fix any statement implying:
+1. Connectivity changed little overall and became slightly easier on average.
+2. Some links became harder and still deserve attention.
+3. Work outside protected areas is important for connecting cores.
+4. The 32 main links and 13 uncertain links can guide planning and field research,
+   but they are not confirmed cheetah routes.
 
-- broad regional connectivity decline;
-- observed or validated cheetah movement;
-- confirmed pinch points or crossings;
-- a completed 2030 forecast;
-- a completed monitoring index or MCDA;
-- tested alternative core definitions or spatial resolutions;
-- causal attribution of connectivity change to one pressure;
-- country-level connectivity results that were not calculated.
+## Figures and tables
+
+1. Study-area map with 23 cores and four broad groups.
+2. Current-change map outside the cores, 2012 to 2024.
+3. Map of 32 main paths and 13 uncertain paths.
+4. Graph of protected-area coverage across current percentiles.
+5. Table of model inputs and data sources.
+6. Table of the 32 main links and each check.
+7. Put full 45-link results and extra checks in the supplement.
+
+## Final check
+
+Remove any sentence saying:
+
+- connectivity declined across the whole region;
+- the lines show real cheetah movement;
+- the model found confirmed pinch points or crossings;
+- the 2030 forecast was completed;
+- a monitoring score was completed;
+- other core maps or cell sizes were tested;
+- one pressure caused a change;
+- connectivity was calculated separately for each country.
