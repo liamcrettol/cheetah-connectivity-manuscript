@@ -1,0 +1,11 @@
+component,source_or_layer,years,native_or_model_grain,role,status
+"Core polygons","cheetah_core_primary_density051_min500",historical,"polygon / fixed baseline","connectivity sources","available and verified: 23 cores"
+"Built-up pressure","built_YYYY_1km.tif","2012;2016;2020;2024","1 km","anthropogenic pressure","available in repo exports"
+"Road pressure","pressure_roads_1_10",static,"1 km","anthropogenic pressure","available in working geodatabase"
+"Livestock pressure","pressure_livestock_index_1_10",static,"1 km","anthropogenic pressure","available in working geodatabase"
+"Night lights","lights_YYYY_1km_flaremasked","2012;2016;2020;2024","1 km","anthropogenic pressure","available in working geodatabase"
+"Vegetation structure","vcf_tree/nontree/bare_2024_aligned_1km and temporal counterparts","2012;2016;2020;2024","1 km","vegetation resistance","available in working geodatabase"
+"Terrain primary","slope_mean_1km / terrain_resistance_1_10",static,"1 km","20% terrain resistance","available and used in primary reconstruction"
+"Terrain sensitivity","Copernicus GLO-30 slope summarized by p90",static,"30 m summarized to 1 km or 500 m","terrain sensitivity","31–32 diagnostics complete"
+"Fence scenario","fence_multiplier_main_1km",static,"1 km","finite fence multiplier","available; documented Kruger-combined final raster not present locally"
+"Connectivity outputs","final pairwise Circuitscape outputs","2012;2016;2020;2024","1 km model grid","current-flow results","not present on this computer; recover or rerun before final Results"
