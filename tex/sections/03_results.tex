@@ -35,7 +35,7 @@ FACTS: 32 of 45 primary, 13 uncertainty. Weight screen passes 34, fence screen r
 NOTE: H3 predicted a LIMITED subset. 32 of 45 is most of the network, so it is only
 partly supported. Worth saying, since it is a more interesting result than a clean
 confirmation.
-Figure~\ref{fig:prioritylinks}, Table~\ref{tab:top20}.}
+Table~\ref{tab:top20}.}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_5_modelled_links_and_transportation.pdf}
@@ -107,45 +107,26 @@ built, and why the gap, is a perfectly good thing to have in a capstone.}
   \label{fig:current2024}
 \end{figure}
 
-\begin{figure}[htbp]\centering
-  \includegraphics[width=\textwidth]{Figure_3_robust_priority_links.png}
-  \caption{\TODO{Remake this one. The current file draws straight
-  centroid-to-centroid lines, not routes, so it reads as a corridor map and is not one.
-  The real geometry is already in cheetah\_working.gdb:
-  conservation\_priority\_paths\_temporal (32 links) and
-  conservation\_uncertainty\_paths\_temporal (13). Symbolise the two sets differently.
-  Do NOT use cheetah\_core\_neighbor\_links or final\_priority\_core\_links\_paper;
-  both are straight lines.}}\label{fig:prioritylinks}
-\end{figure}
-
-\begin{figure}[htbp]\centering
-  \includegraphics[width=\textwidth]{Figure_4_protected_area_context.png}
-  \caption{Protected-area context for modeled priority connectivity. The overlay is
-  descriptive and does not measure management effectiveness.}\label{fig:pa}
-\end{figure}
-
 \begin{table}[htbp]\centering
   \caption{Covariates, native resolution, source years, and static/dynamic treatment.}
   \label{tab:covariates}
+  \input{tables/table_covariates}
 \end{table}
 
 \begin{table}[htbp]\centering
-  \caption{\TODO{There are 32 priority links, not 20. No country attribution exists
-  and no agreement score exists. Source is table\_primary\_priority\_links in the
-  results package; usable columns are rank, betweenness, link type, straight-line
-  distance, the three robustness flags, and effective resistance per year.}}
+  \caption{Highest-ranked modeled priority links.}
   \label{tab:top20}
+  \input{tables/table_primary_links}
 \end{table}
 
 \begin{table}[htbp]\centering
-  \caption{\TODO{Rewrite for the outside-core domain and drop "predeclared null".
-  Source is outside\_core\_current\_pa\_curve in resistances/reports.}}
+  \caption{Protected-area coverage of modeled high-current classes.}
   \label{tab:pa}
+  \input{tables/table_pa_coverage}
 \end{table}
 
 \begin{table}[htbp]\centering
-  \caption{\TODO{No composite score and no alternative weightings exist. If the
-  decision table replaces the index, retitle to the fields kept separate. Otherwise cut
-  this float.}}
+  \caption{Overview of completed modeled-connectivity results.}
   \label{tab:priority}
+  \input{tables/table_results_overview}
 \end{table}
