@@ -12,6 +12,7 @@
 - [x] Weise et al. range citation connected to the Methods.
 - [x] WDPA release month and DOI recorded.
 - [x] Table-source CSVs archived under `tex/tables/source_data/`.
+- [x] Results consolidated into four substantive subsections.
 
 ## TODO — author decisions before prose
 
