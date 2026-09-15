@@ -19,6 +19,14 @@ only per-country table is covariate change, not connectivity. Either build the
 attribution or drop the promise.
 Figure~\ref{fig:change}.}
 
+\begin{figure}[htbp]\centering
+  \includegraphics[width=\textwidth]{Figure_0_study_area_and_core_groups.pdf}
+  \caption{Study extent, fixed historical range cores, and core groups used to define
+  the modeled connectivity network. Core groups are an analysis construct and do not
+  imply separate populations.}
+  \label{fig:studyarea}
+\end{figure}
+
 \subsection{Robust priority links}
 % Sentence starters: "I identified [number] robust priority links ..." / "These links were concentrated ..." / "Their agreement across scenarios was ..."
 \TODO{H3. How many links met the criterion and how concentrated they are.
@@ -28,6 +36,14 @@ NOTE: H3 predicted a LIMITED subset. 32 of 45 is most of the network, so it is o
 partly supported. Worth saying, since it is a more interesting result than a clean
 confirmation.
 Figure~\ref{fig:prioritylinks}, Table~\ref{tab:top20}.}
+
+\begin{figure}[htbp]\centering
+  \includegraphics[width=\textwidth]{Figure_5_modelled_links_and_transportation.pdf}
+  \caption{Modeled core-to-core links with transportation and available fence context.
+  Lines represent network links used to define least-cost analyses; they are not
+  observed animal paths.}
+  \label{fig:networkcontext}
+\end{figure}
 
 \subsection{Protected-area coverage of priority connectivity}
 % Sentence starters: "Of the priority connectivity area, [value] was located ..." / "Compared with the predeclared null, this represented ..." / "The permutation test returned ..."
@@ -74,17 +90,21 @@ Simplest: say that here, and that the monitoring output is the link-level robust
 uncertain split instead. One short subsection explaining what you planned, what you
 built, and why the gap, is a perfectly good thing to have in a capstone.}
 
-%------------------------------------------------------------------ float stubs
+%------------------------------------------------------------------ figure inserts
 \begin{figure}[htbp]\centering
-  \includegraphics[width=\textwidth]{Figure_2_temporal_current_evidence.png}
-  \caption{\TODO{Remake this one. The current file is near-uniform because it is
-  showing the fixed core footprint, which cannot change.
-  Build from current\_change\_pct\_outside\_cores\_2012\_2024.tif in
-  C:\textbackslash cheetah\textbackslash rasters\textbackslash outside\_core. Clamp the
-  ramp to roughly +/-20 percent; the raw range runs -79 to +300 and will wash out
-  otherwise. Keep the line that these are modelled structural flow, not validated
-  corridors.}}
+  \includegraphics[width=\textwidth]{Figure_2B_current_change_2012_2024.pdf}
+  \caption{Modeled current change between 2012 and 2024. The map is a descriptive
+  comparison of structural-flow outputs and should not be interpreted as observed
+  movement or a validated corridor.}
   \label{fig:change}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+  \includegraphics[width=\textwidth]{Figure_2A_modelled_current_2024.pdf}
+  \caption{Modeled current concentration for 2024, with the fixed core network shown
+  for orientation. Current concentration is structural-flow evidence, not occurrence
+  probability.}
+  \label{fig:current2024}
 \end{figure}
 
 \begin{figure}[htbp]\centering
@@ -99,22 +119,9 @@ built, and why the gap, is a perfectly good thing to have in a capstone.}
 \end{figure}
 
 \begin{figure}[htbp]\centering
-  \includegraphics[width=\textwidth]{Figure_1_high_current_concentration_2024.png}
-  \caption{\TODO{Caption and figure do not match. The file is high current
-  concentration in 2024, not ensemble agreement, and no agreement surface exists.
-  Either cut this float, or remake it as a 2024 current map from
-  current\_pctrank\_outside\_cores\_2024.tif and retitle. That raster holds each cell's
-  percentile rank 0 to 100, so you can set thresholds directly rather than classifying a
-  distribution that includes the cores.}}\label{fig:agreement}
-\end{figure}
-
-\begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_4_protected_area_context.png}
-  \caption{\TODO{Remake as a coverage-versus-percentile curve rather than a map. It
-  carries the actual finding: protected-area coverage dips to a minimum near the 80th
-  percentile of current and crosses the 31.26 percent background near the 93rd.
-  Numbers are one row per year and percentile in
-  resistances/reports/outside\_core\_current\_pa\_curve\_*.csv.}}\label{fig:priority}
+  \caption{Protected-area context for modeled priority connectivity. The overlay is
+  descriptive and does not measure management effectiveness.}\label{fig:pa}
 \end{figure}
 
 \begin{table}[htbp]\centering
