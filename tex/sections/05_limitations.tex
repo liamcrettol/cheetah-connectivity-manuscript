@@ -1,80 +1,41 @@
 \section{Limitations}
 \label{sec:limitations}
 
-% Write this section from the Cautions sheet directly. Each Critical-severity
-% caution should be traceable to a sentence here. A reviewer who finds a
-% limitation you did not name will distrust everything else.
+% Keep this section concise. Write it as four connected paragraphs, not as a
+% separate warning for every technical decision. The fuller checklist remains
+% in the project notes for fact-checking while drafting.
 
-\paragraph{Fixed historical cores.} \TODO{PLAIN-LANGUAGE GUIDE: the cores were created
-from 2010--2016 evidence and stayed in the same places in every modeled year. The
-analysis therefore measures changes in the surrounding landscape, not changes in the
-actual locations of cheetah populations. This is the most important limitation.}
+\TODO{PARAGRAPH 1 --- WHAT THE MODEL CAN AND CANNOT SHOW: Explain that this is a
+model of how connected the landscape appears, not proof of where cheetahs actually
+moved. The cores came from 2010--2016 records and were kept in the same places for
+every year. This makes the comparison fair, but it means the analysis measures change
+around the cores rather than change in cheetah populations. Also mention that the
+starting records may be uneven because some areas were surveyed more than others.}
 
-\paragraph{Structural, not functional.} \TODO{PLAIN-LANGUAGE GUIDE: the model shows
-where the landscape appears easier or harder to cross. It does not prove that cheetahs
-used those places.}
-% Sentence starter: "The modeled paths represent structural permeability, so ..."
+\TODO{PARAGRAPH 2 --- ASSUMPTIONS IN THE MODEL: Explain that the resistance values
+were chosen using published research and clearly stated assumptions because suitable
+GPS movement data were not available. The sensitivity tests show whether the main
+results survive different reasonable assumptions, but they cannot prove that one set
+of values exactly represents cheetah movement. Include the important vegetation
+detail in one sentence: this part of the model mostly measures bare ground rather than
+all aspects of vegetation structure.}
 
-\paragraph{Sampling bias in the occurrence baseline.} \TODO{PLAIN-LANGUAGE GUIDE:
-some places may have fewer records simply because fewer people surveyed them. A place
-with no record cannot automatically be treated as a place with no cheetahs.}
+\TODO{PARAGRAPH 3 --- LIMITS OF THE INPUT DATA: Explain that roads, livestock,
+terrain, and fences shaped the map but were held constant through time, so they could
+not create year-to-year change. Note that data completeness may differ among
+countries, rainfall was not modeled, the nighttime-light product changed version in
+2024, and the 2012 built-up snapshot used 2010 data. These issues mean that some small
+changes may reflect the source data or short-term environmental variation rather than
+lasting landscape change. Do not list every dataset again; keep these examples in one
+paragraph.}
 
-\paragraph{Resistance is expert-assigned.} \TODO{PLAIN-LANGUAGE GUIDE: resistance
-values were based on published evidence and stated assumptions rather than being
-estimated from GPS movement data. Testing several assumptions shows whether conclusions
-change, but it cannot prove that any one set of values matches real movement.}
-
-\paragraph{Static covariates.} \TODO{PLAIN-LANGUAGE GUIDE: roads, livestock, fences,
-and terrain affected where resistance was high or low, but their maps did not change
-between years. They shaped the geography of the result but could not cause modeled
-change through time.}
-
-\paragraph{Mapping completeness varies by country.} \TODO{PLAIN-LANGUAGE GUIDE: some
-countries have more complete road, fence, or other mapping than others. Apparent
-differences may partly reflect differences in available data.}
-% Sentence starter: "Differences in data coverage among countries may ..."
-
-\paragraph{Geographic transferability.} \TODO{PLAIN-LANGUAGE GUIDE: results and
-resistance values should not be copied to another region without checking whether its
-cheetahs and landscapes are comparable.}
-% Sentence starter: "The results should not be transferred to other regions without ..."
-
-\paragraph{Scope.} \TODO{PLAIN-LANGUAGE GUIDE: the model does not include climate,
-human-wildlife conflict, or whether cheetahs currently occupy each core. It cannot
-answer questions that depend on those missing factors.}
-
-\paragraph{Rainfall is not in the model.} \TODO{PLAIN-LANGUAGE GUIDE: rainfall data
-were not included. In dry areas, vegetation and bare ground can change simply because
-one year is wetter or drier. Some modeled change may therefore reflect short-term
-rainfall differences rather than permanent human-caused change.}
-
-\paragraph{The vegetation term is narrower than it sounds.} \TODO{PLAIN-LANGUAGE
-GUIDE: mathematically, the vegetation score mainly responds to the percentage of bare
-ground. Replacing tree cover with non-tree vegetation does not change the score if the
-amount of bare ground stays the same. Describe this as a bare-ground indicator, not a
-detailed model of vegetation structure.}
-
-\paragraph{Only one core definition, one resolution.} \TODO{PLAIN-LANGUAGE GUIDE: the
-analysis used one definition of a core and one 1-km cell size. The planned alternative
-core definitions and 2-km and 5-km checks were not run. The study therefore cannot
-show whether a different core rule or cell size would give the same answer.}
-
-\paragraph{Current is reported outside the cores.} \TODO{PLAIN-LANGUAGE GUIDE:
-Circuitscape treats cores as the places where current enters and leaves, so cores
-automatically receive very high values. Removing core cells from the reported maps
-makes the connecting landscape easier to examine, but the cores still influenced the
-original calculation. Also report that the resistance grid contained 34 disconnected
-pieces.}
-
-\paragraph{Route location is less certain than route cost.} \TODO{PLAIN-LANGUAGE
-GUIDE: 49 of 180 route-and-year comparisons had less than 80 percent overlap within
-1 km, including 21 of the 32 priority links. The model can consistently show that two
-cores are relatively easy to connect while still being uncertain about the exact path
-between them.}
-
-\paragraph{Input series are not perfectly comparable.} \TODO{PLAIN-LANGUAGE GUIDE:
-the nighttime-light product changes version in 2024, and the 2012 built-up layer is
-represented by data from 2010. These mismatches may create small artificial
-differences between years. Nighttime lights received the smallest weight, which limits
-but does not remove this concern.}
-% Sentence starter: "This study did not include ... and therefore cannot ..."
+\TODO{PARAGRAPH 4 --- SCALE AND LOCATION UNCERTAINTY: Explain that the study used
+one core definition and a 1-km grid, so results may differ at another scale. The model
+was more consistent about the relative cost of connecting two cores than about the
+exact line a route should follow: 49 of 180 route-and-year comparisons had less than
+80 percent overlap within 1 km. Therefore, treat the mapped routes as broad areas for
+planning and field checking, not exact travel lines. Briefly state that results should
+not be transferred to another region without testing them there. If space permits,
+note that current was hidden inside cores for clearer maps and that the resistance
+grid contained 34 disconnected pieces; otherwise place those two technical details in
+the supplement.}
