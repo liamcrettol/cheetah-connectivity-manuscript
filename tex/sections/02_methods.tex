@@ -4,12 +4,12 @@
 \subsection{Study area and analysis extent}
 \label{sec:extent}
 
-The study area was defined as the southern African cheetah range \parencite{weise2017distribution} plus a buffered analysis extent. All layers were aligned to a fixed equal-area projection and a \cellsize\ snap grid, so every raster is directly comparable cell for cell. Cores were derived from the historical confirmed-range baseline and held constant across 2012, 2016, 2020, and 2024. The final network consisted of 23 cores and 45 selected neighboring core pairs.
+The study area was defined as the southern African cheetah range \parencite{weise2017distribution} plus a buffered analysis extent. All layers were aligned to a fixed equal-area projection and a \cellsize\ snap grid, so every raster was directly comparable cell for cell. Cores were derived from the historical confirmed-range baseline and held constant across 2012, 2016, 2020, and 2024. The final network consisted of 23 cores and 45 selected neighboring core pairs.
 
 \subsection{Rationale for the working resolution}
 \label{sec:scale}
 
-I used a 1-km working resolution because it represents a compromise between the rougher 10-km occurrence baseline and the finer environmental covariates, which range from 30 m to 1 km. This resolution is fine enough to identify meaningful points in the landscape while avoiding the implication of a level of accuracy that the occurrence evidence alone could not provide.
+I used a 1-km working resolution because it represented a compromise between the rougher 10-km occurrence baseline and the finer environmental covariates, which ranged from 30 m to 1 km. This resolution was fine enough to identify meaningful points in the landscape while avoiding the implication of a level of accuracy that the occurrence evidence alone could not provide.
 
 \subsection{Range cores}
 \label{sec:cores}
@@ -21,9 +21,9 @@ I represented these 23 core areas as fixed nodes across all four temporal snapsh
 \subsection{Covariates and their temporal treatment}
 \label{sec:covariates}
 
-The predicted temporal resistance values are coming from the continuous rasters (built-up fraction (human development) from GHSL, nighttime lights from VIIRS, and VCF (vegetation) from MODIS). Categorical land cover is used for masking and description only, because annual categorical features switch classes between years for reasons unrelated to overall landscape change.
+The predicted temporal resistance values came from the continuous rasters (built-up fraction (human development) from GHSL, nighttime lights from VIIRS, and VCF (vegetation) from MODIS). Categorical land cover was used for masking and description only, because annual categorical features can switch classes between years for reasons unrelated to overall landscape change.
 
-I also used the static covariates (roads, livestock, terrain, hydrography, fences, protected areas, and core definitions). The static covariates do not contribute \textit{temporal} signal to the resistance surface, however they do contribute \textit{spatial} signal to the resistance surface. The static covariates are used to describe the landscape and to provide context for the dynamic covariates.
+I also used the static covariates (roads, livestock, terrain, hydrography, fences, protected areas, and core definitions). The static covariates did not contribute \textit{temporal} signal to the resistance surface; however, they did contribute \textit{spatial} signal to the resistance surface. The static covariates were used to describe the landscape and to provide context for the dynamic covariates.
 
 \subsection{Resistance scenarios}
 \label{sec:resistance}
@@ -76,11 +76,11 @@ predeclared RES-01 to RES-06 scenario set. Either map each one onto a predeclare
 scenario ID or state plainly in the text that the implemented set differs and why.
 \end{outline}
 
-Resistance values were assigned to represent the relative difficulty of movement through each landscape feature. The terrain component was derived from slope, with steeper slopes assigned higher resistance values. This had to be done carefully however, given cheetahs do have an affinity for some sloped terrains \TODO{PLAIN-LANGUAGE COMPARISON: \textcite{moqanaki2016iran} treated slopes near 15 percent as easiest for movement and assigned more resistance above or below that point. Explain that this study instead used chosen slope ranges as a sensitivity assumption because no local GPS data were available to estimate the exact response.}. I compared alternative vegetation weights because vegetation cover can significantly influence cheetah movement, and different weighting schemes allow for sensitivity analysis of this factor.
+Resistance values were assigned to represent the relative difficulty of movement through each landscape feature. The terrain component was derived from slope, with steeper slopes assigned higher resistance values. This had to be done carefully however, given cheetahs do have an affinity for some sloped terrains \TODO{PLAIN-LANGUAGE COMPARISON: \textcite{moqanaki2016iran} treated slopes near 15 percent as easiest for movement and assigned more resistance above or below that point. Explain that this study instead used chosen slope ranges as a sensitivity assumption because no local GPS data were available to estimate the exact response.}. I compared alternative vegetation weights because vegetation cover can significantly influence cheetah movement, and different weighting schemes allowed for sensitivity analysis of this factor.
 
 \subsection{Connectivity modelling}
 \label{sec:connectivity}
-% Sentence starters: "For each selected core pair, we calculated ..." / "The straight-line link was used to define ..." / "The least-cost path could depart from that line when ..."
+% Sentence starters: "For each selected core pair, I calculated ..." / "The straight-line link was used to define ..." / "The least-cost path could depart from that line when ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
 Least-cost paths: for each starting core, ArcGIS calculated the accumulated cost of
 moving through every reachable cell. A path was then drawn from each connected core
