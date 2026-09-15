@@ -14,13 +14,13 @@
 - [x] Table-source CSVs archived under `tex/tables/source_data/`.
 - [x] Results consolidated into four substantive subsections.
 
-## TODO — author decisions before prose
+## TODO — decisions to make before writing sentences
 
-- [ ] TODO: Decide how to describe the protocol tag/file-label discrepancy (`protocol-v1.0` tag versus “0.1 draft” inside the tagged PDF/source).
-- [ ] TODO: State the implemented resistance/sensitivity scenario count; do not use the obsolete five-scenario macro value.
-- [ ] TODO: Decide whether the 2030 scenarios belong in the main Results or the Supplement; treat them as projections, not forecasts.
-- [ ] TODO: Decide whether to retain or remove the “Independent plausibility assessment” subsection; the completed occurrence screen is not independent.
-- [ ] TODO: Replace the unbuilt cell-level monitoring index with the link-level decision table, or explicitly report it as not completed.
+- [ ] TODO: Explain that Git marks the protocol as version 1.0 even though the saved document still says “0.1 draft.”
+- [ ] TODO: Count and name the scenarios that were actually completed; do not use the old five-scenario wording.
+- [ ] TODO: Decide whether the conditional 2030 scenarios belong in Results or the Supplement. Do not call them forecasts.
+- [ ] TODO: Call the occurrence comparison a limited plausibility check, not an independent validation.
+- [ ] TODO: Explain that the planned cell-level monitoring score was replaced by a table of 32 main-priority and 13 uncertain links.
 - [ ] TODO: Decide whether to show the full 32-link table in the Supplement while keeping the top ten in the main text.
 - [ ] TODO: Confirm department name, advisor acknowledgement, and archive/DOI destination.
 
@@ -34,10 +34,10 @@
 6. [ ] TODO: Conclusion — three or four bounded sentences.
 7. [ ] TODO: Abstract — write last and keep the fixed historical cores in sentence two.
 
-## TODO — claim controls
+## TODO — simple wording rules
 
 - [ ] TODO: Use “modeled structural connectivity,” “modeled current,” and “modeled priority links.”
 - [ ] TODO: Do not use “observed movement,” “validated corridor,” “functional connectivity,” or “pinch point” as a biological finding.
-- [ ] TODO: Report effective resistance as the primary temporal measure; least-cost path cost remains secondary.
-- [ ] TODO: Keep static covariates spatially influential but temporally invariant.
-- [ ] TODO: Keep future scenarios explicitly conditional on their development assumptions.
+- [ ] TODO: Use effective resistance as the main measure of change. Explain it as the total modeled difficulty of connection between two cores.
+- [ ] TODO: Explain that static layers affect where resistance is located but cannot create change between years.
+- [ ] TODO: Describe future results as “what could happen under these assumptions,” not as predictions of what will happen.

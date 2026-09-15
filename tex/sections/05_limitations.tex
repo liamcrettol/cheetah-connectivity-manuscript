@@ -5,61 +5,76 @@
 % caution should be traceable to a sentence here. A reviewer who finds a
 % limitation you did not name will distrust everything else.
 
-\paragraph{Fixed historical cores.} \TODO{CAU-002. The single most important
-% Sentence starter: "Because the cores were defined from historical data, ..."
-limitation. Cores derive from 2010--2016 evidence and do not move; all temporal
-signal is landscape-side.}
+\paragraph{Fixed historical cores.} \TODO{PLAIN-LANGUAGE GUIDE: the cores were created
+from 2010--2016 evidence and stayed in the same places in every modeled year. The
+analysis therefore measures changes in the surrounding landscape, not changes in the
+actual locations of cheetah populations. This is the most important limitation.}
 
-\paragraph{Structural, not functional.} \TODO{CAU-001.}
+\paragraph{Structural, not functional.} \TODO{PLAIN-LANGUAGE GUIDE: the model shows
+where the landscape appears easier or harder to cross. It does not prove that cheetahs
+used those places.}
 % Sentence starter: "The modeled paths represent structural permeability, so ..."
 
-\paragraph{Sampling bias in the occurrence baseline.} \TODO{CAU-003. Absence of
-% Sentence starter: "The density baseline may underrepresent ... because ..."
-records is not evidence of absence.}
+\paragraph{Sampling bias in the occurrence baseline.} \TODO{PLAIN-LANGUAGE GUIDE:
+some places may have fewer records simply because fewer people surveyed them. A place
+with no record cannot automatically be treated as a place with no cheetahs.}
 
-\paragraph{Resistance is expert-assigned.} \TODO{CAU-005. What the scenario ensemble
-% Sentence starter: "Although we varied the resistance assumptions, ..."
-does and does not compensate for.}
+\paragraph{Resistance is expert-assigned.} \TODO{PLAIN-LANGUAGE GUIDE: resistance
+values were based on published evidence and stated assumptions rather than being
+estimated from GPS movement data. Testing several assumptions shows whether conclusions
+change, but it cannot prove that any one set of values matches real movement.}
 
-\paragraph{Static covariates.} \TODO{Roads, livestock, fences and terrain contribute
-% Sentence starter: "Holding these variables static means that ..."
-no temporal signal; consequences for interpreting change.}
+\paragraph{Static covariates.} \TODO{PLAIN-LANGUAGE GUIDE: roads, livestock, fences,
+and terrain affected where resistance was high or low, but their maps did not change
+between years. They shaped the geography of the result but could not cause modeled
+change through time.}
 
-\paragraph{Mapping completeness varies by country.} \TODO{CAU-010.}
+\paragraph{Mapping completeness varies by country.} \TODO{PLAIN-LANGUAGE GUIDE: some
+countries have more complete road, fence, or other mapping than others. Apparent
+differences may partly reflect differences in available data.}
 % Sentence starter: "Differences in data coverage among countries may ..."
 
-\paragraph{Geographic transferability.} \TODO{CAU-015.}
+\paragraph{Geographic transferability.} \TODO{PLAIN-LANGUAGE GUIDE: results and
+resistance values should not be copied to another region without checking whether its
+cheetahs and landscapes are comparable.}
 % Sentence starter: "The results should not be transferred to other regions without ..."
 
-\paragraph{Scope.} \TODO{CAU-018. Climate, conflict and occupancy are deliberately out.}
+\paragraph{Scope.} \TODO{PLAIN-LANGUAGE GUIDE: the model does not include climate,
+human-wildlife conflict, or whether cheetahs currently occupy each core. It cannot
+answer questions that depend on those missing factors.}
 
-\paragraph{Rainfall is not in the model.} \TODO{CHIRPS was never acquired. Vegetation
-carries most of the temporal signal and the vegetation term is effectively bare-cover
-fraction, which in a semi-arid system tracks rainfall. So some of what is reported as
-landscape change may be interannual rainfall. This is a real limitation, not a
-footnote.}
+\paragraph{Rainfall is not in the model.} \TODO{PLAIN-LANGUAGE GUIDE: rainfall data
+were not included. In dry areas, vegetation and bare ground can change simply because
+one year is wetter or drier. Some modeled change may therefore reflect short-term
+rainfall differences rather than permanent human-caused change.}
 
-\paragraph{The vegetation term is narrower than it sounds.} \TODO{The transform reduces
-to 1 + 0.09 x bare whenever the three VCF fractions sum to 100. Swapping tree for
-non-tree cover at fixed bare cover changes nothing. Describe it as a bare-cover proxy,
-not a model of vegetation structure.}
+\paragraph{The vegetation term is narrower than it sounds.} \TODO{PLAIN-LANGUAGE
+GUIDE: mathematically, the vegetation score mainly responds to the percentage of bare
+ground. Replacing tree cover with non-tree vegetation does not change the score if the
+amount of bare ground stays the same. Describe this as a bare-ground indicator, not a
+detailed model of vegetation structure.}
 
-\paragraph{Only one core definition, one resolution.} \TODO{The planned three core
-definitions and the 2 km and 5 km resolution checks were never run, so the claim in
-\S\ref{sec:scale} that conclusions are not resolution artefacts is currently
-unsupported. Either run them or move that claim here.}
+\paragraph{Only one core definition, one resolution.} \TODO{PLAIN-LANGUAGE GUIDE: the
+analysis used one definition of a core and one 1-km cell size. The planned alternative
+core definitions and 2-km and 5-km checks were not run. The study therefore cannot
+show whether a different core rule or cell size would give the same answer.}
 
-\paragraph{Current is reported outside the cores.} \TODO{In a pairwise formulation the
-cores inject and drain the current, so they carry the top decile by construction.
-Masking them cleans up what is reported but does not remove focal-region influence from
-the underlying solve. Also note the resistance graph has 34 connected components.}
+\paragraph{Current is reported outside the cores.} \TODO{PLAIN-LANGUAGE GUIDE:
+Circuitscape treats cores as the places where current enters and leaves, so cores
+automatically receive very high values. Removing core cells from the reported maps
+makes the connecting landscape easier to examine, but the cores still influenced the
+original calculation. Also report that the resistance grid contained 34 disconnected
+pieces.}
 
-\paragraph{Route location is less certain than route cost.} \TODO{49 of 180 route-years
-fell below 80 percent overlap at 1 km, including 21 of the 32 priority links. A link can
-be confidently cheap and still not have a confidently located route.}
+\paragraph{Route location is less certain than route cost.} \TODO{PLAIN-LANGUAGE
+GUIDE: 49 of 180 route-and-year comparisons had less than 80 percent overlap within
+1 km, including 21 of the 32 priority links. The model can consistently show that two
+cores are relatively easy to connect while still being uncertain about the exact path
+between them.}
 
-\paragraph{Input series are not perfectly comparable.} \TODO{VIIRS switches from V21 to
-V22 at the 2024 snapshot, breaking the pin-one-version rule. GHSL 2010 stands in for
-2012, exactly at the two-year tolerance. Lights carry the smallest weight, which limits
-the damage, but say it.}
+\paragraph{Input series are not perfectly comparable.} \TODO{PLAIN-LANGUAGE GUIDE:
+the nighttime-light product changes version in 2024, and the 2012 built-up layer is
+represented by data from 2010. These mismatches may create small artificial
+differences between years. Nighttime lights received the smallest weight, which limits
+but does not remove this concern.}
 % Sentence starter: "This study did not include ... and therefore cannot ..."

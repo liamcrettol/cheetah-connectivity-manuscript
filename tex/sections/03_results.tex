@@ -6,18 +6,19 @@
 
 \subsection{Connectivity change, \studyperiod}
 % Sentence starters: "Across the study period, modelled connectivity ..." / "The largest changes occurred ..." / "At the core-pair level, ..."
-\TODO{H1. Magnitude and geography of change.
-PRIMARY MEASURE: effective resistance. Least-cost path cost is secondary and gives
-bigger numbers for the same links; say which is which.
-FACTS: 253 pairs, median -1.224 percent, median absolute 2.822, 90th percentile 6.089,
-92 up and 161 down. The 45 selected links: median -1.557. The 32 priority links:
-median -2.618, 12 up and 20 down. Biggest single move +13.1 percent on 33-38.
-Outside-core current: median relative change 4.3 percent, top-decile agreement between
-years 0.91 to 0.93.
-TRAP: "report per country" cannot be done. Cores have no country attribution and the
-only per-country table is covariate change, not connectivity. Either build the
-attribution or drop the promise.
-Figure~\ref{fig:change}.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+What happened: I compared all 253 possible pairs of cores. Overall, the modeled cost
+of moving between cores changed only a little from 2012 to 2024. The middle change was
+-1.224 percent. A negative value means the model became slightly easier to move
+through; it does not mean that cheetahs actually moved more. Of the 253 pairs, 92
+became harder and 161 became easier. The largest increase was +13.1 percent for the
+link between cores 33 and 38.
+What the map adds: outside the cores, the places with the highest modeled current were
+mostly in the same locations through time. Their overlap scores were 0.91 to 0.93,
+where 1 would mean perfect overlap.
+What not to claim: do not call this an overall connectivity loss, observed movement,
+or a country-by-country result. The analysis did not assign each core pair to a
+country. Use Figure~\ref{fig:change}.}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_0_study_area_and_core_groups.pdf}
@@ -29,13 +30,17 @@ Figure~\ref{fig:change}.}
 
 \subsection{Robust priority links}
 % Sentence starters: "I identified [number] robust priority links ..." / "These links were concentrated ..." / "Their agreement across scenarios was ..."
-\TODO{H3. How many links met the criterion and how concentrated they are.
-FACTS: 32 of 45 primary, 13 uncertainty. Weight screen passes 34, fence screen removes
-2 more. Vegetation-direction removes none that were still in.
-NOTE: H3 predicted a LIMITED subset. 32 of 45 is most of the network, so it is only
-partly supported. Worth saying, since it is a more interesting result than a clean
-confirmation.
-Table~\ref{tab:top20}.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+What happened: 32 of the 45 selected links stayed important enough under the tested
+assumptions to remain in the main priority group. The other 13 links were kept as
+uncertain links where more field information would be useful. The weighting test kept
+34 links, and the fence test removed two more. The vegetation test did not remove any
+additional links from the remaining group.
+What it means: the main group is not a small handful of links; it contains most of the
+network. That only partly matches the original expectation that priorities would be
+limited to a small subset.
+What not to claim: these links are modeled connections between cores, not confirmed
+animal travel routes. Use Table~\ref{tab:top20}.}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_5_modelled_links_and_transportation.pdf}
@@ -47,44 +52,53 @@ Table~\ref{tab:top20}.}
 
 \subsection{Protected-area coverage of priority connectivity}
 % Sentence starters: "Of the priority connectivity area, [value] was located ..." / "Compared with the predeclared null, this represented ..." / "The permutation test returned ..."
-\TODO{H2. Protection of the connecting landscape. Rewrite, do not fill in.
-WHY: the predeclared comparison included the fixed cores, and the whole top decile of
-current sits inside them, so it measured a footprint that cannot change.
-FACTS, outside cores, background 31.26 percent: 80th percentile 23.27, 90th 25.54,
-95th 33.45, 99th 44.63. Crossover near the 93rd. Gap widened from -7.03 to -7.99
-points at the 80th between 2012 and 2024. Direction holds at 0, 1, 5 and 10 km core
-buffers.
-TRAP: no p-value. It swings 0.006 to 0.096 on block size alone. Also drop the word
-"observed"; this is modelled current.
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+Why the cores were removed: the model forces current into and out of the cores, so the
+cores automatically receive very high current. Including them would make protection
+look better without telling us how well the land between cores is protected.
+What happened outside the cores: 31.26 percent of the comparison area is protected.
+Only 23.27 percent of the area above the 80th current percentile was protected in
+2024. Coverage rose to 25.54 percent above the 90th percentile, 33.45 percent above the
+95th, and 44.63 percent above the 99th. In simple terms, the very strongest
+concentrations often reached protected areas, while the broader connecting landscape
+around them was less protected.
+What not to claim: do not report a significance p-value because it changed when the
+size of the spatial blocks changed. Do not call modeled current observed movement. Use
 Table~\ref{tab:pa}.}
 
 \subsection{Sensitivity and plausibility checks}
 % Sentence starters: "Results were consistent across ..." / "The links most sensitive to assumptions were ..." / "The plausibility assessment showed ..."
-\TODO{Model sensitivity. Still substantial, but not the subsection that was planned.
-DOES NOT EXIST: the cell-level agreement grid, and any agreement raster or map.
-WHAT TO REPORT INSTEAD, and this is the paper's strongest material:
-  1. Cost is stable, location is not. 49 of 180 route-years fell below 80 percent
-     overlap at 1 km, covering 21 of the 32 "robust" links. Pair 17-24 hit zero in 2020.
-  2. Vegetation weighting barely changes direction (43 of 45 links keep their sign) but
-     strongly changes magnitude (median absolute change 3.6 percent at veg-low, 9.3 at
-     veg-high).
-  3. The ranking depends on the link graph. At k = 2/3/4/5 you get 31/45/61/77 edges,
-     only k = 3 has a bridge, and the top links change at k = 4 and 5.
-TRAP: do not present a single ranking as if the graph construction were given.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE SENSITIVITY TESTS.
+Main lesson: the total modeled cost of a connection was usually fairly stable, but
+the exact line taken by the least-cost path was less stable. Of 180 route-and-year
+comparisons, 49 had less than 80 percent overlap within 1 km. This affected 21 of the
+32 priority links. The route between cores 17 and 24 had no overlap in 2020.
+Vegetation assumptions: 43 of 45 links kept the same direction of change under all
+three vegetation weightings. However, the size of the change grew as vegetation was
+given more weight: the middle absolute change increased from about 3.6 to 9.3 percent.
+Network-design assumption: changing how many neighbors each core could connect to
+changed the number of links and changed which links ranked highest. A bridge is a link
+whose removal splits the network into separate pieces; link 17--24 was the only bridge
+when three nearest neighbors were used.
+What not to claim: there is no completed cell-by-cell agreement map, and no single
+ranking should be presented as certain.}
 
-\TODO{Outcome of \S\ref{sec:validation}. Report it even if weak.
-FACTS: early 2010-2012 = 413 thinned 10 km cells, late 2013-2016 = 450, Jaccard 0.239.
-Late cells sit in slightly higher modelled resistance (medians 2.28 vs 2.13, Cliff's
-delta 0.11). More late cells fall inside the fixed cores (67.8 vs 45.8 percent).
-Almost none fall near a priority path (0 of 413, 3 of 450).
-TRAP: this is not independent. The same archive defined the cores, so the core result
-is circular by construction. And there are no records after 2016, so 2020 and 2024 have
-no check at all. Say both.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE OCCURRENCE CHECK.
+What happened: after thinning records to one 10-km cell, the early period had 413
+occupied cells and the later period had 450. Their overlap score was 0.239, showing
+that the two sets were quite different. Later records occurred in slightly higher
+modeled resistance, and a larger share fell inside the fixed cores. Almost no records
+were close to the priority paths: zero early cells and three later cells.
+Why this is a weak check: the same occurrence archive helped create the cores, so this
+is not an independent test. There are also no occurrence records after 2016, so it
+cannot check the 2020 or 2024 results. Report it honestly as a limited comparison, not
+as validation.}
 
-\TODO{H4. No result. The cell-level index and the W1--W3 weight sets were never built.
-Fold this into the sensitivity/plausibility subsection: state that the monitoring
-output is the link-level robust/uncertain split instead, then explain what was planned,
-what was built, and why the gap remains.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR MONITORING.
+The planned score that would rank individual 10-km cells was not built. The completed
+monitoring output is simpler: 32 links form the main priority group, while 13 uncertain
+links identify places where surveys could reduce uncertainty. State this change from
+the original plan instead of implying that a cell-level ranking exists.}
 
 %------------------------------------------------------------------ figure inserts
 \begin{figure}[htbp]\centering

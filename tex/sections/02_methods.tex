@@ -28,16 +28,21 @@ I also used the static covariates (roads, livestock, terrain, hydrography, fence
 \subsection{Resistance scenarios}
 \label{sec:resistance}
 % Sentence starters: "Resistance values were assigned to represent ..." / "The terrain component was derived from ..." / "I compared alternative vegetation weights because ..."
-\TODO{WF-013, WF-014.
-SAY: what the final resistance surface is made of, and that the scenario set was fixed
-before any result was looked at.
-FACTS: final model = anthropogenic 0.60, vegetation 0.20, terrain 0.20, then multiplied
-by a fence multiplier running 1.0 to 25.0. Inside the anthropogenic 0.60: built 30,
-roads 30, livestock 30, lights 10. Sensitivity scenarios = vegetation low
-(0.7/0.1/0.2), balanced (0.6/0.2/0.2), high (0.4/0.4/0.2).
-TRAP: RES-01 to RES-06 never existed as such. Say what actually ran. \nscen\ in
-main.tex says five and needs fixing.
-CITE: \textcite{zeller2012resistance} on transformation mattering as much as weights.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+What the resistance map means: each cell received a number describing how difficult
+the landscape was assumed to be for cheetah movement. Higher numbers mean more
+difficult movement; they do not mean that movement was observed there.
+What went into the final balanced map: human pressure received 60 percent of the
+weight, vegetation 20 percent, and terrain 20 percent. Within human pressure, built-up
+land, roads, and livestock each received 30 percent, while nighttime lights received
+10 percent. Fence cells then increased the combined resistance by a multiplier from
+1 to 25.
+What was tested: vegetation-low used 70/10/20 percent for human pressure, vegetation,
+and terrain; balanced used 60/20/20; vegetation-high used 40/40/20.
+What must be explained: the scenarios that were actually run do not match the original
+RES-01 to RES-06 labels exactly. Describe the completed scenarios rather than using an
+incorrect count. Cite \textcite{zeller2012resistance} when explaining why the way a
+variable is converted to resistance can matter as much as its weight.}
 
 \begin{outline}
 
@@ -71,51 +76,55 @@ predeclared RES-01 to RES-06 scenario set. Either map each one onto a predeclare
 scenario ID or state plainly in the text that the implemented set differs and why.
 \end{outline}
 
-Resistance values were assigned to represent the relative difficulty of movement through each landscape feature. The terrain component was derived from slope, with steeper slopes assigned higher resistance values. This had to be done carefully however, given cheetahs do have an affinity for some sloped terrains \TODO{CITE/COMPARE: \textcite{moqanaki2016iran} modeled minimum resistance near 15 percent slope using an inverted Gaussian response. Explain that the present thresholded transform is a sensitivity assumption rather than a directly estimated cheetah response.}. I compared alternative vegetation weights because vegetation cover can significantly influence cheetah movement, and different weighting schemes allow for sensitivity analysis of this factor.
+Resistance values were assigned to represent the relative difficulty of movement through each landscape feature. The terrain component was derived from slope, with steeper slopes assigned higher resistance values. This had to be done carefully however, given cheetahs do have an affinity for some sloped terrains \TODO{PLAIN-LANGUAGE COMPARISON: \textcite{moqanaki2016iran} treated slopes near 15 percent as easiest for movement and assigned more resistance above or below that point. Explain that this study instead used chosen slope ranges as a sensitivity assumption because no local GPS data were available to estimate the exact response.}. I compared alternative vegetation weights because vegetation cover can significantly influence cheetah movement, and different weighting schemes allow for sensitivity analysis of this factor.
 
 \subsection{Connectivity modelling}
 \label{sec:connectivity}
 % Sentence starters: "For each selected core pair, we calculated ..." / "The straight-line link was used to define ..." / "The least-cost path could depart from that line when ..."
-\TODO{WF-015, WF-016.
-SAY: how paths and current were computed, and why every current result is reported
-outside the cores.
-FACTS: least-cost = one CostDistance per source core, then CostPathAsPolyline per
-destination (equivalent to pairwise runs, say why). Current = Circuitscape.jl 5.17.1
-\parencite{anantharaman2020circuitscape}, pairwise, 253 pairs per year, four years,
-1012 solves, CG+AMG, double precision, eight-neighbour. Finished 8 Sept 2026, no
-failures. Graph has 34 connected components.
-THE IMPORTANT ONE: in pairwise mode every core is a source or a ground, so the cores
-themselves carry the highest current. The entire top decile sits inside them. That is
-why all current results use the outside-core domain. The Circuitscape 5 setting that
-would switch this off is not implemented, so we mask afterwards rather than re-solve.
-Say that plainly, including that masking cleans the numbers but not the solve.
-ALSO: why not omnidirectional \parencite{landau2021omniscape}. Cores are defined in
-advance, so core-to-core is the right question.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+Least-cost paths: for each starting core, ArcGIS calculated the accumulated cost of
+moving through every reachable cell. A path was then drawn from each connected core
+back to the starting core by following the lowest accumulated cost. Reusing one cost
+calculation for several destinations gives the same pairwise paths with fewer repeated
+calculations.
+Circuitscape: Circuitscape 5.17.1 \parencite{anantharaman2020circuitscape} treated the
+landscape like an electrical network and spread current across all possible routes
+between each pair of cores. All 253 core pairs were solved in each of four years, for
+1,012 pair comparisons, with no failures.
+Why cores were removed from reported current: cores are where modeled current enters
+and leaves, so they automatically receive the highest values. Removing the core cells
+after calculation lets the maps focus on land between cores. This improves what is
+reported, but the cores still influenced the calculation.
+Why a core-to-core method was used: the study began with defined core areas, so the
+question was how those known areas connect. An all-direction method such as Omniscape
+\parencite{landau2021omniscape} answers a different question.}
 
 
 \paragraph{Corridor definition.}
-\TODO{Already decided, just write it.
-SAY: corridors are continuous current surfaces summarised by percentile. Thresholded
-polygons are for maps only, never for a statistic. Percentiles are taken on the
-outside-core domain (see \S\ref{sec:connectivity}), and the bands were fixed before
-the coverage result was looked at.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE: do not draw a hard boundary and call everything
+inside it a confirmed corridor. Report the full continuous current surface. Percentile
+classes are used only to make the maps easier to read and to compare protected-area
+coverage. Percentiles are calculated after core cells are removed, and the class
+boundaries were chosen before looking at the protected-area result.}
 
 \subsection{Network structure}
 \label{sec:graph}
-\TODO{WF-017.
-SAY: we used one network metric, betweenness, and dropped the rest on purpose.
-DROPPED: PC and $dPC$ \parencite{saura2007pc}, Conefor, and the dispersal-distance
-parameter. Reason to give: PC needs a dispersal kernel, and no cheetah dispersal
-telemetry exists for this system, so the number would look more precise than it is.
-Say it was dropped. Do not just leave it out.
-WHAT WE HAVE: edge betweenness on the 45-edge graph, unweighted, normalised by the 253
-pairs. Admit it is unweighted, because the protocol said effective distances would be
-the weights.
-THE IMPORTANT ONE: the ranking depends on how the link set was built. Links = union of
-a 3-nearest-neighbour graph and the minimum spanning tree. At k = 2/3/4/5 you get
-31/45/61/77 edges. Only k = 3 has a bridge (17-24), and the top-ranked links change at
-k = 4 and 5. So report a rank range across k, not one ranking.
-CITE: \textcite{keeley2021metrics} on choosing metrics to fit the question.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+What was measured: edge betweenness counts how often a link lies on the shortest
+network route between pairs of cores. A high value means the link helps hold many parts
+of the modeled network together. The value was calculated on the 45-link network and
+divided by the 253 possible core pairs.
+How links were chosen: the network combined each core's three nearest neighbors with
+a minimum spanning tree, which is the smallest set of links needed to keep the core
+network connected.
+Why rankings are uncertain: allowing two, three, four, or five nearest neighbors
+created 31, 45, 61, or 77 links, and the highest-ranked links changed. Link 17--24 was
+the only bridge under the three-neighbor choice; removing a bridge separates the
+network into two pieces.
+What was dropped: PC and dPC \parencite{saura2007pc} require an assumed relationship
+between distance and dispersal. No local dispersal telemetry was available, so those
+more detailed-looking numbers were not calculated. Cite \textcite{keeley2021metrics}
+when explaining that the metric should match the research question.}
 
 \begin{outline}
 edge betweenness computed on the 23-core network, link
@@ -126,52 +135,48 @@ dispersal distance is still the 100\,km placeholder.
 \subsection{Temporal comparison}
 \label{sec:temporal}
 % Sentence starters: "I compared the same core pairs across ..." / "Absolute change was calculated as ..." / "Proportional change was calculated as ..."
-\TODO{WF-018. Same cores, same scenarios, same resolution across all four snapshots,
-so that differences are attributable to covariate change alone. Give the change
-equations. Report both absolute and proportional change.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE: compare the same core pairs, model assumptions,
+and 1-km grid in 2012, 2016, 2020, and 2024. This keeps the comparison consistent so
+the modeled differences come from the input layers that changed through time. Define
+absolute change as later value minus earlier value. Define percent change as that
+difference divided by the earlier value, multiplied by 100.}
 
 
 \subsection{Protected-area coverage}
 \label{sec:pa}
-\TODO{WF-019, CAU-011, CAU-012. Rewrite this one from scratch.
-WHY THE OLD PLAN IS DEAD: full extent versus modelled network was never the real
-choice. Both included core cells, and the cores are fixed, so both measured something
-that cannot change.
-SAY: how well protected the connecting landscape is, cores excluded.
-FACTS: \wdpaversion\ \parencite{unepwcmc2026wdpa}. Polygons only, terrestrial and coastal, Proposed
-excluded, dissolved, 2301 in extent. Point records and marine-only polygons dropped.
-Background = 31.26 percent. Coverage is lowest at the 80th percentile of current, about
-23 percent. It crosses background near the 93rd. It reaches about 45 percent at the
-99th. The gap widened between 2012 and 2024.
-SAY WHY 31.26 AND NOT 30.13: the wider figure includes 165,765 zero-current cells that
-could never have been selected.
-TRAP: do not quote a p-value. It moves from 0.006 to 0.096 just by changing the
-assumed spatial block size. Lean on direction holding across all four years and across
-0, 1, 5 and 10 km core buffers instead.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+Question: what share of the modeled connecting landscape outside the cores falls inside
+protected areas?
+Data preparation: use the August 2026 WDPA release
+\parencite{unepwcmc2026wdpa}. Keep terrestrial and coastal protected-area polygons,
+remove proposed areas, points, and marine-only areas, and merge overlaps. This left
+2,301 records in the study extent.
+Comparison area: 31.26 percent of the usable outside-core area was protected. Cells
+with zero current were excluded because they could never enter a high-current group.
+Why no p-value: the answer changed from significant to not significant when the
+assumed spatial block size changed. Report the descriptive percentages and note that
+the same general pattern appeared in all four years and under several core-buffer
+sizes.}
 
 \subsection{Robustness and uncertainty}
 \label{sec:uncertainty}
 % Sentence starters: "I considered a result robust when ..." / "A link was classified as sensitive when ..." / "Locations with low agreement were treated as ..."
-\TODO{WF-022.
-NOT DONE: the planned 144-run grid. One core definition, 1 km only, no 2 km or 5 km
-check, no cell-level agreement map. Say so, and move the resolution claim in
-\S\ref{sec:scale} down into Limitations since nothing tested it.
-SAY: what "robust" actually meant here. It is a link-level screen, three gates, all
-must pass.
-  1. Weight. Both alternative weightings keep 80 percent of the route within 5 km of
-     the primary route. 34 of 45 pass.
-  2. Fence. Five links move (1-13, 1-17, 9-13, 13-17, 27-30). Leaves 32.
-  3. Vegetation direction. Change must keep the same sign under all three vegetation
-     weights. Two fail (28-38, 40-45), both already out.
-  Final: 32 primary, 13 uncertainty.
-TRAP: that 80 percent is route overlap. It is NOT the predeclared cell-level k/n = 0.8
-agreement rule. Same number, different thing. Say so.
-SECOND POINT WORTH MAKING: cost is stable, location is not. 49 of 180 route-years fell
-below 80 percent overlap at 1 km, covering 21 of the 32 "robust" links, and 17-24 hit
-zero in 2020. Report those as two separate things. Note the two overlap tests use
-different distances (5 km and 1 km) and are not one criterion.}
-
-I considered a res
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+What "robust" means here: a link had to pass three checks. First, both alternative
+weightings had to keep at least 80 percent of the route within 5 km of the main route;
+34 of 45 passed. Second, the fence scenarios could not substantially change the link;
+this removed two more from the group. Third, the direction of change had to stay the
+same under all vegetation weightings. The two links that failed this last check had
+already been removed. The final groups were 32 main-priority links and 13 uncertain
+links.
+Important distinction: the 80-percent-within-5-km rule is not the cell-by-cell agreement
+test proposed in the original protocol, even though both use the number 80 percent.
+What was not completed: alternative core definitions, 2-km and 5-km grids, and a
+cell-by-cell agreement map.
+Separate location uncertainty from cost uncertainty: 49 of 180 route-and-year
+comparisons had less than 80 percent overlap within 1 km, including 21 main-priority
+links. Link 17--24 had no overlap in 2020. This does not mean the connection was
+unimportant; it means the exact mapped route was uncertain.}
 
 \begin{outline}
 \begin{itemize}
@@ -189,30 +194,31 @@ reader will notice.
 
 \subsection{Independent plausibility assessment}
 \label{sec:validation}
-\TODO{WF-020, WF-021, CAU-004, CAU-017. "Validation" stays a banned word here.
-THE PROBLEM: the independent check we predeclared, the Limpopo tracking data and the
-Namibian camera-trap work, was never run. What exists is a comparison against
-2010-2016 occurrence records from the same archive that built the cores, so it cannot
-be independent.
-DECIDE: run the Limpopo check, or rename this subsection and say the independent check
-was not done. Either is fine. Just do not let the existing screen read as though it
-were the independent one, because it is built from the same records as the cores.
-IF IT STAYS: early 2010-2012 = 413 thinned 10 km cells, late 2013-2016 = 450, Jaccard
-0.239. And say there are no records after 2016, so 2020 and 2024 have no check at all.
-\textcite{roberts2017cv} only matters if the empirical-resistance route comes back.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+What was planned: compare the model with separate Limpopo tracking data and Namibia
+camera-trap data.
+What was actually done: compare early and late occurrence records from the same
+archive used to create the cores. Because the data are not independent, call this a
+limited plausibility check rather than validation.
+Numbers available: after thinning to one record per 10-km cell, 2010--2012 had 413
+cells and 2013--2016 had 450. Their overlap score was 0.239. There are no records after
+2016, so this check says nothing about 2020 or 2024.
+Decision still needed: either complete the planned outside-data check or clearly state
+that it was not completed.}
 
 \subsection{Monitoring prioritisation}
 \label{sec:mcda}
-\TODO{WF-023, WF-024, CAU-020.
-NOT BUILT: the six-component MCDA at 10 km with weight sets W1-W3.
-SUGGESTION: a link-level decision table instead. A weighted composite would imply you
-can trade these things off against each other, and there is no basis for the exchange
-rates.
-SAY: the output is a table with the fields kept separate, not scored together.
-Structural importance (betweenness, with its k-sensitivity), 2012-2024 cost direction
-and size, route-location stability, fence uncertainty, protected-area context. State
-that no composite is computed and that a reader can weight them however they like.
-Rank stability, if reported, is across k, not across weight sets.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+What was planned: combine six measurements into one score for every 10-km cell and
+test three sets of weights.
+What was built instead: a link-level table that keeps each kind of evidence separate.
+Its columns describe how important the link is to the network, how its modeled cost
+changed, how stable its mapped route was, whether fences affected it, and how much of
+it is protected.
+Why this is more honest: combining everything into one score would require deciding,
+for example, how much route instability is equal to a change in protection. No
+evidence-based exchange rate was available. State clearly that no combined monitoring
+score was calculated.}
 
 \begin{outline}
 link ranking currently rests on normalised edge
@@ -222,13 +228,13 @@ uncertainty-priority links. The full MCDA with three weight sets is not yet buil
 
 \subsection{Software and reproducibility}
 \label{sec:software}
-\TODO{VERIFIED SOFTWARE METADATA (15 September 2026): ArcGIS Pro \arcgisversion\
-(build \arcgisbuild); ArcGIS Python \pythonversion; Julia \juliaversion;
-Circuitscape.jl \circuitscapeversion. Insert Supplementary Table~\ref{tab:software}.
-Google Earth Engine for SRTM, GHSL, VIIRS, MODIS MCD12Q1 and VCF.
-Most geoprocessing is arcpy, not ModelBuilder. The reanalysis in resistances/ uses GDAL
-instead; mention that if it gets cited.
-Archive location, and what can and cannot be redistributed (CAU-012, CAU-013).}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE: list the software without explaining every
+technical setting in the main text. Verified versions are ArcGIS Pro
+\arcgisversion\ (build \arcgisbuild), ArcGIS Python \pythonversion, Julia
+\juliaversion, and Circuitscape.jl \circuitscapeversion; see Supplementary
+Table~\ref{tab:software}. Google Earth Engine supplied and aligned the satellite data.
+Most ArcGIS processing used Python scripts rather than ModelBuilder. Add the final
+archive link and state which source datasets cannot legally be redistributed.}
 
 \begin{outline}
 ArcGIS Pro Spatial Analyst via arcpy
