@@ -5,9 +5,7 @@
 % capstone version; journals will want ~700.
 
 % PLAIN-LANGUAGE INTRODUCTION CHECKLIST. Delete after revising.
-% 1. The locked protocol and final analysis are not identical. Add a dated
-%    note explaining which analyses were added or changed after the lock.
-% 2. Add citations for statements about range decline and historical timing.
+% 1. Add citations for statements about range decline and historical timing.
 %    Remove any statement that cannot be supported by a source.
 
 The southern African cheetah has had their range substantially reduced, with their current range estimated to be on majority unprotected land. Cheetah range on protected land is governed by centralized park-management initiatives \parencite{buk2018metapopulation}. Unprotected land poses a different type of challenge, with landowners, local communities and governmental entities involved. This paper looks at landscape connectivity change between 2012 and 2024. The core range of cheetahs was fixed at the 2010-2016 baseline, so modeled changes in permeability reflected landscape changes rather than changes in the core range itself.
@@ -26,43 +24,51 @@ do not match the original RES-01 to RES-06 labels exactly. Add
 weighting and \textcite{beier2008forks} for how modeling choices can affect corridor
 results.}
 \subsection*{Move 4: Objectives and hypotheses}
-% Sentence starters: "The first objective was to ..." / "I predicted that ..." / "This prediction would be unsupported if ..."
+% Writing framework only. Replace each TODO with your own writing.
+% Keep the final section concise; detailed definitions and tests belong in Methods.
 
-The first objective was to measure changes in modeled structural connectivity among fixed-range cores across four time points from 2012--2024. The second was to determine candidate pinch points and linkages that remain influential across the tested resistance assumptions and describe their protected-area status. I made the following not mutually exclusive predictions in support of each hypothesis.
+\paragraph{Overall aim and objectives.}
+\TODO{Write one overall aim identifying the region, fixed historical cores, and the 2012--2024 comparison. Frame the objective around measuring change without assuming its direction.}
 
+\TODO{Give temporal change, link robustness, and protected-area coverage their own objective. Map each objective to a completed analysis and a Results subsection. Decide whether monitoring implications belong under link screening or in Discussion rather than promising a separate monitoring index.}
 
+\TODO{For each objective, decide whether a hypothesis or a descriptive research question fits the work. Distinguish what you assessed, the relationship you proposed, and the measurable pattern you expected.}
 
-\textbf{H1 (revised from the workbook).} Connectivity loss is concentrated on a
-minority of network links rather than distributed across the network, and the
-affected links are disproportionately those with high betweenness in the
-baseline network.
+\paragraph{Temporal change and H1.}
+\TODO{Identify the main connectivity measure and explain which direction means greater difficulty of connection. Keep effective resistance, least-cost path cost, and mapped current distinct. Put calculation details in Methods.}
 
-\emph{Note on the revision.} H1 as originally drafted predicted that cells with
-larger increases in human pressure would show larger increases in resistance.
-That is true by construction, since the pressure layers are the resistance
-inputs. It cannot fail and therefore is not a hypothesis. The revised form asks
-a question the model can answer negatively: pressure change might fall on
-redundant links, in which case network-level connectivity is robust to it and
-the conservation implication reverses. 
+\TODO{Separate H1 into two assessable predictions: whether loss is concentrated among links, and whether loss is associated with link importance. Define concentration, minority, and high betweenness if retaining those terms. Do not choose cutoffs to match the results.}
 
-\emph{Refuted if:} connectivity loss is approximately uniform across links, or
-loss falls preferentially on low-betweenness links.
+\TODO{Specify the population for each comparison: all 253 core pairs or the 45 selected network links. Avoid testing a network-wide prediction only on the screened priority subset.}
 
-\textbf{H2.} High-value connectivity area is disproportionately located outside
-formal protected areas.
+\TODO{Check the meaning of baseline betweenness against the implemented unweighted graph. Explain what the importance measure represents and keep network position separate from measured temporal change.}
 
-\emph{Refuted if:} the outside-PA share of high-current area does not exceed the
-predeclared null (\S\ref{sec:pa}) at the stated significance level, or the
-result does not hold across current-flow thresholds.
+\TODO{Locate the evidence evaluating each part of H1. State what would count against each prediction. Distinguish a descriptive assessment from a formal test, and an unsupported prediction from one that was not tested. Avoid a hypothesis that simply repeats how pressure inputs were converted to resistance.}
 
-\textbf{H3.} A limited subset of transboundary linkages remains important across
-all resistance assumptions, while other apparent corridors are strongly
-model-sensitive.
+\paragraph{Protected-area coverage and H2.}
+\TODO{Define high-value connectivity area using a specific modeled quantity and comparison domain. Identify which cells enter the outside-core analysis and which current thresholds are being compared.}
 
-\emph{Refuted if:} agreement is uniformly high (in which case the ensemble adds
-nothing) or uniformly low (in which case no robust set exists and the paper's
-primary output becomes the uncertainty map, per the stopping rule in the
-predeclared analysis protocol).
+\TODO{Specify the background against which disproportionate outside coverage is assessed. An outside share greater than half is not sufficient by itself; identify the matching area and denominator.}
+
+\TODO{Align H2 with the protected-area analysis actually reported. Decide whether to retain a hypothesis with an explicit assessment criterion or use a descriptive coverage question. Do not promise a significance test that the Methods no longer uses.}
+
+\TODO{Explain how evidence that changes across current thresholds will be handled. Keep the original expectation separate from patterns noticed during exploration; do not select a threshold because it supports the prediction.}
+
+\TODO{Clarify that the protected-area overlay is a fixed protection context, rather than a reconstruction of protection at each historical date. Leave data-release and filtering details for Methods.}
+
+\paragraph{Link robustness and H3.}
+\TODO{Define importance separately from robustness. Distinguish network importance, stability of change direction, and stability of route location. Decide which of these H3 actually predicts.}
+
+\TODO{Limit the scope to the resistance assumptions and sensitivity checks actually completed. Describe the implemented link-level screening in Methods; do not imply that a cell-level agreement map, alternative core definitions, or multiple grid resolutions were tested.}
+
+\TODO{Define limited subset if keeping it as a prediction. Do not adjust its meaning to fit the resulting count. Verify whether transboundary links were explicitly classified and assessed before retaining that term in H3.}
+
+\TODO{State what evidence would fail to support H3. Separate failure of the predicted pattern from the usefulness of the sensitivity analysis; uniformly high agreement does not make the comparison useless.}
+
+\paragraph{Final writing checks.}
+\TODO{Keep numerical results and support judgments in Results and Discussion. Describe questions developed after examining results as exploratory.}
+
+\TODO{Check that every objective has a matching analysis and that every retained prediction has a clear measure, comparison, and assessment criterion. Keep procedural details in Methods and retain the terminology boundary below.}
 
 \paragraph{Terminology.} Throughout, \structconn\ refers to modelled landscape
 permeability between fixed range cores. It is not evidence of cheetah movement,
@@ -76,3 +82,4 @@ observed crossing.
 % Ask whether a person or sensor recorded something, or whether the model
 % calculated it. Use "observed" only for recorded data. Use "modeled" or
 % "estimated" for resistance, current, paths, and connectivity results.
+
