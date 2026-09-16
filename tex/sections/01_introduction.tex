@@ -10,11 +10,11 @@
 
 The southern African cheetah has had their range substantially reduced, with their current range estimated to be on majority unprotected land. Cheetah range on protected land is governed by centralized park-management initiatives \parencite{buk2018metapopulation}. Unprotected land poses a different type of challenge, with landowners, local communities and governmental entities involved. This paper looks at landscape connectivity change between 2012 and 2024. The core range of cheetahs was fixed at the 2010-2016 baseline, so modeled changes in permeability reflected landscape changes rather than changes in the core range itself.
 
-\subsection*{Move 2: What is already modelled, and what is not}
+% What is already modelled, and what is not — writing guide only.
 
 Previous research in the region has predominantly focused on habitat suitability, a topic that is already comprehensively addressed in the existing literature. The objective of my study was not to develop an additional suitability model, but rather to identify and evaluate candidate spatial “pinch points” (i.e., constricted linkages) among core areas. The study most comparable to the present work is a recent multi-species connectivity assessment; however, that analysis explicitly excluded cheetah due to insufficient data. Data limitations were therefore explicitly considered and mitigated to the extent possible in this study, and they provide both the primary justification for the existence of this paper and its principal constraint.
 
-\subsection*{Move 3: The methodological frame}
+% The methodological frame — writing guide only.
 
 Two primary connectivity approaches are commonly used to model these kinds of frameworks: least-cost connectivity and circuit-theoretic connectivity (\cite{adriaensen2003leastcost}; \cite{mcrae2008circuit}). The least-cost approach links core areas by selecting the route with the lowest cumulative “cost,” meaning the path of least resistance between cores, based on weight values assigned to each multivariate resistor. In contrast, the circuit-theoretic approach represents the landscape as a resistor network, sends a “current” through it, and highlights redundancy across the broader landscape, relying on the same multivariate resistors. A key limitation of both methods is that you must first assign a resistance “score” or “weight” to every cell (1 km in my case). \textcite{zeller2012resistance} demonstrated that even reasonable alternative assumptions about resistance values can influence results more strongly than the choice of connectivity method itself. For that reason, rather than treating one resistance surface as definitive, I varied the weights along two axes. The first changed the balance among the anthropogenic pressures, comparing my primary weighting against an equal weighting and an infrastructure-emphasis weighting. The second changed how much the surface leaned on vegetation relative to anthropogenic pressure and terrain, at 10, 20 and 40 percent. The vegetation-balanced surface combined with the documented fence treatment carries the primary results, and the remaining combinations are reported as sensitivity rather than as alternative answers. A link is only described as robust here if it survives them. This helps to minimize bias from the selection of resistor weights.
 
@@ -23,18 +23,20 @@ do not match the original RES-01 to RES-06 labels exactly. Add
 \textcite{zeller2018equal} beside \textcite{zeller2012resistance} for alternative
 weighting and \textcite{beier2008forks} for how modeling choices can affect corridor
 results.}
-\subsection*{Move 4: Objectives and hypotheses}
+% Objectives and hypotheses — writing guide only.
 % Writing framework only. Replace each TODO with your own writing.
 % Keep the final section concise; detailed definitions and tests belong in Methods.
 
-\paragraph{Overall aim and objectives.}
+% Writing guide: Overall aim and objectives.
+
 \TODO{Write one overall aim identifying the region, fixed historical cores, and the 2012--2024 comparison. Frame the objective around measuring change without assuming its direction.}
 
 \TODO{Give temporal change, link robustness, and protected-area coverage their own objective. Map each objective to a completed analysis and a Results subsection. Decide whether monitoring implications belong under link screening or in Discussion rather than promising a separate monitoring index.}
 
 \TODO{For each objective, decide whether a hypothesis or a descriptive research question fits the work. Distinguish what you assessed, the relationship you proposed, and the measurable pattern you expected.}
 
-\paragraph{Temporal change and H1.}
+% Writing guide: Temporal change and H1.
+
 \TODO{Identify the main connectivity measure and explain which direction means greater difficulty of connection. Keep effective resistance, least-cost path cost, and mapped current distinct. Put calculation details in Methods.}
 
 \TODO{Separate H1 into two assessable predictions: whether loss is concentrated among links, and whether loss is associated with link importance. Define concentration, minority, and high betweenness if retaining those terms. Do not choose cutoffs to match the results.}
@@ -45,7 +47,8 @@ results.}
 
 \TODO{Locate the evidence evaluating each part of H1. State what would count against each prediction. Distinguish a descriptive assessment from a formal test, and an unsupported prediction from one that was not tested. Avoid a hypothesis that simply repeats how pressure inputs were converted to resistance.}
 
-\paragraph{Protected-area coverage and H2.}
+% Writing guide: Protected-area coverage and H2.
+
 \TODO{Define high-value connectivity area using a specific modeled quantity and comparison domain. Identify which cells enter the outside-core analysis and which current thresholds are being compared.}
 
 \TODO{Specify the background against which disproportionate outside coverage is assessed. An outside share greater than half is not sufficient by itself; identify the matching area and denominator.}
@@ -56,7 +59,8 @@ results.}
 
 \TODO{Clarify that the protected-area overlay is a fixed protection context, rather than a reconstruction of protection at each historical date. Leave data-release and filtering details for Methods.}
 
-\paragraph{Link robustness and H3.}
+% Writing guide: Link robustness and H3.
+
 \TODO{Define importance separately from robustness. Distinguish network importance, stability of change direction, and stability of route location. Decide which of these H3 actually predicts.}
 
 \TODO{Limit the scope to the resistance assumptions and sensitivity checks actually completed. Describe the implemented link-level screening in Methods; do not imply that a cell-level agreement map, alternative core definitions, or multiple grid resolutions were tested.}
@@ -65,12 +69,13 @@ results.}
 
 \TODO{State what evidence would fail to support H3. Separate failure of the predicted pattern from the usefulness of the sensitivity analysis; uniformly high agreement does not make the comparison useless.}
 
-\paragraph{Final writing checks.}
+% Writing guide: Final writing checks.
+
 \TODO{Keep numerical results and support judgments in Results and Discussion. Describe questions developed after examining results as exploratory.}
 
 \TODO{Check that every objective has a matching analysis and that every retained prediction has a clear measure, comparison, and assessment criterion. Keep procedural details in Methods and retain the terminology boundary below.}
 
-\paragraph{Terminology.} Throughout, \structconn\ refers to modelled landscape
+ Throughout, \structconn\ refers to modelled landscape
 permeability between fixed range cores. It is not evidence of cheetah movement,
 dispersal, or gene flow. Where a location is described as a pinch point, this means
 a location of concentrated modelled current or a link-level bottleneck, not an
