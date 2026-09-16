@@ -18,7 +18,10 @@ mostly in the same locations through time. Their overlap scores were 0.91 to 0.9
 where 1 would mean perfect overlap.
 What not to claim: do not call this an overall connectivity loss, observed movement,
 or a country-by-country result. The analysis did not assign each core pair to a
-country. Use Figure~\ref{fig:change}.}
+country. For H1, report that 18 of the 45 selected links became harder and 27 became
+easier, but that change was not meaningfully related to baseline betweenness
+($\rho \approx 0.01$). Therefore H1 was mixed rather than supported. Use
+Figure~\ref{fig:change}.}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_0_study_area_and_core_groups.pdf}
@@ -28,11 +31,12 @@ country. Use Figure~\ref{fig:change}.}
   \label{fig:studyarea}
 \end{figure}
 
-\subsection{Robust priority links}
+\subsection{Priority links and sensitivity checks}
 % Sentence starters: "I identified [number] robust priority links ..." / "These links were concentrated ..." / "Their agreement across scenarios was ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
-What happened: 32 of the 45 selected links stayed important enough under the tested
-assumptions to remain in the main priority group. The other 13 links were kept as
+What happened: 32 of the 45 selected links passed the tested sensitivity screens
+and remained in the main priority group. Network importance was ranked separately
+using betweenness. The other 13 links were kept as
 uncertain links where more field information would be useful. The weighting test kept
 34 links, and the fence test removed two more. The vegetation test did not remove any
 additional links from the remaining group.
@@ -50,23 +54,7 @@ animal travel routes. Use Table~\ref{tab:top20}.}
   \label{fig:networkcontext}
 \end{figure}
 
-\subsection{Protected-area coverage of priority connectivity}
-% Sentence starters: "Of the priority connectivity area, [value] was located ..." / "Compared with the predeclared null, this represented ..." / "The permutation test returned ..."
-\TODO{PLAIN-LANGUAGE WRITING GUIDE.
-Why the cores were removed: the model forces current into and out of the cores, so the
-cores automatically receive very high current. Including them would make protection
-look better without telling us how well the land between cores is protected.
-What happened outside the cores: 31.26 percent of the comparison area is protected.
-Only 23.27 percent of the area above the 80th current percentile was protected in
-2024. Coverage rose to 25.54 percent above the 90th percentile, 33.45 percent above the
-95th, and 44.63 percent above the 99th. In simple terms, the very strongest
-concentrations often reached protected areas, while the broader connecting landscape
-around them was less protected.
-What not to claim: do not report a significance p-value because it changed when the
-size of the spatial blocks changed. Do not call modeled current observed movement. Use
-Table~\ref{tab:pa}.}
-
-\subsection{Sensitivity and plausibility checks}
+% Sensitivity evidence explains the priority-link screening above.
 % Sentence starters: "Results were consistent across ..." / "The links most sensitive to assumptions were ..." / "The plausibility assessment showed ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE SENSITIVITY TESTS.
 Main lesson: the total modeled cost of a connection was usually fairly stable, but
@@ -81,7 +69,9 @@ changed the number of links and changed which links ranked highest. A bridge is 
 whose removal splits the network into separate pieces; link 17--24 was the only bridge
 when three nearest neighbors were used.
 What not to claim: there is no completed cell-by-cell agreement map, and no single
-ranking should be presented as certain.}
+ranking should be presented as certain. State that H3 was only partly evaluated: a
+robust group existed, but it contained a majority of the selected links and the full
+planned sensitivity grid was not completed.}
 
 \TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE OCCURRENCE CHECK.
 What happened: after thinning records to one 10-km cell, the early period had 413
@@ -94,11 +84,25 @@ is not an independent test. There are also no occurrence records after 2016, so 
 cannot check the 2020 or 2024 results. Report it honestly as a limited comparison, not
 as validation.}
 
-\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR MONITORING.
-The planned score that would rank individual 10-km cells was not built. The completed
-monitoring output is simpler: 32 links form the main priority group, while 13 uncertain
-links identify places where surveys could reduce uncertainty. State this change from
-the original plan instead of implying that a cell-level ranking exists.}
+\TODO{Protocol reporting only: the planned cell-level monitoring index was not built and H4 was not tested. Explain this once in Appendix~\ref{app:protocol}, not as a repeated priority-link result.}
+
+\subsection{Protected-area coverage of priority connectivity}
+% Sentence starters: "Of the priority connectivity area, [value] was located ..." / "Compared with the predeclared null, this represented ..." / "The permutation test returned ..."
+\TODO{PLAIN-LANGUAGE WRITING GUIDE.
+Why the cores were removed: the model forces current into and out of the cores, so the
+cores automatically receive very high current. Including them would make protection
+look better without telling us how well the land between cores is protected.
+What happened outside the cores: 31.26 percent of the comparison area is protected.
+Only 23.27 percent of the area above the 80th current percentile was protected in
+2024. Coverage rose to 25.54 percent above the 90th percentile, 33.45 percent above the
+95th, and 44.63 percent above the 99th. In simple terms, the very strongest
+concentrations often reached protected areas, while the broader connecting landscape
+around them was less protected.
+What not to claim: do not report a significance p-value because it changed when the
+size of the spatial blocks changed. Do not call modeled current observed movement. Use
+Table~\ref{tab:pa}. State that H2 was not supported under its full rule because the
+direction changed across current thresholds and the significance result was not
+stable.}
 
 %------------------------------------------------------------------ figure inserts
 \begin{figure}[htbp]\centering

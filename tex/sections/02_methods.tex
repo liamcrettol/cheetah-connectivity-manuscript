@@ -1,31 +1,31 @@
 \section{Methods}
 \label{sec:methods}
 
-\subsection{Study area and analysis extent}
+\subsection{Study area and historical cores}
 \label{sec:extent}
 
 The study area was defined as the southern African cheetah range \parencite{weise2017distribution} plus a buffered analysis extent. All layers were aligned to a fixed equal-area projection and a \cellsize\ snap grid, so every raster was directly comparable cell for cell. Cores were derived from the historical confirmed-range baseline and held constant across 2012, 2016, 2020, and 2024. The final network consisted of 23 cores and 45 selected neighboring core pairs.
 
-\subsection{Rationale for the working resolution}
+% Working resolution belongs with the study area, not in a separate subsection.
 \label{sec:scale}
 
 I used a 1-km working resolution because it represented a compromise between the rougher 10-km occurrence baseline and the finer environmental covariates, which ranged from 30 m to 1 km. This resolution was fine enough to identify meaningful points in the landscape while avoiding the implication of a level of accuracy that the occurrence evidence alone could not provide.
 
-\subsection{Range cores}
+% Core definition belongs in this same subsection.
 \label{sec:cores}
 
 I defined a core area as a contiguous patch of cells that were confirmed presence, with a density of $\geq$ 0.51 cheetahs per 100 $km^2$. The final network consisted of 23 cores, which were held constant across all four temporal snapshots to avoid inventing core movement in the absence of comparable range reassessment.
 
 I represented these 23 core areas as fixed nodes across all four temporal snapshots (2012, 2016, 2020 and 2024). I took each core area and calculated the Euclidean distance to the nearest neighbor. This yielded 45 straight-line links. These straight-line links defined the lines used to get the least cost paths based on the added resistance surface rasters.
 
-\subsection{Covariates and their temporal treatment}
+\subsection{Landscape data and resistance surfaces}
 \label{sec:covariates}
 
 The predicted temporal resistance values came from the continuous rasters (built-up fraction (human development) from GHSL, nighttime lights from VIIRS, and VCF (vegetation) from MODIS). Categorical land cover was used for masking and description only, because annual categorical features can switch classes between years for reasons unrelated to overall landscape change.
 
 I also used the static covariates (roads, livestock, terrain, hydrography, fences, protected areas, and core definitions). The static covariates did not contribute \textit{temporal} signal to the resistance surface; however, they did contribute \textit{spatial} signal to the resistance surface. The static covariates were used to describe the landscape and to provide context for the dynamic covariates.
 
-\subsection{Resistance scenarios}
+% Explain how the input layers become resistance here.
 \label{sec:resistance}
 % Sentence starters: "Resistance values were assigned to represent ..." / "The terrain component was derived from ..." / "I compared alternative vegetation weights because ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
@@ -78,7 +78,7 @@ scenario ID or state plainly in the text that the implemented set differs and wh
 
 Resistance values were assigned to represent the relative difficulty of movement through each landscape feature. The terrain component was derived from slope, with steeper slopes assigned higher resistance values. This had to be done carefully however, given cheetahs do have an affinity for some sloped terrains \TODO{PLAIN-LANGUAGE COMPARISON: \textcite{moqanaki2016iran} treated slopes near 15 percent as easiest for movement and assigned more resistance above or below that point. Explain that this study instead used chosen slope ranges as a sensitivity assumption because no local GPS data were available to estimate the exact response.}. I compared alternative vegetation weights because vegetation cover can significantly influence cheetah movement, and different weighting schemes allowed for sensitivity analysis of this factor.
 
-\subsection{Connectivity modelling}
+\subsection{Connectivity modelling and temporal comparison}
 \label{sec:connectivity}
 % Sentence starters: "For each selected core pair, I calculated ..." / "The straight-line link was used to define ..." / "The least-cost path could depart from that line when ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
@@ -100,14 +100,14 @@ question was how those known areas connect. An all-direction method such as Omni
 \parencite{landau2021omniscape} answers a different question.}
 
 
-\paragraph{Corridor definition.}
+% Current classes are part of reporting the connectivity model, not a separate corridor definition.
 \TODO{PLAIN-LANGUAGE WRITING GUIDE: do not draw a hard boundary and call everything
 inside it a confirmed corridor. Report the full continuous current surface. Percentile
 classes are used only to make the maps easier to read and to compare protected-area
 coverage. Percentiles are calculated after core cells are removed, and the class
 boundaries were chosen before looking at the protected-area result.}
 
-\subsection{Network structure}
+% Network importance belongs alongside the connectivity calculations.
 \label{sec:graph}
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
 What was measured: edge betweenness counts how often a link lies on the shortest
@@ -126,13 +126,7 @@ between distance and dispersal. No local dispersal telemetry was available, so t
 more detailed-looking numbers were not calculated. Cite \textcite{keeley2021metrics}
 when explaining that the metric should match the research question.}
 
-\begin{outline}
-edge betweenness computed on the 23-core network, link
-importance ranked on normalised edge betweenness. PC and $dPC$ not yet computed, and
-dispersal distance is still the 100\,km placeholder.
-\end{outline}
-
-\subsection{Temporal comparison}
+% The guide above records why PC/dPC were not calculated; no dispersal placeholder is needed.
 \label{sec:temporal}
 % Sentence starters: "I compared the same core pairs across ..." / "Absolute change was calculated as ..." / "Proportional change was calculated as ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE: compare the same core pairs, model assumptions,
@@ -158,7 +152,7 @@ assumed spatial block size changed. Report the descriptive percentages and note 
 the same general pattern appeared in all four years and under several core-buffer
 sizes.}
 
-\subsection{Robustness and uncertainty}
+\subsection{Sensitivity checks and link screening}
 \label{sec:uncertainty}
 % Sentence starters: "I considered a result robust when ..." / "A link was classified as sensitive when ..." / "Locations with low agreement were treated as ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
@@ -192,7 +186,7 @@ with the 32 primary-priority-eligible links, since those are different counts an
 reader will notice.
 \end{outline}
 
-\subsection{Independent plausibility assessment}
+% Limited occurrence comparison: a check within the sensitivity section, not independent validation.
 \label{sec:validation}
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
 What was planned: compare the model with separate Limpopo tracking data and Namibia
@@ -206,7 +200,7 @@ cells and 2013--2016 had 450. Their overlap score was 0.239. There are no record
 Decision still needed: either complete the planned outside-data check or clearly state
 that it was not completed.}
 
-\subsection{Monitoring prioritisation}
+% Explain the link-level screening output here, without repeating the robustness counts.
 \label{sec:mcda}
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
 What was planned: combine six measurements into one score for every 10-km cell and
@@ -219,12 +213,6 @@ Why this is more honest: combining everything into one score would require decid
 for example, how much route instability is equal to a change in protection. No
 evidence-based exchange rate was available. State clearly that no combined monitoring
 score was calculated.}
-
-\begin{outline}
-link ranking currently rests on normalised edge
-betweenness plus the robust / sensitive split, with 32 primary-priority-eligible and 13
-uncertainty-priority links. The full MCDA with three weight sets is not yet built.
-\end{outline}
 
 \subsection{Software and reproducibility}
 \label{sec:software}

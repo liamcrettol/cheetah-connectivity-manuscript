@@ -13,6 +13,7 @@
 - [x] WDPA release month and DOI recorded.
 - [x] Table-source CSVs archived under `tex/tables/source_data/`.
 - [x] Results consolidated into four substantive subsections.
+- [x] Objectives and hypotheses traced against the locked protocol and completed analyses.
 
 ## TODO — decisions to make before writing sentences
 
@@ -21,6 +22,8 @@
 - [ ] TODO: Decide whether the conditional 2030 scenarios belong in Results or the Supplement. Do not call them forecasts.
 - [ ] TODO: Call the occurrence comparison a limited plausibility check, not an independent validation.
 - [ ] TODO: Explain that the planned cell-level monitoring score was replaced by a table of 32 main-priority and 13 uncertain links.
+- [ ] TODO: Revise the objectives paragraph so it reports the narrowed Objective 2 and the uncompleted original Objective 3.
+- [ ] TODO: Report H1 as mixed, H2 as unsupported under its full rule, H3 as partly evaluated and not supported as written, and H4 as not tested.
 - [ ] TODO: Decide whether to show the full 32-link table in the Supplement while keeping the top ten in the main text.
 - [ ] TODO: Confirm department name, advisor acknowledgement, and archive/DOI destination.
 
@@ -28,7 +31,7 @@
 
 1. [ ] TODO: Methods — write only from the factual blocks already embedded in `02_methods.tex`.
 2. [ ] TODO: Results — use `tex/tables/source_data/`; keep interpretation out of this section.
-3. [ ] TODO: Limitations — convert every existing limitation TODO into prose.
+3. [ ] TODO: Limitations — write one paragraph of no more than four sentences from the existing prompt.
 4. [ ] TODO: Discussion — interpret effective-resistance stability separately from route-location instability.
 5. [ ] TODO: Introduction — complete citation integration and revise the final objectives paragraph.
 6. [ ] TODO: Conclusion — three or four bounded sentences.
