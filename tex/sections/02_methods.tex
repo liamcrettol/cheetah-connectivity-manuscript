@@ -27,22 +27,8 @@ I also used the static covariates (roads, livestock, terrain, hydrography, fence
 
 \subsection{Resistance scenarios}
 \label{sec:resistance}
-% Sentence starters: "Resistance values were assigned to represent ..." / "The terrain component was derived from ..." / "I compared alternative vegetation weights because ..."
-\TODO{PLAIN-LANGUAGE WRITING GUIDE.
-What the resistance map means: each cell received a number describing how difficult
-the landscape was assumed to be for cheetah movement. Higher numbers mean more
-difficult movement; they do not mean that movement was observed there.
-What went into the final balanced map: human pressure received 60 percent of the
-weight, vegetation 20 percent, and terrain 20 percent. Within human pressure, built-up
-land, roads, and livestock each received 30 percent, while nighttime lights received
-10 percent. Fence cells then increased the combined resistance by a multiplier from
-1 to 25.
-What was tested: vegetation-low used 70/10/20 percent for human pressure, vegetation,
-and terrain; balanced used 60/20/20; vegetation-high used 40/40/20.
-What must be explained: the scenarios that were actually run do not match the original
-RES-01 to RES-06 labels exactly. Describe the completed scenarios rather than using an
-incorrect count. Cite \textcite{zeller2012resistance} when explaining why the way a
-variable is converted to resistance can matter as much as its weight.}
+
+Resistance values were assigned to represent the relative difficulty of movement through each landscape feature. The terrain component was derived from slope, with steeper slopes assigned higher resistance values. I compared alternative vegetation weights because vegetation cover can significantly influence cheetah movement, \TODO{add a cite for this} and different weighting schemes allowed for sensitivity analysis of just this factor. the final balanced map \TODO{figure?} had a weight of 60\% for human pressure, 20\% for vegetation, and 20\% for terrain. Within human pressure, built-up land, roads, and livestock each received 30\%, while nighttime lights received 10\%. Available fence data was incorporated into the resistance model, with fence cells increasing the combined resistance by a multiplier from 1 to 25.
 
 \begin{outline}
 
