@@ -26,7 +26,6 @@ Resistance values were assigned to represent the relative difficulty of movement
 
 \subsection{Connectivity modelling}
 \label{sec:connectivity}
-% Sentence starters: "For each selected core pair, I calculated ..." / "The straight-line link was used to define ..." / "The least-cost path could depart from that line when ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
 Least-cost paths: for each starting core, ArcGIS calculated the accumulated cost of
 moving through every reachable cell. A path was then drawn from each connected core
@@ -73,15 +72,8 @@ between distance and dispersal. No local dispersal telemetry was available, so t
 more detailed-looking numbers were not calculated. Cite \textcite{keeley2021metrics}
 when explaining that the metric should match the research question.}
 
-\begin{outline}
-edge betweenness computed on the 23-core network, link
-importance ranked on normalised edge betweenness. PC and $dPC$ not yet computed, and
-dispersal distance is still the 100\,km placeholder.
-\end{outline}
-
 \subsection{Temporal comparison}
 \label{sec:temporal}
-% Sentence starters: "I compared the same core pairs across ..." / "Absolute change was calculated as ..." / "Proportional change was calculated as ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE: compare the same core pairs, model assumptions,
 and 1-km grid in 2012, 2016, 2020, and 2024. This keeps the comparison consistent so
 the modeled differences come from the input layers that changed through time. Define
@@ -107,7 +99,6 @@ sizes.}
 
 \subsection{Robustness and uncertainty}
 \label{sec:uncertainty}
-% Sentence starters: "I considered a result robust when ..." / "A link was classified as sensitive when ..." / "Locations with low agreement were treated as ..."
 \TODO{PLAIN-LANGUAGE WRITING GUIDE.
 What "robust" means here: a link had to pass three checks. First, both alternative
 weightings had to keep at least 80 percent of the route within 5 km of the main route;
@@ -124,20 +115,6 @@ Separate location uncertainty from cost uncertainty: 49 of 180 route-and-year
 comparisons had less than 80 percent overlap within 1 km, including 21 main-priority
 links. Link 17--24 had no overlap in 2020. This does not mean the connection was
 unimportant; it means the exact mapped route was uncertain.}
-
-\begin{outline}
-\begin{itemize}
-  \item 90 weight comparisons evaluated.
-  \item 34 of 45 core pairs robust under the tested alternative weights, 11 sensitive.
-  \item Fence scenarios changed 5 links: 1--13, 1--17, 9--13, 13--17, 27--30.
-  \item 32 links classified primary-priority eligible; 13 retained as uncertainty and
-        data-collection priorities.
-\end{itemize}
-Two things to resolve before writing: state the numeric robustness rule actually applied
-and whether it matches the predeclared $k/n = 0.8$; and reconcile the 34 robust pairs
-with the 32 primary-priority-eligible links, since those are different counts and a
-reader will notice.
-\end{outline}
 
 \subsection{Independent plausibility assessment}
 \label{sec:validation}
@@ -167,12 +144,6 @@ for example, how much route instability is equal to a change in protection. No
 evidence-based exchange rate was available. State clearly that no combined monitoring
 score was calculated.}
 
-\begin{outline}
-link ranking currently rests on normalised edge
-betweenness plus the robust / sensitive split, with 32 primary-priority-eligible and 13
-uncertainty-priority links. The full MCDA with three weight sets is not yet built.
-\end{outline}
-
 \subsection{Software and reproducibility}
 \label{sec:software}
 \TODO{PLAIN-LANGUAGE WRITING GUIDE: list the software without explaining every
@@ -182,9 +153,3 @@ technical setting in the main text. Verified versions are ArcGIS Pro
 Table~\ref{tab:software}. Google Earth Engine supplied and aligned the satellite data.
 Most ArcGIS processing used Python scripts rather than ModelBuilder. Add the final
 archive link and state which source datasets cannot legally be redistributed.}
-
-\begin{outline}
-ArcGIS Pro Spatial Analyst via arcpy
-(\texttt{CostDistance}, \texttt{CostPathAsPolyline}); Google Earth Engine for SRTM,
-GHSL, VIIRS, MODIS MCD12Q1 and VCF acquisition and harmonisation. Record versions.
-\end{outline}
