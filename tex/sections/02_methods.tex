@@ -26,32 +26,8 @@ Resistance values were assigned to represent the relative difficulty of movement
 
 \subsection{Connectivity modelling}
 \label{sec:connectivity}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE.
-Least-cost paths: for each starting core, ArcGIS calculated the accumulated cost of
-moving through every reachable cell. A path was then drawn from each connected core
-back to the starting core by following the lowest accumulated cost. Reusing one cost
-calculation for several destinations gives the same pairwise paths with fewer repeated
-calculations.
-Circuitscape: Circuitscape 5.17.1 \parencite{anantharaman2020circuitscape} treated the
-landscape like an electrical network and spread current across all possible routes
-between each pair of cores. All 253 core pairs were solved in each of four years, for
-1,012 pair comparisons, with no failures. Reference Figure~\ref{fig:current2024}
-for the 2024 modeled-current output, not for the input resistance surface.
-Why cores were removed from reported current: cores are where modeled current enters
-and leaves, so they automatically receive the highest values. Removing the core cells
-after calculation lets the maps focus on land between cores. This improves what is
-reported, but the cores still influenced the calculation.
-Why a core-to-core method was used: the study began with defined core areas, so the
-question was how those known areas connect. An all-direction method such as Omniscape
-\parencite{landau2021omniscape} answers a different question.}
 
-
-\paragraph{Corridor definition.}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE: do not draw a hard boundary and call everything
-inside it a confirmed corridor. Report the full continuous current surface. Percentile
-classes are used only to make the maps easier to read and to compare protected-area
-coverage. Percentiles are calculated after core cells are removed, and the class
-boundaries were chosen before looking at the protected-area result.}
+For each core, I ran a least-cost path, in which ArcGIS calculated the accumulated cost of moving through every reachable cell. From there, the lowest accumulated cost was used to draw a path from each connected core back to the starting core. Doing it this was meant that I would be reusing one cost calculation for several destinations, which gives the same number of pairwise paths with fewer repeat calculations. I then used Circuitscape 5.17.1 \parencite{anantharaman2020circuitscape} to spread out all possible routes between each pair of cores. This was done for all 253 core pairs, which were solved in each of the four years which came to a total of 1,012 pair comparisons. Fig. \ref{fig:current2024} shows the current output for 2024. 
 
 \subsection{Network structure}
 \label{sec:graph}
