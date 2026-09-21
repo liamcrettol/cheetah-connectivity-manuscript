@@ -18,7 +18,7 @@ record.
 - `mutoro2025kenya`: [Impact of Anthropogenic Landscape Alteration on the Distribution of Potential Cheetah (\emph{Acinonyx jubatus}) Habitats in Southern Kenya: Revealing Cheetah Behavioural Change](pdfs/mutoro2025kenya_2025.pdf)
 - `dimbleby2024rewilding`: [Rewilding Landscapes with Apex Predators: Cheetah (\emph{Acinonyx jubatus}) Movements Reveal the Importance of Environmental and Individual Contexts](pdfs/dimbleby2024rewilding_2024.pdf)
 - `musenge2026liuwa`: [Four Decades of Spatio-Temporal Habitat Dynamics in a Human-Wildlife Co-Existence Landscape in the Liuwa Ecosystem of Zambia](pdfs/musenge2026liuwa_2026.pdf)
-- `moqanaki2016iran`: [All Roads Lead to Iran: Predicting Landscape Connectivity of the Last Stronghold for the Critically Endangered Asiatic Cheetah](pdfs/moqanaki2016iran_2017.pdf)
+- `moqanaki2017iran`: [All Roads Lead to Iran: Predicting Landscape Connectivity of the Last Stronghold for the Critically Endangered Asiatic Cheetah](pdfs/moqanaki2016iran_2017.pdf)
 - `weise2017distribution`: [The Distribution and Numbers of Cheetah (Acinonyx jubatus) in Southern Africa](pdfs/weise2017distribution_2017.pdf)
 - `anantharaman2020circuitscape`: [Circuitscape in {J}ulia: High Performance Connectivity Modelling to Support Conservation Decisions](pdfs/anantharaman2020circuitscape_2020.pdf)
 - `landau2021omniscape`: [Omniscape.jl: Software to Compute Omnidirectional Landscape Connectivity](pdfs/landau2021omniscape_2021.pdf)

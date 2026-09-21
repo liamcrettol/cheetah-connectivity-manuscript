@@ -27,7 +27,7 @@ USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) cheetah-connectivity-ref
 
 # Stable, lawful open copies for important project references.
 KNOWN_OPEN_PDFS = {
-    "moqanaki2016iran": "https://www.fs.usda.gov/rm/pubs_journals/2016/rmrs_2016_moqanaki_e001.pdf",
+    "moqanaki2017iran": "https://www.fs.usda.gov/rm/pubs_journals/2016/rmrs_2016_moqanaki_e001.pdf",
     "weise2017distribution": "https://europepmc.org/articles/PMC5729830?pdf=render",
     "dimbleby2024rewilding": "https://www.frontiersin.org/journals/conservation-science/articles/10.3389/fcosc.2024.1351366/pdf",
     "melzheimer2020hubs": "https://europepmc.org/articles/PMC7776775?pdf=render",

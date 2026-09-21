@@ -11,6 +11,8 @@
 *.out
 *.run.xml
 *.synctex.gz
+*.synctex(busy)
+*-SAVE-ERROR
 *.toc
 *.nav
 *.snm
