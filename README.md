@@ -16,7 +16,7 @@ Overleaf's GitHub integration can't handle, which is why the two are split.
     tex/          manuscript (main.tex + sections/)
     protocol/     predeclared analysis protocol, landcover_crosswalk.csv,
                   temporal_alignment.csv
-    refs/         bibliography (methods_canon.bib verified; cheetah_lit.bib)
+    refs/         bibliography (cheetah_lit.bib)
     .github/      CI: builds both PDFs on every push
 
 ## Building
