@@ -20,7 +20,9 @@ or a country-by-country result. The analysis did not assign each core pair to a
 country. For H1, report that 18 of the 45 selected links became harder and 27 became
 easier, but that change was not meaningfully related to baseline betweenness
 ($\rho \approx 0.01$). Therefore H1 was mixed rather than supported. Use
-Figure~\ref{fig:change}.}
+Figure~\ref{fig:change}.\\
+H1, TWO MORE NUMBERS YOU CAN USE (checked 5 October 2026; same answer, stated the way the protocol worded H1). The $\rho \approx 0.01$ above mixes the links that got harder with the ones that got easier. Asking the protocol's question directly: (1) Did the 18 harder links have higher betweenness than the 27 easier ones? Slightly, but not meaningfully (Mann--Whitney one-sided $p = 0.36$). (2) Among the 18 harder links, did the bigger losses fall on the more important links? No; if anything the reverse ($\rho = -0.22$, not significant). One thing that DID match: the losses were fairly concentrated, with the 5 hardest-hit of the 18 links carrying 46 percent of the total increase. So H1's ``minority of links'' half holds, and its ``high-betweenness links'' half does not.\\
+FIGURE PLACEMENT: the study-area figure just below shows the extent and cores, which is setup, not a result. Move it to Methods, near Study area.}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_0_study_area_and_core_groups.pdf}
@@ -70,7 +72,25 @@ ranking should be presented as certain. State that H3 was only partly evaluated:
  stable group existed, but it contained a majority of the selected links and the full
 planned sensitivity grid was not completed.}
 
-\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE OCCURRENCE CHECK.
+\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE INDEPENDENT TRACKING CHECK (NEW, 5 OCTOBER 2026).\\
+This is the check your protocol planned, and the stronger of your two. Consider giving it its own short subsection; it answers a different question from the priority links. Numbers only here; meaning goes in Discussion.\\[0.3em]
+WHAT HAPPENED: 1,006 daily locations from nine cheetahs were compared with 10,060 random points from the same landscape, on the 2012 surfaces (Table~\ref{tab:limpopo}).\\
+Resistance: cheetah locations had lower modeled resistance than the available points (median 2.23 against 2.45). Pick a random cheetah location and a random available point, and the cheetah's had the lower resistance 60 percent of the time, where 50 percent would mean no difference. Seven of the nine animals had a median below the landscape median.\\
+Current: cheetah locations had higher modeled current (median 0.156 against 0.145), in the expected direction 65 percent of the time. Six of the nine animals had a median above the landscape median.\\
+Robustness: widening the available area by 20~km barely changed this (60 and 62 percent). Your earlier model, without vegetation or fences, gave the same direction and almost the same strength (61 and 65 percent), so the result does not hinge on those two choices. No location fell inside a core.\\[0.3em]
+HOW TO DESCRIBE THE STRENGTH: consistent in direction but modest in size. 60 percent is a real lean, not a strong one. Say ``consistent with'' the model, not ``confirmed.'' Do not lead with the p-values; they are tiny only because there are a thousand points, and daily points from the same animal are not independent. The animal counts (7 of 9, 6 of 9) are the honest unit.\\[0.3em]
+WHAT NOT TO CLAIM: that the model is validated; that it works across the whole region (this is one district in South Africa); or that it says anything about 2020 or 2024 (the tracks end in 2008).}
+
+\begin{table}[htbp]\centering
+  \caption{\TODO{Final caption, in your own words: modeled resistance and current at
+  daily locations of nine free-roaming cheetahs (Limpopo, 2003--2008) compared with
+  random available points from the same landscape, on the 2012 surfaces.}}
+  \label{tab:limpopo}
+  \input{tables/table_limpopo_plausibility}
+\end{table}
+
+\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE SAME-ARCHIVE OCCURRENCE CHECK.
+Keep this, but present it after the tracking check as the weaker of the two, because it is not independent.
 What happened: after thinning records to one 10-km cell, the early period had 413
 occupied cells and the later period had 450. Their overlap score was 0.239, showing
 that the two sets were quite different. Later records occurred in slightly higher

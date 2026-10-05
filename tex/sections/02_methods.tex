@@ -10,7 +10,11 @@ The study area was defined as the southern African cheetah range \parencite{weis
 
 I defined a core area as a contiguous patch of cells that were confirmed presence, with a density of $\geq$ 0.51 cheetahs per 100 $km^2$. The final network consisted of 23 cores, which were held constant across all four temporal snapshots to avoid inventing core movement in the absence of comparable range reassessment.
 
+\TODO{CORES, TWO GAPS. (1) Say why the cutoff is 0.51 cheetahs per 100~km$^2$. A reader will ask why not 0.5 or 1. If it came from the density raster's own class breaks, say so; if you chose it, say how. Your analysis repo has \texttt{cheetah\_core\_threshold\_tradeoffs.csv}, which may already hold the reason. (2) Say whether a minimum core size was applied. The protocol planned minimum areas (2,000, 1,000, and 500~km$^2$ for three core definitions). If you used one definition and no minimum, say that, and list it in Appendix A1 as a change from the plan.}
+
 I represented these 23 core areas as fixed nodes across all four temporal snapshots (2012, 2016, 2020 and 2024). I took each core area and calculated the Euclidean distance to the nearest neighbor. This yielded 45 straight-line links. These straight-line links defined the lines used to get the least cost paths based on the added resistance surface rasters.
+
+\TODO{FIX: the two sentences above say each core was joined to its single nearest neighbor and that this gave 45 links. That is not what was done, and nearest-neighbor alone would not give 45. Your tables and the Network structure note below both say each core was joined to its THREE nearest neighbors, and a minimum spanning tree was added (the smallest set of links that keeps every core connected). The two rules overlap, which is why some links are labeled KNN+MST. Rewrite these sentences to match, and point to the Network structure subsection for the details.}
 
 \subsection{Covariates and their temporal treatment}
 \label{sec:covariates}
@@ -22,7 +26,13 @@ I also used the static covariates (roads, livestock, terrain, hydrography, fence
 \subsection{Resistance scenarios}
 \label{sec:resistance}
 
-Resistance values were assigned to represent the relative difficulty of movement through each landscape feature. The terrain component was derived from slope, with steeper slopes assigned higher resistance values. The final balanced map had a weight of 60\% for human pressure, 20\% for vegetation, and 20\% for terrain. Within human pressure, built-up land, roads, and livestock each received 30\%, while nighttime lights received 10\%. Available fence data was incorporated into the resistance model, with fence cells increasing the combined resistance by a multiplier of 1 if there is no fence, or 25 if there is a fence cell. Fences did not incur a full block to cheetah movement as they are not complete barriers \parencite{cozzi2013barriers}. I treated slopes near 15 percent as easiest for movement and assigned more resistance above or below that point. This had to be done carefully however, given cheetahs do have an affinity for some sloped terrains \parencite{moqanaki2017iran}. I compared alternative vegetation weights because vegetation cover can influence cheetah habitat use \parencite{verschueren2024guild}. Different weighting schemes allowed me to test how strongly the modeled resistance surfaces depended on the vegetation weight \parencite{zeller2012resistance}. The final resistance surface was used to model least-cost paths and Circuitscape current flow between core areas. 
+Resistance values were assigned to represent the relative difficulty of movement through each landscape feature. The terrain component was derived from slope, with steeper slopes assigned higher resistance values. The final balanced map had a weight of 60\% for human pressure, 20\% for vegetation, and 20\% for terrain. Within human pressure, built-up land, roads, and livestock each received 30\%, while nighttime lights received 10\%. Available fence data was incorporated into the resistance model, with fence cells increasing the combined resistance by a multiplier of 1 if there is no fence, or 25 if there is a fence cell. Fences did not incur a full block to cheetah movement as they are not complete barriers \parencite{cozzi2013barriers}. I treated slopes near 15 percent as easiest for movement and assigned more resistance above or below that point. This had to be done carefully however, given cheetahs do have an affinity for some sloped terrains \parencite{moqanaki2017iran}. I compared alternative vegetation weights because vegetation cover can influence cheetah habitat use \parencite{verschueren2024guild}. Different weighting schemes allowed me to test how strongly the modeled resistance surfaces depended on the vegetation weight \parencite{zeller2012resistance}. The final resistance surface was used to model least-cost paths and Circuitscape current flow between core areas.
+
+\TODO{RESISTANCE PARAGRAPH, FOUR FIXES.\\
+1. SLOPE IS DESCRIBED WRONG. The paragraph says steeper slopes cost more, then says slopes near 15 percent are easiest with resistance rising above AND below. The code (\texttt{create\_terrain\_resistance.py}) does neither of the second thing: slopes of 10 DEGREES or less get resistance 1, resistance rises in a straight line to 10 at 30 degrees, and anything steeper stays at 10. Flat ground is easiest and there is no sweet spot. Note the unit is degrees, not percent, and slope is the average within each 1-km cell. Rewrite to match, and drop the ``affinity for sloped terrain'' line unless it supports the 10-degree free zone.\\
+2. SAY WHO CHOSE THE NUMBERS. The 60/20/20 split, the 30/30/30/10 split inside human pressure, the 10-to-30-degree slope ramp, and the times-25 fence multiplier were your choices, informed by the papers you cite. None were fitted to cheetah movement data. Say that in one plain sentence. Reviewers accept chosen values; what they do not accept is values that look fitted when they were not.\\
+3. LIST WHAT ELSE WAS RUN. Name every alternative so \texttt{\textbackslash nscen} can be filled in: three human-pressure weightings (your main one, equal, and infrastructure-emphasis), three vegetation weights (10, 20, and 40 percent), and the fence treatments (no fences, documented fences, near-barrier, Kruger documented, and Kruger conservative). Careful when counting: your main surface is one member of each list, so it is a main surface plus 8 alternatives, not 11.\\
+4. THE ``PRIMARY'' SURFACE IS A CHANGE FROM THE PLAN. Your protocol said no scenario would be treated as the main answer. The paper uses the vegetation-balanced surface with documented fences as the main one. That is a reasonable choice, but it needs one sentence here explaining why, and a line in Appendix A1.}
 
 \subsection{Connectivity modelling}
 \label{sec:connectivity}
@@ -46,7 +56,8 @@ network into two pieces.
 What was dropped: PC and dPC \parencite{saura2007pc} require an assumed relationship
 between distance and dispersal. No local dispersal telemetry was available, so those
 more detailed-looking numbers were not calculated. Cite \textcite{keeley2021metrics}
-when explaining that the metric should match the research question.}
+when explaining that the metric should match the research question.\\
+FIX THE REASON ABOVE BEFORE YOU WRITE IT. ``No dispersal telemetry'' was already known when the protocol was locked, and the protocol handled it: decision 4 set 100~km as the dispersal value, based on how far apart cheetah communication hubs are \parencite{melzheimer2020hubs}, with 50, 200, and 400~km as checks. So that cannot be the reason PC was dropped; a reader comparing the protocol would spot it. Write down the real reason. It might be that betweenness answers H1 directly and PC would add a second ranking to explain, or that a single borrowed 100~km value would make the numbers look more precise than they are. Whatever it was, say it plainly, and add it to Appendix A1 as a change from the plan.}
 
 \subsection{Temporal comparison}
 \label{sec:temporal}
@@ -94,17 +105,18 @@ unimportant; it means the exact mapped route was uncertain.}
 
 \subsection{Independent plausibility assessment}
 \label{sec:validation}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE.
-What was planned: compare the model with separate Limpopo tracking data and Namibia
-camera-trap data.
-What was actually done: compare early and late occurrence records from the same
-archive used to create the cores. Because the data are not independent, call this a
-limited plausibility check rather than validation.
-Numbers available: after thinning to one record per 10-km cell, 2010--2012 had 413
-cells and 2013--2016 had 450. Their overlap score was 0.239. There are no records after
-2016, so this check says nothing about 2020 or 2024.
-Decision still needed: either complete the planned outside-data check or clearly state
-that it was not completed.}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE. UPDATED 5 OCTOBER 2026: THE PLANNED CHECK IS NOW DONE.\\
+Never call this ``validation.'' No resistance value was fitted to these tracks, so it is a plausibility check: does the model's picture of easy and hard land line up with where real cheetahs spent their time?\\[0.3em]
+DATA: tracking data from nine free-roaming cheetahs (seven males, two females) collared near Thabazimbi, Limpopo, South Africa, from September 2003 to November 2008 by the Endangered Wildlife Trust and the University of Pretoria. Cite the dataset parencite{marnewick2017ewtdata} and the paper that describes the collaring parencite{marnewick2017tracking}. License CC-BY 4.0, so citing is all that is required. It is independent of your cores, and you can say why in one sentence: these collar locations are not in the Dryad range archive the cores were built from. I checked. The archive's 458 Endangered Wildlife Trust rows are 2014--2015 tourist sightings, not these collars, and only four archive records of any kind fall inside the area these cheetahs used (three farmer questionnaires and one sighting, 2012--2015). That also explains why no core sits in this area.\\[0.3em]
+STEPS, matching protocol steps 23.1 to 23.5:\\
+1. Downloaded all 3,165 locations. Dropped 17 that had no full date.\\
+2. Kept one location per animal per day (the earliest fix) so a single busy collar could not dominate. This left 1,006 locations. One collar alone had 1,954 of the raw fixes, which is why this step matters.\\
+3. Made ten random ``available'' points per cheetah location (10,060 in total), spread evenly inside the smallest shape that encloses all the cheetah locations. This asks: within the landscape these animals actually used, did they favor the places the model calls easy? Repeated with that shape widened by 20~km to check the answer did not depend on where the edge was drawn.\\
+4. Read the modeled resistance and current at every point, using the 2012 surfaces because the tracks are from 2003--2008, the closest snapshot.\\
+5. Compared the two groups, and repeated everything on your earlier model (pressure and terrain only, no vegetation, no fences).\\[0.3em]
+THINGS TO STATE OPENLY: the tracks end four years before your first snapshot; nine animals in one district cannot speak for the whole network; daily locations from the same animal are still not fully independent, so report the effect size and the per-animal counts, not the p-value; and none of the locations fell inside a core, so the current values are not inflated by the cores. Scripts: \texttt{analysis/scripts/plausibility\_limpopo\_tracks.py} in the connectivity repo.\\[0.3em]
+THE OLD SAME-ARCHIVE CHECK: keep it, but as a second, weaker check, and say it is not independent because it uses the records that built the cores. Numbers: after thinning to one record per 10-km cell, 2010--2012 had 413 cells and 2013--2016 had 450, with an overlap score of 0.239. There are no records after 2016.\\[0.3em]
+STILL NOT DONE: the central-eastern Namibia camera-trap comparison \parencite{verschueren2024guild}. Those data are request-only. Either request them or state in one sentence that this second planned source was not obtained.}
 
 \subsection{Monitoring prioritisation}
 \label{sec:mcda}
@@ -118,7 +130,7 @@ it is protected.
 Why this is more honest: combining everything into one score would require deciding,
 for example, how much route instability is equal to a change in protection. No
 evidence-based exchange rate was available. State clearly that no combined monitoring
-score was calculated.} There is a cheeta
+score was calculated.} There is a cheeta \TODO{Unfinished sentence fragment left here; finish or delete it.}
 
 \subsection{Software and reproducibility}
 \label{sec:software}

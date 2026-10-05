@@ -18,9 +18,26 @@
 ## TODO — decisions to make before writing sentences
 
 - [ ] TODO: Explain that Git marks the protocol as version 1.0 even though the saved document still says “0.1 draft.”
-- [ ] TODO: Count and name the scenarios that were actually completed; do not use the old five-scenario wording.
-- [ ] TODO: Decide whether the conditional 2030 scenarios belong in Results or the Supplement. Do not call them forecasts.
-- [ ] TODO: Call the occurrence comparison a limited plausibility check, not an independent validation.
+- [ ] TODO: Count and name the scenarios that were actually completed; do not use the old five-scenario wording. The list is now in the `\nscen` macro in `main.tex`: a main surface plus 8 alternatives in three groups.
+- [ ] TODO: Decide whether the conditional 2030 scenarios belong in Results or the Supplement. Do not call them forecasts. Suggestion: Supplement, because they were not in the protocol. Note their rows were renamed on 5 Oct 2026 (see the table's TODO for why).
+- [x] Independent plausibility check completed 5 Oct 2026 against the Limpopo tracking data (protocol steps 23.1–23.5). New table `table_limpopo_plausibility.tex`. Writing guides are in Methods, Results, and Discussion.
+- [ ] TODO: Call the same-archive occurrence comparison the weaker, non-independent check, presented after the tracking check.
+- [ ] TODO: Decide whether to request the Namibia camera-trap data (Verschueren et al. 2024) or state that it was not obtained.
+
+## Added 5 October 2026: fixes found in review
+
+These came out of a full read of the paper against the protocol and the analysis outputs. Each one has a TODO in the section where it lives.
+
+- [ ] TODO: Introduction hypotheses do not match the H1–H4 that Results judge. The protected-area one predicts the opposite of H2, the link-stability one is circular, and H4 is missing. Locked wording is in the intro TODO.
+- [ ] TODO: Methods says each core joined its single nearest neighbor; it was three nearest neighbors plus a minimum spanning tree.
+- [ ] TODO: Methods describes slope wrong. The code is a straight ramp from 10 to 30 degrees, flat is easiest, and there is no 15 percent sweet spot.
+- [ ] TODO: Say the weights, slope ramp, and fence multiplier were your choices informed by literature, not fitted. Limitations sentence 3 was corrected to match.
+- [ ] TODO: Appendix A1 needs four more change items: a main surface was chosen, when the weights were set, PC/dPC dropped, one core definition instead of three.
+- [ ] TODO: Give the real reason PC/dPC was dropped. "No telemetry" was already handled by protocol decision 4.
+- [ ] TODO: Explain the 0.51 cheetahs per 100 km² core cutoff and whether a minimum core size was used.
+- [ ] TODO: Abstract checklist at the top of `00_abstract.tex` (fixed cores missing, two banned phrases, "predictive," mixed denominators).
+- [ ] TODO: Covariates table should say which layers went into resistance, and add land cover and protected areas.
+- [ ] TODO: Rainfall (CHIRPS) was never checked. Say so in the alignment table or in Limitations.
 - [ ] TODO: Explain that the planned cell-level monitoring score was replaced by a table of 32 main-priority and 13 uncertain links.
 - [ ] TODO: Revise the objectives paragraph so it reports the narrowed Objective 2 and the uncompleted original Objective 3.
 - [ ] TODO: Report H1 as mixed, H2 as unsupported under its full rule, H3 as partly evaluated and not supported as written, and H4 as not tested.
