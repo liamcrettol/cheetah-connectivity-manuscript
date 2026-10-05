@@ -41,7 +41,15 @@
 \sisetup{group-separator={,}, per-mode=symbol}
 \usepackage{amsmath}
 \usepackage[font=small,labelfont=bf]{caption}
+\usepackage{placeins}
 \usepackage{rotating}
+
+% Keep successive figures and tables from running together in the capstone
+% layout, while still allowing LaTeX to choose the best page break.
+\setlength{\floatsep}{24pt plus 4pt minus 4pt}
+\setlength{\textfloatsep}{28pt plus 4pt minus 6pt}
+\setlength{\intextsep}{24pt plus 4pt minus 4pt}
+\captionsetup{skip=10pt}
 
 %---------------------------------------- bibliography (APA 7 via biblatex+biber)
 \usepackage[style=apa,backend=biber,sortcites=true]{biblatex}
