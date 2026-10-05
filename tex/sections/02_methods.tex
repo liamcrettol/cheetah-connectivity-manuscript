@@ -8,7 +8,7 @@ The study area was defined as the southern African cheetah range \parencite{weis
 \subsection{Range cores}
 \label{sec:cores}
 
-I defined a core area as a contiguous patch of cells that were confirmed presence, with a density of $\geq$ 0.51 cheetahs per 100 $km^2, which was from the density rasters own natural breaks that covered the full range of observed densities best to represent the core areas. The final network consisted of 23 cores, which were held constant across all four temporal snapshots to avoid inventing core movement in the absence of comparable range reassessment.
+I defined a core area as a contiguous patch of cells that were confirmed presence, with a density of $\geq$ 0.51 cheetahs per 100~km$^2$, which was from the density raster's own natural breaks that covered the full range of observed densities best to represent the core areas. The final network consisted of 23 cores, which were held constant across all four temporal snapshots to avoid inventing core movement in the absence of comparable range reassessment.
 
 \TODO{CORES, TWO GAPS. (1) Say why the cutoff is 0.51 cheetahs per 100~km$^2$. A reader will ask why not 0.5 or 1. If it came from the density raster's own class breaks, say so; if you chose it, say how. Your analysis repo has \texttt{cheetah\_core\_threshold\_tradeoffs.csv}, which may already hold the reason. (2) Say whether a minimum core size was applied. The protocol planned minimum areas (2,000, 1,000, and 500~km$^2$ for three core definitions). If you used one definition and no minimum, say that, and list it in Appendix A1 as a change from the plan.}
 
@@ -37,7 +37,7 @@ Resistance values were assigned to represent the relative difficulty of movement
 \subsection{Connectivity modelling}
 \label{sec:connectivity}
 
-For each core, I ran a least-cost path, in which ArcGIS calculated the accumulated cost of moving through every reachable cell. From there, the lowest accumulated cost was used to draw a path from each connected core back to the starting core. Doing it this was meant that I would be reusing one cost calculation for several destinations, which gives the same number of pairwise paths with fewer repeat calculations. I then used Circuitscape 5.17.1 \parencite{anantharaman2020circuitscape} to spread out all possible routes between each pair of cores. This was done for all 253 core pairs, which were solved in each of the four years which came to a total of 1,012 pair comparisons. Fig. \ref{fig:current2024} shows the current output for 2024. 
+For each core, I ran a least-cost analysis in ArcGIS, which calculated the accumulated cost of moving through every reachable cell. I then used the lowest accumulated cost to draw paths from the starting core to each connected destination. Reusing the accumulated-cost calculation for several destinations produced the same set of pairwise paths with fewer repeat calculations. I also used Circuitscape 5.17.1 to model the distribution of possible movement routes between each pair of cores. The analysis included all 253 core pairs in each of the four years, for a total of 1,012 pairwise comparisons.
 
 \subsection{Network structure}
 \label{sec:graph}
