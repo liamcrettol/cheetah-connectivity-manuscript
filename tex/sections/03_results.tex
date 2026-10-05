@@ -74,19 +74,27 @@ ranking should be presented as certain. State that H3 was only partly evaluated:
  stable group existed, but it contained a majority of the selected links and the full
 planned sensitivity grid was not completed.}
 
-\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE INDEPENDENT TRACKING CHECK (NEW, 5 OCTOBER 2026).\\
-This is the check your protocol planned, and the stronger of your two. Consider giving it its own short subsection; it answers a different question from the priority links. Numbers only here; meaning goes in Discussion.\\[0.3em]
-WHAT HAPPENED: 1,006 daily locations from nine cheetahs were compared with 10,060 random points from the same landscape, on the 2012 surfaces (Table~\ref{tab:limpopo}).\\
-Resistance: cheetah locations had lower modeled resistance than the available points (median 2.23 against 2.45). Pick a random cheetah location and a random available point, and the cheetah's had the lower resistance 60 percent of the time, where 50 percent would mean no difference. Seven of the nine animals had a median below the landscape median.\\
-Current: cheetah locations had higher modeled current (median 0.156 against 0.145), in the expected direction 65 percent of the time. Six of the nine animals had a median above the landscape median.\\
-Robustness: widening the available area by 20~km barely changed this (60 and 62 percent). Your earlier model, without vegetation or fences, gave the same direction and almost the same strength (61 and 65 percent), so the result does not hinge on those two choices. No location fell inside a core.\\[0.3em]
-HOW TO DESCRIBE THE STRENGTH: consistent in direction but modest in size. 60 percent is a real lean, not a strong one. Say ``consistent with'' the model, not ``confirmed.'' Do not lead with the p-values; they are tiny only because there are a thousand points, and daily points from the same animal are not independent. The animal counts (7 of 9, 6 of 9) are the honest unit.\\[0.3em]
-WHAT NOT TO CLAIM: that the model is validated; that it works across the whole region (this is one district in South Africa); or that it says anything about 2020 or 2024 (the tracks end in 2008).}
+\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE INDEPENDENT TRACKING CHECK (UPDATED 5 OCTOBER 2026 WITH THE STRICTER FOLLOW-UPS).\\
+Give this its own short subsection; it answers a different question from the priority links. Numbers only here; meaning goes in Discussion. Lead with the step check (Table~\ref{tab:limpopo_steps}), because it is the stricter test. Put the first comparison (Table~\ref{tab:limpopo}) after it as background, or move that table to the supplement.\\[0.3em]
+1. THE MAIN RESULT (Table~\ref{tab:limpopo_steps}, panel A). Across 549 day-to-day moves, the place a cheetah actually went had lower modeled resistance than the moves it could have made instead. The real move beat 56 percent of its alternatives (95 percent interval 51 to 61 percent), where 50 would mean no difference, and seven of the nine animals leaned that way. Averaged along the straight line between locations the result was almost the same (55 percent).\\
+2. CURRENT DID NOT HOLD UP. The real move beat 53 percent of alternatives on modeled current, but the interval (47 to 59) includes 50, and only five of nine animals leaned that way. Say this plainly. It also means the 65 percent for current in the first comparison mostly reflected where the cats lived, not the choices they made each day.\\
+3. ALL NINE SURFACES (panel B). Every surface gave 55 to 56 percent, so the result does not depend on which weighting you picked. The four other fence treatments give exactly the same values as the main surface because no mapped fence lies within 20~km of any track.\\
+4. WHICH LAYERS CARRY IT (panel C). Road density did most of the work: on its own it reached 55 percent, about as much as the full surface, and leaving it out dropped the full surface to 54 percent with an interval that just touches 50. Livestock, slope, and night lights each added a small lean (51 to 52 percent). Built-up area did nothing here because there is almost none in this district. Vegetation on its own leaned slightly the wrong way (48 percent, interval 43 to 52, which includes 50). Report that honestly; do not hide it.\\
+5. ROAD CROSSINGS (panel D). 26 percent of real moves crossed a mapped road, against 35 percent of the alternatives; eight of nine animals crossed less than expected. Major roads were crossed too rarely by anyone (1 against 2 percent) to say much.\\
+6. THE FIRST COMPARISON (Table~\ref{tab:limpopo}), as background: against random points across the whole area, cheetah locations had lower resistance 60 percent of the time (7 of 9 animals) and higher current 65 percent of the time (6 of 9). Widening the area by 20~km and using the earlier model gave the same picture.\\[0.3em]
+HOW TO DESCRIBE THE STRENGTH: consistent in direction, modest in size, and mostly carried by roads. 56 percent is a real lean, not a strong one. Say ``consistent with'' the model, not ``confirmed.'' Report the intervals and animal counts, not p-values.\\[0.3em]
+WHAT NOT TO CLAIM: that the model is validated; that it works across the whole region (one district in South Africa); that it says anything about 2020 or 2024 (the tracks end in 2008); or that fences were tested (they were not).}
+
+\begin{table}[htbp]\centering
+  \caption{\TODO{Final caption, in your own words: day-to-day moves of nine free-roaming cheetahs (Limpopo, 2003--2008) compared with moves of the same length the animals could have made instead, on the 2012 surfaces. Panels: main surface, all nine surfaces, single input layers, road crossings.}}
+  \label{tab:limpopo_steps}
+  \input{tables/table_limpopo_steps}
+\end{table}
 
 \begin{table}[htbp]\centering
   \caption{\TODO{Final caption, in your own words: modeled resistance and current at
   daily locations of nine free-roaming cheetahs (Limpopo, 2003--2008) compared with
-  random available points from the same landscape, on the 2012 surfaces.}}
+  random available points from the same landscape, on the 2012 surfaces. Call it the broader, less strict comparison.}}
   \label{tab:limpopo}
   \input{tables/table_limpopo_plausibility}
 \end{table}

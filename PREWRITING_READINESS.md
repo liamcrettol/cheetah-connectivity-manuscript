@@ -21,6 +21,8 @@
 - [ ] TODO: Count and name the scenarios that were actually completed; do not use the old five-scenario wording. The list is now in the `\nscen` macro in `main.tex`: a main surface plus 8 alternatives in three groups.
 - [ ] TODO: Decide whether the conditional 2030 scenarios belong in Results or the Supplement. Do not call them forecasts. Suggestion: Supplement, because they were not in the protocol. Note their rows were renamed on 5 Oct 2026 (see the table's TODO for why).
 - [x] Independent plausibility check completed 5 Oct 2026 against the Limpopo tracking data (protocol steps 23.1–23.5). New table `table_limpopo_plausibility.tex`. Writing guides are in Methods, Results, and Discussion.
+- [x] Stricter tracking follow-ups done 5 Oct 2026: step check with the animal as the unit (main result: 0.56, 95% interval 0.51–0.61, 7 of 9 animals), layer breakdown (roads carry most of it, vegetation alone leans slightly the wrong way), all nine surfaces (0.55–0.56), road crossings (26% of real moves against 35% of alternatives). The current lean did not hold up in the step check. Fences cannot be tested: none are mapped near the tracks. New table `table_limpopo_steps.tex`.
+- [ ] TODO: Add one standard step-selection reference to the bib (Methods step 6) and one road-avoidance source for the Discussion.
 - [ ] TODO: Call the same-archive occurrence comparison the weaker, non-independent check, presented after the tracking check.
 - [ ] TODO: Decide whether to request the Namibia camera-trap data (Verschueren et al. 2024) or state that it was not obtained.
 
