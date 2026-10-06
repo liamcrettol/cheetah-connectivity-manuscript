@@ -15,6 +15,22 @@
 - [x] Results consolidated into four substantive subsections.
 - [x] Objectives and hypotheses traced against the locked protocol and completed analyses.
 
+## Target journal: Biodiversity and Conservation (Springer, hybrid, free to publish)
+
+Chosen 6 Oct 2026. Landscape Ecology was dropped because it is now fully open access (about $3,860 per paper). Backups in order: Animal Conservation, then Peer Community Journal via PCI Ecology. Submit to one journal at a time.
+
+- [x] Three layouts in `tex/main.tex`: capstone, article, submission (`./build.sh all`).
+- [x] Submission layout: title page (title, author, affiliation, email, ORCID), double spacing, line numbers, Springer citations and reference list, statements after references, then figure captions, figures, and tables at the end.
+- [x] Limitations prints as the last Discussion subsection in the journal layouts.
+- [x] Appendices become Online Resource 1 and 2 in the submission layout (`\suppA`, `\suppB`); use `\figref{}` for figures.
+- [ ] Plain abstract of 150 to 250 words with no citations (draft is about 290).
+- [ ] Keywords: 4 to 6, none repeating title words (3 of the current 6 do).
+- [ ] Introduction: broader context and the novel approach, objectives stated plainly.
+- [ ] AI-use disclosure sentence in Methods (journal requirement).
+- [ ] Statements: Funding, Author contributions, Data availability with a public archive link.
+- [ ] ORCID iD on the title page.
+- [ ] Online Resource 1 and 2 as separate PDFs with the journal's header details.
+
 ## TODO — decisions to make before writing sentences
 
 - [ ] TODO: Explain that Git marks the protocol as version 1.0 even though the saved document still says “0.1 draft.”
