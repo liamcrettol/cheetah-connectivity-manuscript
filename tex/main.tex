@@ -27,14 +27,15 @@
 
 %---------------------------------------- authors and title (edit here only)
 % Add co-authors by copying the \author line and giving each a new
-% affiliation number. [1,*] means affiliation 1 and corresponding author.
+% affiliation number, e.g. \author[2]{Name}. \corr adds the corresponding-author star.
 \newcommand{\papertitle}{Temporal Change in Modeled Connectivity Among Southern African Cheetah (\textit{Acinonyx jubatus jubatus}) Range Cores, 2012--2024}
 \newcommand{\runningtitle}{Cheetah connectivity change, 2012--2024}
 \newcommand{\correspondingemail}{liamncrettol@gmail.com}
 \newcommand{\correspondingorcid}{\TODO{ORCID iD, e.g. 0000-0000-0000-0000; free at orcid.org}}
 \usepackage{authblk}
 \renewcommand\Authands{ and }
-\author[1,*]{Liam Crettol}
+\newcommand{\corr}{\ifcapstone\else,*\fi}   % * marks the corresponding author, journal layout only
+\author[1\corr]{Liam Crettol}
 % \author[2]{Advisor Name}
 \affil[1]{Department of Zoology, Weber State University, Ogden, Utah, USA}
 % \affil[2]{Department, University, City, Country}
