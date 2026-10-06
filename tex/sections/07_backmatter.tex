@@ -4,18 +4,37 @@
 that the scripts and outputs created by the project are available there. Explain that
 raw protected-area data must be downloaded from Protected Planet under its license and
 that cheetah occurrence locations can only be shared at the detail allowed by their
-source.}
+source. FOR BIODIVERSITY AND CONSERVATION (Springer research data policy): the analysis repository is private right now, so before
+submitting either make it public or archive a copy on Zenodo, which gives it a DOI to
+cite here. Springer's example wording: ``The datasets generated during and/or analysed
+during the current study are available in the [name] repository, [link].''}
 
 \section*{Acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgements}
 \TODO{PLAIN-LANGUAGE GUIDE: list the department, advisor, data providers, and any
-organization or person who reviewed the project or helped interpret priorities.}
+organization or person who reviewed the project or helped interpret priorities. Data
+providers to thank by name: the Endangered Wildlife Trust and University of Pretoria
+(Limpopo tracking data, via GBIF), Weise and coauthors (range archive), and
+UNEP-WCMC (protected areas). If your advisor shaped the design or analysis rather than
+only grading it, offer co-authorship instead of a thank-you here.}
 
 \section*{Funding}
 \addcontentsline{toc}{section}{Funding}
-\TODO{LANDSCAPE ECOLOGY REQUIRES THIS STATEMENT. If nobody paid for the work, Springer's own wording is: ``The authors did not receive support from any organization for the submitted work.'' If a scholarship, department, or grant helped, name it and give any grant number.}
+\TODO{BIODIVERSITY AND CONSERVATION REQUIRES THIS STATEMENT; submissions without it are returned as incomplete. If nobody paid for the work, Springer's own wording is: ``The authors did not receive support from any organization for the submitted work.'' If a scholarship, department, or grant helped, name it and give any grant number.}
 
-\section*{Conflicts of interest}
-\TODO{Springer calls this heading ``Competing interests''. Rename it when you submit.}
-\addcontentsline{toc}{section}{Conflicts of interest}
+\section*{\ifcapstone Conflicts of interest\else Competing interests\fi}
+\addcontentsline{toc}{section}{\ifcapstone Conflicts of interest\else Competing interests\fi}
+\ifcapstone
 I declare no conflicts of interest.
+\else
+The author has no relevant financial or non-financial interests to disclose.
+\fi
+
+\ifspringer
+\section*{Ethics approval}
+Not applicable. The study used existing, publicly available data and involved no
+handling of animals or human participants.
+
+\section*{Author contributions}
+\TODO{SPRINGER REQUIRES THIS. Single author: ``Liam Crettol designed the study, carried out the analysis, and wrote the manuscript.'' If your advisor becomes a co-author, say what each person did, for example who designed the study, who ran the analysis, who wrote the first draft, and who revised it. All authors must read and approve the final version, and the statement should say so.}
+\fi

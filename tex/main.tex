@@ -7,15 +7,17 @@
 % ONE SOURCE, THREE LAYOUTS. Set \layout on the line below to one of:
 %   capstone    12 pt, double spaced, one column, title page, table of
 %               contents, APA citations. This is what you hand in.
-%   article     What the paper would look like printed in Landscape
-%               Ecology: 10 pt, two columns, title and abstract across the
-%               top, Springer citations. For reading and sharing, not for
-%               submitting.
-%   submission  What you would upload to Landscape Ecology: one column,
-%               double spaced, line numbers (required, or the manuscript is
-%               returned unreviewed), title page with every item Springer
-%               asks for, Springer citations, appendices left out (they go in
-%               a separate Supplementary Information file).
+%   article     What the paper would look like printed in a Springer journal
+%               such as Biodiversity and Conservation: 10 pt, two columns,
+%               title and abstract across the top, Springer citations. For
+%               reading and sharing, not for submitting.
+%   submission  What you would upload to Biodiversity and Conservation
+%               (Springer, hybrid, free to publish): one column, double
+%               spaced throughout, line numbers, title page with every item
+%               the journal asks for, Springer citations, references then
+%               statements, then figure captions, figures, and tables at the
+%               end in that order, appendices left out (they become separate
+%               Online Resource files).
 %
 % BUILD (each writes its own PDF, no editing needed):
 %   latexmk -pdf main.tex              -> main.pdf            (uses \layout below)
@@ -52,9 +54,7 @@
 \newcommand{\authorlist}{Liam Crettol\textsuperscript{1\corr}}
 \newcommand{\affillist}{\textsuperscript{1}Department of Zoology, Weber State University, Ogden, Utah, USA}
 \newcommand{\correspondingemail}{liamncrettol@gmail.com}
-% Extra title-page items Springer requires at submission:
-\newcommand{\affiladdress}{\TODO{full postal address of the department, as the university lists it}}
-\newcommand{\correspondingphone}{\TODO{phone number with country code}}
+% Extra title-page item Biodiversity and Conservation asks for "if available":
 \newcommand{\correspondingorcid}{\TODO{16-digit ORCID iD, free at orcid.org}}
 
 %---------------------------------------- page + type
@@ -81,7 +81,12 @@
 \usepackage{fancyhdr}
 \usepackage{titlesec}
 \usepackage{lineno}
-\ifsubmission \linenumbers \fi   % Landscape Ecology returns manuscripts without line numbers
+\ifsubmission \linenumbers \fi   % not required by the journal, but reviewers rely on them
+\ifsubmission
+  % Springer wants figure captions, figures, and tables after the references,
+  % in that order. endfloat collects them and prints them at the very end.
+  \usepackage[nomarkers,figuresfirst,nolists]{endfloat}
+\fi
 
 \ifarticle
   % Running head: author left, short title and page number right.
@@ -146,7 +151,7 @@
   \usepackage[style=apa,backend=biber,sortcites=true]{biblatex}
   \DeclareLanguageMapping{english}{english-apa}
 \else
-  % Landscape Ecology (Springer) style.
+  % Springer basic style, used by Biodiversity and Conservation.
   % In text: (Weise et al. 2017), Becker and Seligman (1996).
   % List:    Marker LL, Dickman AJ, ... (2008) Title. Journal 275:1-10. https://doi.org/...
   \usepackage[style=authoryear,backend=biber,sortcites=true,
@@ -193,10 +198,20 @@
 \else
   \newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
 \fi
-% Run-in heading for the structured abstract Landscape Ecology requires:
+% Run-in heading for a structured abstract (needed only if you ever submit to
+% a journal that requires one, such as Landscape Ecology; Biodiversity and
+% Conservation wants a plain one-paragraph abstract):
 % \abspart{Context} ... \abspart{Objectives} ... \abspart{Methods} ...
 % \abspart{Results} ... \abspart{Conclusions} ...
 \newcommand{\abspart}[1]{\par\noindent\textbf{#1}\enspace}
+% Cross-references that change with the layout. Use these in prose:
+%   \figref{fig:change}  -> "Figure 3" (capstone) or "Fig. 3" (Springer style)
+%   \suppA, \suppB       -> "Appendix A/B" (capstone, article) or
+%                           "Online Resource 1/2" (submission, where the
+%                           appendices become separate supplement files)
+\newcommand{\figref}[1]{\ifspringer Fig.~\ref{#1}\else Figure~\ref{#1}\fi}
+\newcommand{\suppA}{\ifsubmission Online Resource~1\else Appendix~A\fi}
+\newcommand{\suppB}{\ifsubmission Online Resource~2\else Appendix~B\fi}
 
 %==============================================================================
 \title{\papertitle}
@@ -244,9 +259,9 @@
 \fi
 
 \ifsubmission
-  % Title page with every item the Landscape Ecology guidelines list:
-  % authors, title, affiliations and addresses, corresponding author's
-  % email and phone, and ORCID.
+  % Title page with every item the Biodiversity and Conservation guidelines
+  % list: title, authors, affiliation (institution, department, city, state,
+  % country), corresponding author's email, and ORCID if available.
   \begin{titlepage}
     \begin{flushleft}
       {\Large\bfseries\papertitle\par}
@@ -254,16 +269,13 @@
       {\large\authorlist\par}
       \vspace{10pt}
       \affillist\par
-      \affiladdress\par
       \vspace{18pt}
       \textbf{*Corresponding author}\par
       Email: \href{mailto:\correspondingemail}{\correspondingemail}\par
-      Phone: \correspondingphone\par
       ORCID: \correspondingorcid\par
       \vspace{18pt}
-      \textbf{Running title:} \runningtitle\par
-      \textbf{Article type:} Research article\par
-      \textbf{Word count:} \TODO{main text including figure captions and tables, excluding abstract and references; limit 8,500}\par
+      \textbf{Article type:} Original Research\par
+      \textbf{Word count:} \TODO{whole manuscript; the journal's limit for Original Research is 9,000 words}\par
     \end{flushleft}
   \end{titlepage}
   \setcounter{page}{2}   % the title page counts as page 1
@@ -275,7 +287,16 @@
 \input{sections/02_methods}
 \input{sections/03_results}
 \input{sections/04_discussion}
-\input{sections/05_limitations}
+\ifspringer
+  % Springer journals close research articles with the Discussion, so in
+  % the journal layouts Limitations prints as the last Discussion subsection.
+  \begingroup
+    \let\section\subsection
+    \input{sections/05_limitations}
+  \endgroup
+\else
+  \input{sections/05_limitations}
+\fi
 \input{sections/06_conclusion}
 
 \ifcapstone
