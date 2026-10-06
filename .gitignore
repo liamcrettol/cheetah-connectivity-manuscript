@@ -17,3 +17,6 @@
 *.nav
 *.snm
 tmp/
+
+# Journal-layout build output (rebuild with: latexmk -pdf main_journal.tex)
+tex/main_journal.pdf
