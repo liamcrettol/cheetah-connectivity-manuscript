@@ -4,58 +4,74 @@
 %
 % Liam Crettol -- Weber State University
 %
-% BUILD:  latexmk -pdf main.tex      (uses biber; see latexmkrc)
+% ONE SOURCE, THREE LAYOUTS. Set \layout on the line below to one of:
+%   capstone    12 pt, double spaced, one column, title page, table of
+%               contents, APA citations. This is what you hand in.
+%   article     What the paper would look like printed in Landscape
+%               Ecology: 10 pt, two columns, title and abstract across the
+%               top, Springer citations. For reading and sharing, not for
+%               submitting.
+%   submission  What you would upload to Landscape Ecology: one column,
+%               double spaced, line numbers (required, or the manuscript is
+%               returned unreviewed), title page with every item Springer
+%               asks for, Springer citations, appendices left out (they go in
+%               a separate Supplementary Information file).
 %
-% ONE SOURCE, TWO LOOKS
-%   \capstonetrue  -> capstone version: 12 pt, double spaced, one column,
-%                     title page, table of contents
-%   \capstonefalse -> published-article look: 10 pt, single spaced, two
-%                     columns, title, authors, and abstract across the top of
-%                     page 1, figures and tables spanning both columns,
-%                     running head
-% Flip the flag on the next line. Nothing else needs to change.
-%
-% To build the article look WITHOUT editing this file:
-%   latexmk -pdf main_journal.tex      (writes main_journal.pdf)
+% BUILD (each writes its own PDF, no editing needed):
+%   latexmk -pdf main.tex              -> main.pdf            (uses \layout below)
+%   latexmk -pdf main_article.tex      -> main_article.pdf
+%   latexmk -pdf main_submission.tex   -> main_submission.pdf
 %==============================================================================
 
-\newif\ifcapstone
-\capstonetrue         % <-- set to \capstonefalse for the published-article look
-\ifdefined\forcejournal \capstonefalse \fi
+\def\layout{capstone}   % <-- capstone | article | submission
+\ifdefined\forcelayout \let\layout\forcelayout \fi
 
-\ifcapstone
-  \documentclass[12pt,letterpaper]{article}
-\else
+\newif\ifcapstone \newif\ifarticle \newif\ifsubmission \newif\ifspringer
+\def\layoutcapstone{capstone}\def\layoutarticle{article}\def\layoutsubmission{submission}
+\ifx\layout\layoutcapstone   \capstonetrue \fi
+\ifx\layout\layoutarticle    \articletrue    \springertrue \fi
+\ifx\layout\layoutsubmission \submissiontrue \springertrue \fi
+\ifcapstone\else\ifspringer\else
+  \errmessage{Unknown layout "\layout". Use capstone, article, or submission.}
+\fi\fi
+
+\ifarticle
   \documentclass[10pt,letterpaper,twocolumn]{article}
+\else
+  \documentclass[12pt,letterpaper]{article}
 \fi
 
 %---------------------------------------- authors and title (edit here only)
 % To add a co-author, extend both lists, e.g.
 %   \newcommand{\authorlist}{Liam Crettol\textsuperscript{1\corr} and Jane Doe\textsuperscript{2}}
 %   \newcommand{\affillist}{\textsuperscript{1}Department ...\\ \textsuperscript{2}Department ...}
-\newcommand{\corr}{\ifcapstone\else,*\fi}   % * marks the corresponding author, article look only
+\newcommand{\corr}{\ifspringer,*\fi}   % * marks the corresponding author in the journal layouts
 \newcommand{\papertitle}{Temporal Change in Modeled Connectivity Among Southern African Cheetah (\textit{Acinonyx jubatus jubatus}) Range Cores, 2012--2024}
 \newcommand{\runningtitle}{Cheetah connectivity change, 2012--2024}
 \newcommand{\runningauthors}{Crettol}
 \newcommand{\authorlist}{Liam Crettol\textsuperscript{1\corr}}
 \newcommand{\affillist}{\textsuperscript{1}Department of Zoology, Weber State University, Ogden, Utah, USA}
 \newcommand{\correspondingemail}{liamncrettol@gmail.com}
+% Extra title-page items Springer requires at submission:
+\newcommand{\affiladdress}{\TODO{full postal address of the department, as the university lists it}}
+\newcommand{\correspondingphone}{\TODO{phone number with country code}}
+\newcommand{\correspondingorcid}{\TODO{16-digit ORCID iD, free at orcid.org}}
 
 %---------------------------------------- page + type
-\ifcapstone
-  \usepackage[margin=1in]{geometry}
-\else
+\ifarticle
   \usepackage[top=0.75in,bottom=0.75in,left=0.7in,right=0.7in,columnsep=0.28in,headsep=0.2in]{geometry}
+\else
+  \usepackage[margin=1in]{geometry}
 \fi
 \usepackage{setspace}
-\ifcapstone \doublespacing \else \singlespacing \fi
+\ifarticle \singlespacing \else \doublespacing \fi
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \ifcapstone
   \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{} % graceful on minimal TeX installs
 \else
-  % Times-style text, the usual look of printed journals.
+  % Times-style text: printed journals, and the font Springer asks for.
   \IfFileExists{newtxtext.sty}{\usepackage{newtxtext}\usepackage{newtxmath}}%
     {\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}}
 \fi
@@ -64,8 +80,10 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
+\usepackage{lineno}
+\ifsubmission \linenumbers \fi   % Landscape Ecology returns manuscripts without line numbers
 
-\ifcapstone\else
+\ifarticle
   % Running head: author left, short title and page number right.
   \pagestyle{fancy}
   \fancyhf{}
@@ -102,7 +120,8 @@
   \setlength{\textfloatsep}{28pt plus 4pt minus 6pt}
   \setlength{\intextsep}{24pt plus 4pt minus 4pt}
   \captionsetup{skip=10pt}
-\else
+\fi
+\ifarticle
   % Every figure and table spans both columns, at the top of a page or on a
   % page of its own, the way wide maps and tables appear in print.
   \makeatletter
@@ -113,8 +132,11 @@
   \setlength{\dbltextfloatsep}{14pt plus 2pt minus 4pt}
   \renewcommand{\dbltopfraction}{0.9}
   \renewcommand{\textfraction}{0.07}
+  \captionsetup{font=footnotesize,skip=6pt}
+\fi
+\ifspringer
   % Springer captions: "Fig. 1 Caption text" and "Table 1 Caption text".
-  \captionsetup{font=footnotesize,skip=6pt,labelsep=space,labelfont=bf}
+  \captionsetup{labelsep=space,labelfont=bf}
   \captionsetup[figure]{name=Fig.}
 \fi
 
@@ -124,7 +146,7 @@
   \usepackage[style=apa,backend=biber,sortcites=true]{biblatex}
   \DeclareLanguageMapping{english}{english-apa}
 \else
-  % Article look: Landscape Ecology (Springer) style.
+  % Landscape Ecology (Springer) style.
   % In text: (Weise et al. 2017), Becker and Seligman (1996).
   % List:    Marker LL, Dickman AJ, ... (2008) Title. Journal 275:1-10. https://doi.org/...
   \usepackage[style=authoryear,backend=biber,sortcites=true,
@@ -145,7 +167,7 @@
   \renewbibmacro{in:}{}
   \renewbibmacro*{volume+number+eid}{\printfield{volume}}
   \renewcommand*{\bibpagespunct}{\addcolon}
-  \renewcommand*{\bibfont}{\footnotesize}
+  \ifarticle \renewcommand*{\bibfont}{\footnotesize} \fi
 \fi
 \addbibresource{../refs/cheetah_lit.bib}   % export your Literature sheet here
 
@@ -163,7 +185,14 @@
 \newcommand{\pythonversion}{3.13.13}
 \newcommand{\juliaversion}{1.12.7}
 \newcommand{\circuitscapeversion}{5.17.1}
-\newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
+\ifsubmission
+  % Line numbers break on \\[...] inside a colored group, so in the
+  % submission layout the line breaks in TODO notes become paragraph breaks.
+  \newcommand\todobreak[1][0pt]{\par\vspace{#1}\noindent}
+  \newcommand{\TODO}[1]{{\color{red}\let\\\todobreak[TODO: #1]}}
+\else
+  \newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
+\fi
 % Run-in heading for the structured abstract Landscape Ecology requires:
 % \abspart{Context} ... \abspart{Objectives} ... \abspart{Methods} ...
 % \abspart{Results} ... \abspart{Conclusions} ...
@@ -184,7 +213,9 @@
   \tableofcontents
   \newpage
   \input{sections/00_abstract}
-\else
+\fi
+
+\ifarticle
   % Article header across both columns: title, authors, affiliations,
   % correspondence, then the abstract and keywords between two rules.
   \twocolumn[{%
@@ -212,6 +243,34 @@
   \thispagestyle{firstpage}
 \fi
 
+\ifsubmission
+  % Title page with every item the Landscape Ecology guidelines list:
+  % authors, title, affiliations and addresses, corresponding author's
+  % email and phone, and ORCID.
+  \begin{titlepage}
+    \begin{flushleft}
+      {\Large\bfseries\papertitle\par}
+      \vspace{18pt}
+      {\large\authorlist\par}
+      \vspace{10pt}
+      \affillist\par
+      \affiladdress\par
+      \vspace{18pt}
+      \textbf{*Corresponding author}\par
+      Email: \href{mailto:\correspondingemail}{\correspondingemail}\par
+      Phone: \correspondingphone\par
+      ORCID: \correspondingorcid\par
+      \vspace{18pt}
+      \textbf{Running title:} \runningtitle\par
+      \textbf{Article type:} Research article\par
+      \textbf{Word count:} \TODO{main text including figure captions and tables, excluding abstract and references; limit 8,500}\par
+    \end{flushleft}
+  \end{titlepage}
+  \setcounter{page}{2}   % the title page counts as page 1
+  \input{sections/00_abstract}
+  \newpage
+\fi
+
 \input{sections/01_introduction}
 \input{sections/02_methods}
 \input{sections/03_results}
@@ -233,8 +292,12 @@
   \endgroup
 \fi
 
-\appendix
-\input{sections/A1_protocol}
-\input{sections/A2_supplement}
+% Appendices: bound in for the capstone and the article look. For submission
+% they go in a separate Supplementary Information file instead.
+\ifsubmission\else
+  \appendix
+  \input{sections/A1_protocol}
+  \input{sections/A2_supplement}
+\fi
 
 \end{document}

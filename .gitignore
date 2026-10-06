@@ -18,5 +18,6 @@
 *.snm
 tmp/
 
-# Journal-layout build output (rebuild with: latexmk -pdf main_journal.tex)
-tex/main_journal.pdf
+# Article and submission layout builds (rebuild with build.sh)
+tex/main_article.pdf
+tex/main_submission.pdf
