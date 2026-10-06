@@ -5,6 +5,17 @@
 \label{sec:extent}
 
 The study area was defined as the southern African cheetah range \parencite{weise2017distribution} plus a buffered analysis extent. All layers were aligned to a fixed equal-area projection and a \cellsize\ snap grid, so every raster was directly comparable cell for cell. Cores were derived from the historical confirmed-range baseline and held constant across 2012, 2016, 2020, and 2024. The final network consisted of 23 cores and 45 selected neighboring core pairs. I used a 1-km working resolution because it represented a compromise between the rougher 10-km occurrence baseline and the finer environmental covariates, which ranged from 30 m to 1 km. This resolution was fine enough to identify meaningful points in the landscape while avoiding the implication of a level of accuracy that the occurrence evidence alone could not provide.
+
+\TODO{FIGURE (moved here from Results, 6 October 2026): mention the study-area map in this paragraph, e.g. ``(\texttt{\textbackslash figref\{fig:studyarea\}})'' after the sentence that describes the extent or the 23 cores. It is now the first figure in the paper.}
+
+\begin{figure}[htbp]\centering
+  \includegraphics[width=\textwidth]{Figure_0_study_area_and_core_groups.pdf}
+  \caption{Study extent, fixed historical range cores, and core groups used to define
+  the modeled connectivity network. Core groups are an analysis construct and do not
+  imply separate populations.}
+  \label{fig:studyarea}
+\end{figure}
+
 \subsection{Range cores}
 \label{sec:cores}
 
@@ -18,6 +29,14 @@ I represented these 23 core areas as fixed nodes across all four temporal snapsh
 The predicted temporal resistance values came from the continuous rasters (human development from GHSL, nighttime lights from VIIRS, and VCF (vegetation) from MODIS). Categorical land cover was used for masking and description only, because annual categorical features can switch classes between years for reasons unrelated to overall landscape change.
 
 I also used the static covariates (roads, livestock, terrain, hydrography, fences, protected areas, and core definitions). The static covariates did not contribute \textit{temporal} signal to the resistance surface; however, they did contribute \textit{spatial} signal to the resistance surface. The static covariates were used to describe the landscape and to provide context for the dynamic covariates.
+
+\TODO{TABLE (moved here from Results, 6 October 2026): mention the covariates table in this subsection, e.g. ``(Table\textasciitilde\texttt{\textbackslash ref\{tab:covariates\}})'' after you first list the covariates. It is now the first table in the paper. The gaps in the table itself are listed in the note under it.}
+
+\begin{table}[htbp]\centering
+  \caption{Covariates, native resolution, source years, and static/dynamic treatment.}
+  \label{tab:covariates}
+  \input{tables/table_covariates}
+\end{table}
 
 \subsection{Resistance scenarios}
 \label{sec:resistance}
