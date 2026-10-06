@@ -21,3 +21,5 @@ tmp/
 # Article and submission layout builds (rebuild with build.sh)
 tex/main_article.pdf
 tex/main_submission.pdf
+*.fff
+*.ttt
