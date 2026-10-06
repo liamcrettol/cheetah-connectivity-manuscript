@@ -6,60 +6,81 @@
 %
 % BUILD:  latexmk -pdf main.tex      (uses biber; see latexmkrc)
 %
-% ONE SOURCE, TWO OUTPUTS
-%   \capstonetrue  -> capstone version: title page, table of contents,
-%                     appendices bound in
-%   \capstonefalse -> journal submission version: title page with authors,
-%                     affiliations, corresponding author, and running title;
-%                     line numbers; running head; no table of contents;
-%                     appendices left out (they go in a separate supplement)
+% ONE SOURCE, TWO LOOKS
+%   \capstonetrue  -> capstone version: 12 pt, double spaced, one column,
+%                     title page, table of contents
+%   \capstonefalse -> published-article look: 10 pt, single spaced, two
+%                     columns, title, authors, and abstract across the top of
+%                     page 1, figures and tables spanning both columns,
+%                     running head
 % Flip the flag on the next line. Nothing else needs to change.
 %
-% To build the journal version WITHOUT editing this file:
+% To build the article look WITHOUT editing this file:
 %   latexmk -pdf main_journal.tex      (writes main_journal.pdf)
 %==============================================================================
 
 \newif\ifcapstone
-\capstonetrue         % <-- set to \capstonefalse for the journal submission layout
+\capstonetrue         % <-- set to \capstonefalse for the published-article look
 \ifdefined\forcejournal \capstonefalse \fi
 
-\documentclass[12pt,letterpaper]{article}
+\ifcapstone
+  \documentclass[12pt,letterpaper]{article}
+\else
+  \documentclass[10pt,letterpaper,twocolumn]{article}
+\fi
 
 %---------------------------------------- authors and title (edit here only)
-% Add co-authors by copying the \author line and giving each a new
-% affiliation number, e.g. \author[2]{Name}. \corr adds the corresponding-author star.
+% To add a co-author, extend both lists, e.g.
+%   \newcommand{\authorlist}{Liam Crettol\textsuperscript{1\corr} and Jane Doe\textsuperscript{2}}
+%   \newcommand{\affillist}{\textsuperscript{1}Department ...\\ \textsuperscript{2}Department ...}
+\newcommand{\corr}{\ifcapstone\else,*\fi}   % * marks the corresponding author, article look only
 \newcommand{\papertitle}{Temporal Change in Modeled Connectivity Among Southern African Cheetah (\textit{Acinonyx jubatus jubatus}) Range Cores, 2012--2024}
 \newcommand{\runningtitle}{Cheetah connectivity change, 2012--2024}
+\newcommand{\runningauthors}{Crettol}
+\newcommand{\authorlist}{Liam Crettol\textsuperscript{1\corr}}
+\newcommand{\affillist}{\textsuperscript{1}Department of Zoology, Weber State University, Ogden, Utah, USA}
 \newcommand{\correspondingemail}{liamncrettol@gmail.com}
-\newcommand{\correspondingorcid}{\TODO{ORCID iD, e.g. 0000-0000-0000-0000; free at orcid.org}}
-\usepackage{authblk}
-\renewcommand\Authands{ and }
-\newcommand{\corr}{\ifcapstone\else,*\fi}   % * marks the corresponding author, journal layout only
-\author[1\corr]{Liam Crettol}
-% \author[2]{Advisor Name}
-\affil[1]{Department of Zoology, Weber State University, Ogden, Utah, USA}
-% \affil[2]{Department, University, City, Country}
 
 %---------------------------------------- page + type
-\usepackage[margin=1in]{geometry}
+\ifcapstone
+  \usepackage[margin=1in]{geometry}
+\else
+  \usepackage[top=0.75in,bottom=0.75in,left=0.7in,right=0.7in,columnsep=0.28in,headsep=0.2in]{geometry}
+\fi
 \usepackage{setspace}
-\doublespacing        % capstone and most ecology journals both require double spacing
-\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{} % graceful on minimal TeX installs
+\ifcapstone \doublespacing \else \singlespacing \fi
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\ifcapstone
+  \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{} % graceful on minimal TeX installs
+\else
+  % Times-style text, the usual look of printed journals.
+  \IfFileExists{newtxtext.sty}{\usepackage{newtxtext}\usepackage{newtxmath}}%
+    {\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}}
+\fi
 \usepackage[protrusion=true,expansion=false]{microtype} % expansion needs scalable fonts
+\usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
-\usepackage{lineno}
-\ifcapstone\else\linenumbers\fi   % journals want line numbers; capstones don't
 \usepackage{fancyhdr}
+\usepackage{titlesec}
+
 \ifcapstone\else
-  % Running head on every page: short title left, page number right.
+  % Running head: author left, short title and page number right.
   \pagestyle{fancy}
   \fancyhf{}
-  \fancyhead[L]{\small\itshape\runningtitle}
-  \fancyhead[R]{\small\thepage}
-  \renewcommand{\headrulewidth}{0pt}
-  \setlength{\headheight}{14pt}
+  \fancyhead[L]{\footnotesize\runningauthors}
+  \fancyhead[R]{\footnotesize\itshape\runningtitle\upshape\quad\thepage}
+  \renewcommand{\headrulewidth}{0.4pt}
+  \setlength{\headheight}{12pt}
+  % First page: no running head, page number at the bottom.
+  \fancypagestyle{firstpage}{\fancyhf{}\fancyfoot[C]{\footnotesize\thepage}\renewcommand{\headrulewidth}{0pt}}
+  % Compact article-style headings.
+  \titleformat{\section}{\normalfont\large\bfseries}{\thesection}{0.6em}{}
+  \titlespacing*{\section}{0pt}{12pt plus 3pt minus 2pt}{5pt plus 1pt}
+  \titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{}
+  \titlespacing*{\subsection}{0pt}{9pt plus 2pt minus 2pt}{3pt plus 1pt}
+  \titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{0.5em}{}
 \fi
 
 %---------------------------------------- floats, tables, math
@@ -70,21 +91,62 @@
 \usepackage{longtable}
 \usepackage{siunitx}
 \sisetup{group-separator={,}, per-mode=symbol}
-\usepackage{amsmath}
 \usepackage[font=small,labelfont=bf]{caption}
 \usepackage{placeins}
 \usepackage{rotating}
 
-% Keep successive figures and tables from running together in the capstone
-% layout, while still allowing LaTeX to choose the best page break.
-\setlength{\floatsep}{24pt plus 4pt minus 4pt}
-\setlength{\textfloatsep}{28pt plus 4pt minus 6pt}
-\setlength{\intextsep}{24pt plus 4pt minus 4pt}
-\captionsetup{skip=10pt}
+\ifcapstone
+  % Keep successive figures and tables from running together in the capstone
+  % layout, while still allowing LaTeX to choose the best page break.
+  \setlength{\floatsep}{24pt plus 4pt minus 4pt}
+  \setlength{\textfloatsep}{28pt plus 4pt minus 6pt}
+  \setlength{\intextsep}{24pt plus 4pt minus 4pt}
+  \captionsetup{skip=10pt}
+\else
+  % Every figure and table spans both columns, at the top of a page or on a
+  % page of its own, the way wide maps and tables appear in print.
+  \makeatletter
+  \renewenvironment{figure}[1][]{\@dblfloat{figure}[tp]}{\end@dblfloat}
+  \renewenvironment{table}[1][]{\@dblfloat{table}[tp]}{\end@dblfloat}
+  \makeatother
+  \setlength{\dblfloatsep}{12pt plus 2pt minus 2pt}
+  \setlength{\dbltextfloatsep}{14pt plus 2pt minus 4pt}
+  \renewcommand{\dbltopfraction}{0.9}
+  \renewcommand{\textfraction}{0.07}
+  % Springer captions: "Fig. 1 Caption text" and "Table 1 Caption text".
+  \captionsetup{font=footnotesize,skip=6pt,labelsep=space,labelfont=bf}
+  \captionsetup[figure]{name=Fig.}
+\fi
 
-%---------------------------------------- bibliography (APA 7 via biblatex+biber)
-\usepackage[style=apa,backend=biber,sortcites=true]{biblatex}
-\DeclareLanguageMapping{english}{english-apa}
+%---------------------------------------- bibliography (biblatex+biber)
+\ifcapstone
+  % Capstone: APA 7.
+  \usepackage[style=apa,backend=biber,sortcites=true]{biblatex}
+  \DeclareLanguageMapping{english}{english-apa}
+\else
+  % Article look: Landscape Ecology (Springer) style.
+  % In text: (Weise et al. 2017), Becker and Seligman (1996).
+  % List:    Marker LL, Dickman AJ, ... (2008) Title. Journal 275:1-10. https://doi.org/...
+  \usepackage[style=authoryear,backend=biber,sortcites=true,
+              maxcitenames=2,mincitenames=1,maxbibnames=99,
+              giveninits=true,terseinits=true,uniquename=false,uniquelist=false,
+              dashed=false,doi=true,url=false,isbn=false,eprint=false]{biblatex}
+  \DeclareNameAlias{sortname}{family-given}
+  \DeclareNameAlias{default}{family-given}
+  \renewcommand*{\revsdnamepunct}{}
+  \renewcommand*{\nameyeardelim}{\addspace}
+  \renewcommand*{\finalnamedelim}{\addspace\bibstring{and}\space}
+  \renewcommand*{\finalandcomma}{}
+  \DeclareFieldFormat*{title}{#1}
+  \DeclareFieldFormat*{journaltitle}{#1}
+  \DeclareFieldFormat*{volume}{#1}
+  \DeclareFieldFormat*{pages}{#1}
+  \DeclareFieldFormat{doi}{\url{https://doi.org/#1}}
+  \renewbibmacro{in:}{}
+  \renewbibmacro*{volume+number+eid}{\printfield{volume}}
+  \renewcommand*{\bibpagespunct}{\addcolon}
+  \renewcommand*{\bibfont}{\footnotesize}
+\fi
 \addbibresource{../refs/cheetah_lit.bib}   % export your Literature sheet here
 
 %---------------------------------------- project shorthand
@@ -101,19 +163,16 @@
 \newcommand{\pythonversion}{3.13.13}
 \newcommand{\juliaversion}{1.12.7}
 \newcommand{\circuitscapeversion}{5.17.1}
-\ifcapstone
-  \newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
-\else
-  % Line numbers break on \\[...] inside a colored group, so in the journal
-  % layout the line breaks in TODO notes become short paragraph breaks.
-  \newcommand\todobreak[1][0pt]{\par\vspace{#1}\noindent}
-  \newcommand{\TODO}[1]{{\color{red}\let\\\todobreak[TODO: #1]}}
-\fi
-\usepackage{xcolor}
+\newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
+% Run-in heading for the structured abstract Landscape Ecology requires:
+% \abspart{Context} ... \abspart{Objectives} ... \abspart{Methods} ...
+% \abspart{Results} ... \abspart{Conclusions} ...
+\newcommand{\abspart}[1]{\par\noindent\textbf{#1}\enspace}
 
 %==============================================================================
 \title{\papertitle}
-\ifcapstone \date{\today} \else \date{} \fi
+\author{\authorlist\\[0.5em] \small\affillist}
+\date{\today}
 %==============================================================================
 
 \begin{document}
@@ -124,37 +183,58 @@
   \newpage
   \tableofcontents
   \newpage
+  \input{sections/00_abstract}
 \else
-  % Journal title page: title, authors, affiliations, then the details
-  % editors look for before they read anything else.
-  \begin{titlepage}
-    \maketitle
-    \thispagestyle{empty}
-    \vspace{1em}
-    \noindent\textbf{Corresponding author:} Liam Crettol (\href{mailto:\correspondingemail}{\correspondingemail})\\
-    \textbf{ORCID:} \correspondingorcid\\
-    \textbf{Running title:} \runningtitle\\
-    \textbf{Article type:} \TODO{set to the journal's category, usually ``Research article''}\\
-    \textbf{Word count:} \TODO{main text only, abstract to end of Discussion; check the journal's limit}
-  \end{titlepage}
-  \setcounter{page}{2}   % the title page counts as page 1
+  % Article header across both columns: title, authors, affiliations,
+  % correspondence, then the abstract and keywords between two rules.
+  \twocolumn[{%
+    \begin{flushleft}
+      {\footnotesize\scshape Research article\par}
+      % Deliberately no journal name, volume, or DOI here: those belong only
+      % on the version the journal itself publishes.
+      \vspace{8pt}
+      {\LARGE\bfseries\papertitle\par}
+      \vspace{10pt}
+      {\large\authorlist\par}
+      \vspace{5pt}
+      {\footnotesize\affillist\par}
+      \vspace{3pt}
+      {\footnotesize *Correspondence: \href{mailto:\correspondingemail}{\correspondingemail}\par}
+    \end{flushleft}
+    \vspace{4pt}
+    \hrule
+    \vspace{2pt}
+    {\small\input{sections/00_abstract}\par}
+    \vspace{8pt}
+    \hrule
+    \vspace{14pt}
+  }]
+  \thispagestyle{firstpage}
 \fi
 
-\input{sections/00_abstract}
 \input{sections/01_introduction}
 \input{sections/02_methods}
 \input{sections/03_results}
 \input{sections/04_discussion}
 \input{sections/05_limitations}
 \input{sections/06_conclusion}
-\input{sections/07_backmatter}
-
-\printbibliography
 
 \ifcapstone
-  \appendix
-  \input{sections/A1_protocol}
-  \input{sections/A2_supplement}
+  \input{sections/07_backmatter}
+  \printbibliography
+\else
+  % Springer order: references, then the required statements under one
+  % heading, each statement as a subheading.
+  \printbibliography
+  \section*{Statements and Declarations}
+  \begingroup
+    \let\section\subsection
+    \input{sections/07_backmatter}
+  \endgroup
 \fi
+
+\appendix
+\input{sections/A1_protocol}
+\input{sections/A2_supplement}
 
 \end{document}
