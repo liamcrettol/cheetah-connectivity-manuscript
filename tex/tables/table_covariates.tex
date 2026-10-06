@@ -2,19 +2,19 @@
 \toprule
 Layer & Source & Treatment & In resistance & Role\\
 \midrule
-Built-up fraction & Global Human Settlement Layer (GHSL) & Dynamic & Yes & Human pressure\\
-Nighttime radiance & Visible Infrared Imaging Radiometer Suite (VIIRS) nighttime lights, VNL V2; gas flares masked & Dynamic & Yes & Human pressure\\
-Road density & Global Roads Inventory Project, version 4 (GRIP4) & Static & Yes & Human pressure\\
-Livestock density & Gridded Livestock of the World, version 4 (GLW4); cattle, goats, and sheep combined & Static & Yes & Human pressure\\
-Tree, non-tree, and bare cover & Moderate Resolution Imaging Spectroradiometer (MODIS), MOD44B & Dynamic & Yes & Vegetation\\
-Slope & Shuttle Radar Topography Mission (SRTM) & Static & Yes & Terrain\\
-Veterinary fences & World Wide Fund for Nature (WWF) Kavango--Zambezi Transfrontier Conservation Area (KAZA) fence map; Kruger National Park fence references & Static; varied between scenarios & Yes, as a multiplier & Raises resistance where present; crossable, not a full barrier\\
-Land cover & MODIS land cover, MCD12Q1 & Context only & No & Masking and description; never differenced between years\\
-Hydrography & HydroSHEDS & Context only & No & Description and checks; water not treated as a barrier\\
-Protected areas & World Database on Protected Areas (WDPA), \wdpaversion & Overlay & No & Reporting protected-area coverage only\\
+Built-up fraction & Global Human Settlement Layer (GHSL), R2023A \parencite{pesaresi2023ghsl} & Dynamic & Yes & Human pressure\\
+Nighttime radiance & Visible Infrared Imaging Radiometer Suite (VIIRS) nighttime lights, VNL V2 \parencite{elvidge2021vnl}; gas flares masked & Dynamic & Yes & Human pressure\\
+Road density & Global Roads Inventory Project, version 4 (GRIP4) \parencite{meijer2018grip} & Static & Yes & Human pressure\\
+Livestock density & Gridded Livestock of the World, version 4 (GLW4), 2020 \parencite{fao2024glw4,gilbert2018glw}; cattle, goats, and sheep combined & Static & Yes & Human pressure\\
+Tree, non-tree, and bare cover & Moderate Resolution Imaging Spectroradiometer (MODIS), MOD44B \parencite{dimiceli2022mod44b} & Dynamic & Yes & Vegetation\\
+Slope & Shuttle Radar Topography Mission (SRTM) \parencite{farr2007srtm} & Static & Yes & Terrain\\
+Veterinary fences & World Wide Fund for Nature (WWF) Kavango--Zambezi Transfrontier Conservation Area (KAZA) fence map \parencite{wwf2026kazafences}; Kruger National Park fence references & Static; varied between scenarios & Yes, as a multiplier & Raises resistance where present; crossable, not a full barrier\\
+Land cover & MODIS land cover, MCD12Q1 \parencite{friedl2022mcd12q1} & Context only & No & Masking and description; never differenced between years\\
+Hydrography & HydroSHEDS rivers and lakes \parencite{lehner2008hydrosheds,lehner2013hydrorivers,messager2016hydrolakes} & Context only & No & Description and checks; water not treated as a barrier\\
+Protected areas & World Database on Protected Areas (WDPA), \wdpaversion\ \parencite{unepwcmc2026wdpa} & Overlay & No & Reporting protected-area coverage only\\
 \bottomrule
 \end{tabular}
 \\[0.5em]
 \parbox{\textwidth}{\footnotesize\emph{Note:} Dynamic layers change between the 2012, 2016, 2020, and 2024 snapshots; static layers are the same in every snapshot. The product year matched to each snapshot is given in \suppB. VNL = VIIRS nighttime lights; V2 = product version 2; MOD44B = MODIS vegetation continuous fields; MCD12Q1 = MODIS land cover type; HydroSHEDS = hydrological data and maps based on Shuttle Elevation Derivatives at multiple Scales. Component weights are given in the text.}
 \\[0.5em]
-\noindent\TODO{Table updated 6 October 2026: it now says which layers feed the resistance surface, and adds land cover and protected areas. The product years were taken out of this table because supplement Table B3 already lists them; the note points there. Check the roles match your Methods text, and cite each source (GHSL, VIIRS, GRIP4, GLW4, MODIS, SRTM, HydroSHEDS, WDPA, the WWF fence map) once in the text or in this note.}
+\noindent\TODO{Table updated 6 October 2026: it now says which layers feed the resistance surface, adds land cover and protected areas, and cites every source. Product years were taken out because supplement Table B3 already lists them; the note points there. Check the roles match your Methods text. TWO SOURCES STILL UNCITED: (1) the Kruger fence references, which came from the SANParks park boundary plus the Kruger management plan and elephant management plan; cite those plans if you describe the Kruger fence treatment in the text. (2) The gas-flare mask, built from World Bank Global Gas Flaring Reduction flare locations for 2012--2025; cite the World Bank dataset if you mention the masking in Methods.}

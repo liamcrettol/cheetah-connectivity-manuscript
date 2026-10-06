@@ -164,6 +164,12 @@
   \renewcommand*{\nameyeardelim}{\addspace}
   \renewcommand*{\finalnamedelim}{\addspace\bibstring{and}\space}
   \renewcommand*{\finalandcomma}{}
+  % Reference list: "Gamelin FX, Baquet G, Bosquet L (2009) Title", i.e. commas
+  % between all authors and no full stop after the year. The in-text
+  % "Becker and Seligman (1996)" form is unaffected.
+  \DeclareDelimFormat[bib]{finalnamedelim}{\addcomma\space}
+  \DeclareDelimFormat[bib]{nametitledelim}{\addspace}
+  \DeclareFieldFormat{url}{\url{#1}}
   \DeclareFieldFormat*{title}{#1}
   \DeclareFieldFormat*{journaltitle}{#1}
   \DeclareFieldFormat*{volume}{#1}
