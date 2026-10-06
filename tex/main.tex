@@ -317,6 +317,11 @@
 % they go in a separate Supplementary Information file instead.
 \ifsubmission\else
   \appendix
+  % Appendix tables and figures restart as A1, B1, ... so they are not read
+  % as continuations of the main results.
+  \counterwithin{table}{section}\counterwithin{figure}{section}
+  \renewcommand{\thetable}{\thesection\arabic{table}}
+  \renewcommand{\thefigure}{\thesection\arabic{figure}}
   \input{sections/A1_protocol}
   \input{sections/A2_supplement}
 \fi

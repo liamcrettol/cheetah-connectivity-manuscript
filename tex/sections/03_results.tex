@@ -24,14 +24,19 @@ easier, but that change was not meaningfully related to baseline betweenness
 \texttt{\textbackslash figref\{fig:change\}} rather than ``Figure'' by hand: it prints
 ``Figure'' in the capstone and ``Fig.'' in the journal layouts, which is how Springer writes it.\\
 H1, TWO MORE NUMBERS YOU CAN USE (checked 5 October 2026; same answer, stated the way the protocol worded H1). The $\rho \approx 0.01$ above mixes the links that got harder with the ones that got easier. Asking the protocol's question directly: (1) Did the 18 harder links have higher betweenness than the 27 easier ones? Slightly, but not meaningfully (Mann--Whitney one-sided $p = 0.36$). (2) Among the 18 harder links, did the bigger losses fall on the more important links? No; if anything the reverse ($\rho = -0.22$, not significant). One thing that DID match: the losses were fairly concentrated, with the 5 hardest-hit of the 18 links carrying 46 percent of the total increase. So H1's ``minority of links'' half holds, and its ``high-betweenness links'' half does not.\\
-FIGURE PLACEMENT: the study-area figure just below shows the extent and cores, which is setup, not a result. Move it to Methods, near Study area.}
+FIGURES FOR THIS SUBSECTION (moved here 6 October 2026): the 2024 current map comes first, then the change map. Mention both in your sentences, the 2024 map first, e.g. ``(\texttt{\textbackslash figref\{fig:current2024\}})'' where you describe where current concentrated, and ``(\texttt{\textbackslash figref\{fig:change\}})'' where you describe how it changed.}
 
 \begin{figure}[htbp]\centering
-  \includegraphics[width=\textwidth]{Figure_0_study_area_and_core_groups.pdf}
-  \caption{Study extent, fixed historical range cores, and core groups used to define
-  the modeled connectivity network. Core groups are an analysis construct and do not
-  imply separate populations.}
-  \label{fig:studyarea}
+  \includegraphics[width=\textwidth]{Figure_2A_modelled_current_2024.pdf}
+  \caption{Modeled current concentration for 2024, with the fixed core network shown
+  for orientation.}
+  \label{fig:current2024}
+\end{figure}
+
+\begin{figure}[htbp]\centering
+  \includegraphics[width=\textwidth]{Figure_2B_current_change_2012_2024.pdf}
+  \caption{Modeled current change between 2012 and 2024.}
+  \label{fig:change}
 \end{figure}
 \FloatBarrier
 
@@ -47,7 +52,8 @@ What it means: the main group is not a small handful of links; it contains most 
 network. That only partly matches the original expectation that priorities would be
 limited to a small subset.
 What not to claim: these links are modeled connections between cores, not confirmed
-animal travel routes. Use Table~\ref{tab:top20}.}
+animal travel routes. Use Table~\ref{tab:toplinks}.
+FIGURE AND TABLE FOR THIS SUBSECTION: mention the link map first, e.g. ``(\texttt{\textbackslash figref\{fig:networkcontext\}})'' where you introduce the 45 links, then the table, ``(Table\textasciitilde\texttt{\textbackslash ref\{tab:toplinks\}})'' where you name the highest-ranked links.}
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_5_modelled_links_and_transportation.pdf}
@@ -56,6 +62,12 @@ animal travel routes. Use Table~\ref{tab:top20}.}
   observed animal paths.}
   \label{fig:networkcontext}
 \end{figure}
+
+\begin{table}[htbp]\centering
+  \caption{Ten highest-ranked modeled priority links shown from the 32-link primary-priority set.}
+  \label{tab:toplinks}
+  \input{tables/table_primary_links}
+\end{table}
 \FloatBarrier
 
 % Sensitivity evidence explains the priority-link screening above.
@@ -76,8 +88,10 @@ ranking should be presented as certain. State that H3 was only partly evaluated:
  stable group existed, but it contained a majority of the selected links and the full
 planned sensitivity grid was not completed.}
 
+\subsection{Independent tracking check}
+\label{sec:results_tracking}
 \TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE INDEPENDENT TRACKING CHECK (UPDATED 5 OCTOBER 2026 WITH THE STRICTER FOLLOW-UPS).\\
-Give this its own short subsection; it answers a different question from the priority links. Numbers only here; meaning goes in Discussion. Lead with the step check (Table~\ref{tab:limpopo_steps}), because it is the stricter test. Put the first comparison (Table~\ref{tab:limpopo}) after it as background, or move that table to \suppB.\\[0.3em]
+This now has its own subsection, because it answers a different question from the priority links; rename the heading if you like. Numbers only here; meaning goes in Discussion. Lead with the step check (Table~\ref{tab:limpopo_steps}), because it is the stricter test. Put the first comparison (Table~\ref{tab:limpopo}) after it as background, or move that table to \suppB.\\[0.3em]
 1. THE MAIN RESULT (Table~\ref{tab:limpopo_steps}, panel A). Across 549 day-to-day moves, the place a cheetah actually went had lower modeled resistance than the moves it could have made instead. The real move beat 56 percent of its alternatives (95 percent interval 51 to 61 percent), where 50 would mean no difference, and seven of the nine animals leaned that way. Averaged along the straight line between locations the result was almost the same (55 percent).\\
 2. CURRENT DID NOT HOLD UP. The real move beat 53 percent of alternatives on modeled current, but the interval (47 to 59) includes 50, and only five of nine animals leaned that way. Say this plainly. It also means the 65 percent for current in the first comparison mostly reflected where the cats lived, not the choices they made each day.\\
 3. ALL NINE SURFACES (panel B). Every surface gave 55 to 56 percent, so the result does not depend on which weighting you picked. The four other fence treatments give exactly the same values as the main surface because no mapped fence lies within 20~km of any track.\\
@@ -132,42 +146,9 @@ Table~\ref{tab:pa}. State that H2 was not supported under its full rule because 
 direction changed across current thresholds and the significance result was not
 stable.}
 
-%------------------------------------------------------------------ figure inserts
-\begin{figure}[htbp]\centering
-  \includegraphics[width=\textwidth]{Figure_2B_current_change_2012_2024.pdf}
-  \caption{Modeled current change between 2012 and 2024.}
-  \label{fig:change}
-\end{figure}
-\FloatBarrier
-
-\begin{figure}[htbp]\centering
-  \includegraphics[width=\textwidth]{Figure_2A_modelled_current_2024.pdf}
-  \caption{Modeled current concentration for 2024, with the fixed core network shown
-  for orientation.}
-  \label{fig:current2024}
-\end{figure}
-\FloatBarrier
-
-\begin{table}[htbp]\centering
-  \caption{Covariates, native resolution, source years, and static/dynamic treatment.}
-  \label{tab:covariates}
-  \input{tables/table_covariates}
-\end{table}
-
-\begin{table}[htbp]\centering
-  \caption{Ten highest-ranked modeled priority links shown from the 32-link primary-priority set.}
-  \label{tab:top20}
-  \input{tables/table_primary_links}
-\end{table}
-
 \begin{table}[htbp]\centering
   \caption{Protected-area coverage of modeled high-current classes.}
   \label{tab:pa}
   \input{tables/table_pa_coverage}
 \end{table}
-
-\begin{table}[htbp]\centering
-  \caption{Overview of completed modeled-connectivity results.}
-  \label{tab:priority}
-  \input{tables/table_results_overview}
-\end{table}
+\FloatBarrier
