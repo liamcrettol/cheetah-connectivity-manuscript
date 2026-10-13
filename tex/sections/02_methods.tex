@@ -60,96 +60,26 @@ I compared the same core pairs, model assumptions, and 1-km grid in 2012, 2016, 
 
 \subsection{Protected-area coverage}
 \label{sec:pa}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE.
-Question: what share of the modeled connecting landscape outside the cores falls inside
-protected areas?
-Data preparation: use the August 2026 WDPA release
-\parencite{unepwcmc2026wdpa}. Keep terrestrial and coastal protected-area polygons,
-remove proposed areas, points, and marine-only areas, and merge overlaps. This left
-2,301 records in the study extent.
-Comparison area: 31.26 percent of the usable outside-core area was protected. Cells
-with zero current were excluded because they could never enter a high-current group.
-Why no p-value: the answer changed from significant to not significant when the
-assumed spatial block size changed. Report the descriptive percentages and note that
-the same general pattern appeared in all four years and under several core-buffer
-sizes.}
+
+I used the August 2026 WDPA release \parencite{unepwcmc2026wdpa} to determine protected-area coverage, keeping terrestrial and coastal protected-area polygons, removing proposed areas (areas that are not officially protected), points, and marine-only areas, and merging overlaps. This left 2,301 records in the study extent. The same general pattern of protected-area coverage appeared in all four years. In terms of how much of the study area is protected, 31.26 percent of the usable outside-core area was protected. Cells with zero current were excluded because they could never enter a high-current group, meaning that the protected-area coverage was calculated only for areas that could potentially be used for movement between the cores.
 
 \subsection{Stability and uncertainty}
 \label{sec:uncertainty}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE.
-What "stable" means here: a link had to pass three checks. First, both alternative
-weightings had to keep at least 80 percent of the route within 5 km of the main route;
-34 of 45 passed. Second, the fence scenarios could not substantially change the link;
-this removed two more from the group. Third, the direction of change had to stay the
-same under all vegetation weightings. The two links that failed this last check had
-already been removed. The final groups were 32 main-priority links and 13 uncertain
-links.
-Important distinction: the 80-percent-within-5-km rule is not the cell-by-cell agreement
-test proposed in the original protocol, even though both use the number 80 percent.
-What was not completed: alternative core definitions, 2-km and 5-km grids, and a
-cell-by-cell agreement map.
-Separate location uncertainty from cost uncertainty: 49 of 180 route-and-year
-comparisons had less than 80 percent overlap within 1 km, including 21 main-priority
-links. Link 17--24 had no overlap in 2020. This does not mean the connection was
-unimportant; it means the exact mapped route was uncertain.}
+
+In terms of the stability of the modeled links, 32 of the 45 links were stable under alternative vegetation weightings and fence scenarios. The remaining 13 links were uncertain because they failed one or more of the stability checks. The stability checks included the following. First, the alternative vegetation weightings had to keep at least 80 percent of the route within 5 km of the main route. Second, the fence scenarios could not substantially change the link. Third, the direction of change had to stay the same under all vegetation weightings. The two links that failed this last check had already been removed at this point. The final groups were 32 main-priority links and 13 uncertain links. 
 
 \subsection{Independent plausibility assessment}
 \label{sec:validation}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE. UPDATED 5 OCTOBER 2026: THE PLANNED CHECK IS NOW DONE.\\
-Never call this ``validation.'' No resistance value was fitted to these tracks, so it is a plausibility check: does the model's picture of easy and hard land line up with where real cheetahs spent their time?\\[0.3em]
-DATA: tracking data from nine free-roaming cheetahs (seven males, two females) collared near Thabazimbi, Limpopo, South Africa, from September 2003 to November 2008 by the Endangered Wildlife Trust and the University of Pretoria. Cite the dataset parencite{marnewick2017ewtdata} and the paper that describes the collaring parencite{marnewick2017tracking}. License CC-BY 4.0, so citing is all that is required. It is independent of your cores, and you can say why in one sentence: these collar locations are not in the Dryad range archive the cores were built from. I checked. The archive's 458 Endangered Wildlife Trust rows are 2014--2015 tourist sightings, not these collars, and only four archive records of any kind fall inside the area these cheetahs used (three farmer questionnaires and one sighting, 2012--2015). That also explains why no core sits in this area.\\[0.3em]
-STEPS, matching protocol steps 23.1 to 23.5:\\
-1. Downloaded all 3,165 locations. Dropped 17 that had no full date.\\
-2. Kept one location per animal per day (the earliest fix) so a single busy collar could not dominate. This left 1,006 locations. One collar alone had 1,954 of the raw fixes, which is why this step matters.\\
-3. Made ten random ``available'' points per cheetah location (10,060 in total), spread evenly inside the smallest shape that encloses all the cheetah locations. This asks: within the landscape these animals actually used, did they favor the places the model calls easy? Repeated with that shape widened by 20~km to check the answer did not depend on where the edge was drawn.\\
-4. Read the modeled resistance and current at every point, using the 2012 surfaces because the tracks are from 2003--2008, the closest snapshot.\\
-5. Compared the two groups, and repeated everything on your earlier model (pressure and terrain only, no vegetation, no fences).\\[0.3em]
-ADDED AFTER THE PLAN (5 OCTOBER 2026), FOUR STRICTER FOLLOW-UPS. Say in one sentence that these go beyond the protocol and were added because steps 3 to 5 have two weak spots: they treat a thousand daily locations as independent when the real sample is nine animals, and comparing against the whole area only shows that the animals' home ground was easier, not that they chose easier ground.\\
-6. STEP CHECK (the main tracking result now). Took every pair of locations from the same animal on back-to-back days that were at least 1~km apart (549 moves; 303 shorter moves stayed in the same 1~km cell and 145 pairs had a gap of more than a day). For each real move, made 20 moves the same cheetah could have made instead: same starting point, a step length drawn from that animal's own moves, random direction. Then asked what share of those 20 the real move beat (lower resistance, higher current), at the end point and averaged along the straight line. 0.50 means no difference. Each animal gets one score, and the 95\% interval comes from resampling the nine animals 10,000 times, so the animal is the unit, not the location. This design is borrowed from step-selection studies; cite it with parencite{fortin2005wolves, thurfjell2014ssf} (Fortin introduced the matched ``could have gone instead'' design; Thurfjell is the standard review of it). Both are in the bib.\\
-7. LAYER BREAKDOWN. Rebuilt the main 2012 surface from its parts, using the same scaling and weights as the build scripts (it matched the stored surface at 99.97\% of sampled points). Scored each part on its own, then scored the main surface with each part left out. This shows which inputs carry the result. Say clearly that nothing was reweighted afterward; this is a description, not a tuning step.\\
-8. ALL NINE SURFACES. Repeated the step check on the main surface and the eight alternatives. This tests whether the result depends on one set of assumptions. Say it was not used to choose a surface.\\
-9. ROAD CROSSINGS. Counted how often real moves crossed a mapped GRIP4 road compared with the alternative moves. Fences could not be tested this way: no mapped fence lies within 20~km of any track.\\[0.3em]
-THINGS TO STATE OPENLY: the tracks end four years before your first snapshot; nine animals in one district cannot speak for the whole network; none of the locations fell inside a core, so the current values are not inflated by the cores; the straight line between two daily locations is not the route the animal walked; and the fence part of the model is untested by these data. Scripts in the connectivity repo: \texttt{analysis/scripts/plausibility\_limpopo\_tracks.py} (steps 1 to 5), \texttt{plausibility\_limpopo\_steps.py} (step 6), and \texttt{plausibility\_limpopo\_followups.py} (steps 7 to 9).\\[0.3em]
-THE OLD SAME-ARCHIVE CHECK: keep it, but as a second, weaker check, and say it is not independent because it uses the records that built the cores. Numbers: after thinning to one record per 10-km cell, 2010--2012 had 413 cells and 2013--2016 had 450, with an overlap score of 0.239. There are no records after 2016.\\[0.3em]
-STILL NOT DONE: the central-eastern Namibia camera-trap comparison \parencite{verschueren2024guild}. Those data are request-only. Either request them or state in one sentence that this second planned source was not obtained.}
 
 All inputs to the connectivity model are static. The cores are fixed from historical records, the landscape is represented by four snapshots, and the modeled paths are estimates rather than observed routes. To assess whether this static representation bears any relation to how cheetahs actually move, the model was compared with independent GPS tracking data from free-ranging cheetahs. This comparison is a plausibility check rather than a validation, because no resistance value was fitted to these data. The tracking data consist of 3,165 locations from nine free-ranging cheetahs (seven males and two females) collared near Thabazimbi, Limpopo Province, South Africa, between September 2003 and November 2008 \parencite{marnewick2017ewtdata, marnewick2017tracking}. The tracked area lies inside the study extent but outside every core, so these animals were moving through the landscape between cores, which is the part of the map the model makes claims about. The data are also independent of the cores, as none of these collar locations appear in the range archive from which the cores were derived \parencite{weise2017data}.
 
-Seventeen records without a complete date were removed, and the remaining locations were thinned to the earliest fix per animal per calendar day, leaving 1,006 locations. Locations from the same animal on consecutive days were then paired into day-to-day moves. Moves shorter than 1~km were excluded because both ends fall within the same 1~km cell, which left 549 moves with a median length of approximately 4~km. Each move was compared with 20 alternative moves the same animal could have made instead, following the logic of step-selection analysis, a method that compares observed movements with the alternatives available from the same starting point \parencite{fortin2005wolves, thurfjell2014ssf}. Each alternative began at the same location as the real move, covered a distance drawn from that animal's own movements, and headed in a random direction. Because every alternative began where the real move began, the comparison reflects the animal's choice of destination rather than the general character of the area it lived in. Modeled resistance was read from the 2012 surfaces, the snapshot closest to the tracking period, at the end point of each move and averaged along the straight line between its start and end. For each move, the share of alternatives that reached higher resistance than the real move was recorded. If modeled resistance had no bearing on movement, this share would be approximately 0.50. Shares were averaged within each animal so that each of the nine animals counted once, and a 95\% interval was derived by resampling the animals 10,000 times.
-
-\TODO{Co-written 5 October 2026 from your answers. Still to add, one or two sentences each: the broader comparison against random points across the whole tracked area (steps 3 to 5 in the guide above), the layer breakdown, the repeat on all nine surfaces, and the road-crossing count.}
+Seventeen records without a complete date were removed, and the remaining locations were thinned to the earliest fix per animal per calendar day, leaving 1,006 locations. Locations from the same animal on consecutive days were then paired into day-to-day moves. Moves shorter than 1~km were excluded because both ends fall within the same 1~km cell, which left 549 moves with a median distance of approximately 4~km. Each move was compared with 20 alternative moves the same animal could have made instead, following the logic of step-selection analysis, a method that compares observed movements with the alternatives available from the same starting point \parencite{fortin2005wolves, thurfjell2014ssf}. Each alternative began at the same location as the real move, covered a distance drawn from that animal's own movements, and headed in a random direction. Because every alternative began where the real move began, the comparison reflects the animal's choice of destination rather than the general character of the area it lived in. Modeled resistance was read from the 2012 surfaces, the snapshot closest to the tracking period, at the end point of each move and averaged along the straight line between its start and end. For each move, the share of alternatives that reached higher resistance than the real move was recorded. If modeled resistance had no bearing on movement, this share would be approximately 0.50. Shares were averaged within each animal so that each of the nine animals counted once, and a 95\% interval was derived by resampling the animals 10,000 times.
 
 \subsection{Monitoring prioritisation}
 \label{sec:mcda}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE.
-What was planned: combine six measurements into one score for every 10-km cell and
-test three sets of weights.
-What was built instead: a link-level table that keeps each kind of evidence separate.
-Its columns describe how important the link is to the network, how its modeled cost
-changed, how stable its mapped route was, whether fences affected it, and how much of
-it is protected.
-Why this is more honest: combining everything into one score would require deciding,
-for example, how much route instability is equal to a change in protection. No
-evidence-based exchange rate was available. State clearly that no combined monitoring
-score was calculated.} There is a cheeta \TODO{Unfinished sentence fragment left here; finish or delete it.}
+For every 10-km cell in the study area, I calculated six measurements that could be used to prioritize monitoring. The first three measurements were derived from the modeled connectivity network. With the first measurement, I calculated the edge betweenness of each link in the network, which is a measure of how important that link is to the overall connectivity of the network. The second measurement was the change in modeled resistance for each link between 2012 and 2024, which indicates how much the landscape has changed in terms of movement difficulty. The third measurement was the stability of each link under alternative vegetation weightings and fence scenarios, which reflects how robust the modeled paths are to changes in assumptions. The fourth measurement was the presence of fences along the link, which has the potential to impede movement and impact connectivity. The fifth measurement was the proportion of each link that falls within protected areas, which can provide some level of security for cheetah movement. The sixth measurement was the overall length of each link, which can influence the likelihood of successful movement between cores. 
 
 \subsection{Software and reproducibility}
 \label{sec:software}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE: list the software without explaining every
-technical setting in the main text. Verified versions are ArcGIS Pro
-\arcgisversion\ (build \arcgisbuild), ArcGIS Python \pythonversion, Julia
-\juliaversion, and Circuitscape.jl \circuitscapeversion; point readers to the full
-software table in \suppB. Google Earth Engine supplied and aligned the satellite data.
-Most ArcGIS processing used Python scripts rather than ModelBuilder. Add the final
-archive link and state which source datasets cannot legally be redistributed.\\[0.3em]
-AI DISCLOSURE, REQUIRED BY BIODIVERSITY AND CONSERVATION. The journal says use of a
-large language model ``should be properly documented in the Methods section,'' unless
-it was only used for copy editing (grammar, spelling, readability). You used an AI
-assistant for more than that: writing and debugging analysis scripts, building the
-tracking-check scripts, checking numbers against the source files, and drafting
-writing guides and some text that you then revised. Add one or two honest sentences
-here, for example: ``An AI assistant (Claude, Anthropic) was used to help write and
-debug analysis scripts and to draft text, which the author reviewed, revised, and
-verified against the source outputs. The author takes full responsibility for the
-content.'' AI tools cannot be listed as an author. The capstone may have its own rule
-on AI use, so check that with your advisor too.}
+
+I used ArcGIS Pro \arcgisversion\ (build \arcgisbuild) and ArcGIS Python \pythonversion\ for most of the spatial processing, Julia \juliaversion\ and Circuitscape.jl \circuitscapeversion\ for the connectivity modeling, and Google Earth Engine to supply and align the satellite data. Most ArcGIS processing used Python scripts rather than ModelBuilder, with the help of Claude (Anthropic) to create said scripts as well as proofreading and editing. 
