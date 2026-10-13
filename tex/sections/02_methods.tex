@@ -48,31 +48,14 @@ For each core, I ran a least-cost analysis in ArcGIS, which calculated the accum
 
 \subsection{Network structure}
 \label{sec:graph}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE.
-What was measured: edge betweenness counts how often a link lies on the shortest
-network route between pairs of cores. A high value means the link helps hold many parts
-of the modeled network together. The value was calculated on the 45-link network and
-divided by the 253 possible core pairs.
-How links were chosen: the network combined each core's three nearest neighbors with
-a minimum spanning tree, which is the smallest set of links needed to keep the core
-network connected.
-Why rankings are uncertain: allowing two, three, four, or five nearest neighbors
-created 31, 45, 61, or 77 links, and the highest-ranked links changed. Link 17--24 was
-the only bridge under the three-neighbor choice; removing a bridge separates the
-network into two pieces.
-What was dropped: PC and dPC \parencite{saura2007pc} require an assumed relationship
-between distance and dispersal. No local dispersal telemetry was available, so those
-more detailed-looking numbers were not calculated. Cite \textcite{keeley2021metrics}
-when explaining that the metric should match the research question.\\
-FIX THE REASON ABOVE BEFORE YOU WRITE IT. ``No dispersal telemetry'' was already known when the protocol was locked, and the protocol handled it: decision 4 set 100~km as the dispersal value, based on how far apart cheetah communication hubs are \parencite{melzheimer2020hubs}, with 50, 200, and 400~km as checks. So that cannot be the reason PC was dropped; a reader comparing the protocol would spot it. Write down the real reason. It might be that betweenness answers H1 directly and PC would add a second ranking to explain, or that a single borrowed 100~km value would make the numbers look more precise than they are. Whatever it was, say it plainly, and add it to Appendix A1 as a change from the plan.}
+
+Edge betweeness counts how many shortest paths between cores pass through a link. A high value edge betweeness means that the link is important for holding the larger network together. The value was calculated on the 45-link network and divided by the 253 possible core pairs. The network combined each core's three nearest neighbors with a minimum spanning tree, which is the smallest set of links needed to keep the core network connected. Allowing two, three, four, or five nearest neighbors created 31, 45, 61, or 77 links, and the highest-ranked links changed. Link 17--24 was the only bridge under the three-neighbor choice, which means that removing it would disconnect the network.
+
 
 \subsection{Temporal comparison}
 \label{sec:temporal}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE: compare the same core pairs, model assumptions,
-and 1-km grid in 2012, 2016, 2020, and 2024. This keeps the comparison consistent so
-the modeled differences come from the input layers that changed through time. Define
-absolute change as later value minus earlier value. Define percent change as that
-difference divided by the earlier value, multiplied by 100.}
+
+I compared the same core pairs, model assumptions, and 1-km grid in 2012, 2016, 2020, and 2024. This kept the comparison consistent so that the modeled differences came from the input layers that were dynamic (changed through time). Absolute change was defined as the later value minus the earlier value. Percent change was defined as that difference divided by the earlier value, multiplied by 100.
 
 
 \subsection{Protected-area coverage}
