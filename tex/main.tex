@@ -55,7 +55,6 @@
 \newcommand{\affillist}{\textsuperscript{1}Department of Zoology, Weber State University, Ogden, Utah, USA}
 \newcommand{\correspondingemail}{liamncrettol@gmail.com}
 % Extra title-page item Biodiversity and Conservation asks for "if available":
-\newcommand{\correspondingorcid}{\TODO{16-digit ORCID iD, free at orcid.org}}
 
 %---------------------------------------- page + type
 \ifarticle
@@ -322,10 +321,8 @@
       \vspace{18pt}
       \textbf{*Corresponding author}\par
       Email: \href{mailto:\correspondingemail}{\correspondingemail}\par
-      ORCID: \correspondingorcid\par
       \vspace{18pt}
       \textbf{Article type:} Original Research\par
-      \textbf{Word count:} \TODO{whole manuscript; the journal's limit for Original Research is 9,000 words}\par
     \end{flushleft}
   \end{titlepage}
   \setcounter{page}{2}   % the title page counts as page 1
@@ -349,31 +346,10 @@
 \fi
 \input{sections/06_conclusion}
 
-\ifcapstone
-  \input{sections/07_backmatter}
-  \printbibliography
-\else
-  % Springer order: references, then the required statements under one
-  % heading, each statement as a subheading.
-  \printbibliography
-  \section*{Statements and Declarations}
-  \begingroup
-    \let\section\subsection
-    \input{sections/07_backmatter}
-  \endgroup
-\fi
+\printbibliography
 
-% Appendices: bound in for the capstone and the article look. For submission
-% they go in a separate Supplementary Information file instead.
-\ifsubmission\else
-  \appendix
-  % Appendix tables and figures restart as A1, B1, ... so they are not read
-  % as continuations of the main results.
-  \counterwithin{table}{section}\counterwithin{figure}{section}
-  \renewcommand{\thetable}{\thesection\arabic{table}}
-  \renewcommand{\thefigure}{\thesection\arabic{figure}}
-  \input{sections/A1_protocol}
-  \input{sections/A2_supplement}
-\fi
+% The statements (07_backmatter) and appendices (A1_protocol, A2_supplement)
+% were removed from this version on 14 October 2026. The files are still in
+% sections/ if they are ever needed again.
 
 \end{document}

@@ -1,12 +1,11 @@
 \section{Results}
 \label{sec:results}
 
-% Results report numbers. No mechanism, no conservation implication, no
-% "suggesting that". Every one of those belongs in the Discussion.
-
 \subsection{Connectivity change, \studyperiod}
 
-The modeled current concentration outside the cores was similar in 2012 and 2024, with a few small areas of change. \sugrep{Modeled current in 2024 is mapped in}{The fixed core network is shown for orientation in}{say what the figure shows; the core network is just the backdrop} \figref{fig:current2024}\sugadd{, and its change since 2012 in}{joins the two figure sentences} \sugdel{. The modeled change between 2012 and 2024 is shown in}{merged into the sentence before} \figref{fig:change}. The \sugrep{median}{middle}{the standard term} change in modeled cost between cores was \sugrep{$-1.224$}{-1.224}{a proper minus sign} percent\sugadd{ (negative meaning slightly easier to cross)}{say once what the sign means}, with 92 of \sugadd{all }{signals this is the full set, not the 45 links}253 core pairs becoming harder to move between and 161 becoming easier. The largest increase was +13.1 percent for the \sugrep{pair}{link}{this comes from the 253 pairs, not the 45 links} between cores 33 and 38. The overlap of the highest-current areas \sugrep{between successive snapshots and between 2012 and 2024}{between the two years}{the 0.91 to 0.93 range covers several year pairs, not only two years} was 0.91 to 0.93, where 1 would mean perfect overlap. \sugadd{Of the 45 selected links, 18 became harder and 27 became easier. }{switches from the 253 pairs to the 45 links; tell the reader} The overall pattern of change was not meaningfully related to baseline betweenness ($\rho \approx 0.01$), so the temporal-change hypothesis was mixed rather than supported. The 18 links that became harder did not have higher betweenness than the 27 that became easier (Mann--Whitney one-sided $p = 0.36$), and among the 18 harder links, the bigger losses did not fall on the more important links ($\rho = -0.22$, not significant). However, the losses were fairly concentrated, with the 5 hardest-hit of the 18 links carrying 46 percent of the total increase. \sugdel{The losses were fairly concentrated, with the 5 hardest-hit of the 18 links carrying 46 percent of the total increase.}{same sentence twice}
+The modeled current concentration outside the cores was similar in 2012 and 2024, with a few small areas of change. Modeled current in 2024 is mapped in \figref{fig:current2024}, and its change since 2012 in \figref{fig:change}. The median change in modeled cost between cores was $-1.224$ percent, with 92 of all 253 core pairs becoming harder to move between and 161 becoming easier. The largest increase was +13.1 percent, for the link between cores 33 and 38. The overlap of the highest-current areas between successive snapshots, and between 2012 and 2024, was 0.91 to 0.93, where 1 would mean perfect overlap.
+
+Of the 45 selected links, 18 became harder and 27 became easier. The overall pattern of change was not meaningfully related to baseline betweenness ($\rho \approx 0.01$), so the temporal-change hypothesis was mixed rather than supported. The 18 links that became harder did not have higher betweenness than the 27 that became easier (Mann--Whitney one-sided $p = 0.36$), and among the 18 harder links, the bigger losses did not fall on the more important links ($\rho = -0.22$, not significant). However, the losses were fairly concentrated, with the five hardest-hit of the 18 links carrying 46 percent of the total increase.
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_2A_modelled_current_2024.pdf}
@@ -24,7 +23,7 @@ The modeled current concentration outside the cores was similar in 2012 and 2024
 
 \subsection{Priority links and sensitivity checks}
 
-\sugrep{Thirty-two}{32}{do not start a sentence with a numeral} of the 45 selected links passed the tested sensitivity tests and remained in the main priority analysis. The other 13 links were kept as uncertain links\sugdel{ where more field information would be useful}{interpretation; move to Discussion}. The weighting test kept 34 links, and the fence test removed two more. The vegetation test did not remove any additional links from the remaining group. The main group is not a small handful of links. It contains most of the network, which only partly matches the original expectation that the priorities would be limited to only a small subset\sugadd{, so the link-stability hypothesis was only partly supported}{name the hypothesis outcome the way you did for temporal change}. The 10 highest-ranked links are shown in Table~\ref{tab:toplinks}, and the modeled links with transportation and fence context are shown in \figref{fig:networkcontext}.
+Thirty-two of the 45 selected links passed the sensitivity tests and remained in the main priority group. The other 13 links were kept as uncertain links. The weighting test kept 34 links, and the fence test removed two more. The vegetation test did not remove any additional links from the remaining group. The main group is therefore not a small handful of links. It contains most of the network, which only partly matches the original expectation that the priorities would be limited to a small subset, so the link-stability hypothesis was only partly supported. The modeled links are shown with transportation and fence context in \figref{fig:networkcontext}, and the 10 highest-ranked links are listed in Table~\ref{tab:toplinks}.
 
 \begin{figure}[htbp]\centering
   \includegraphics[width=\textwidth]{Figure_5_modelled_links_and_transportation.pdf}
@@ -41,68 +40,37 @@ The modeled current concentration outside the cores was similar in 2012 and 2024
 \end{table}
 \FloatBarrier
 
-The modeled cost of \sugdel{the }{doubled word}the 32 priority links was fairly stable, but the exact line taken by the least-cost path was less stable, meaning that the modeled route could shift by more than 1 km in some years. Of 180 route-and-year comparisons, 49 had less than 80 percent overlap within 1 km. This affected 21 of the 32 priority links. The route between cores 17 and 24 had no overlap in 2020. The vegetation assumptions changed the size of the modeled cost change, but not its direction for \sugrep{43 of 45 links; the median absolute change grew from about 3.6 to 9.3 percent as vegetation was given more weight}{most links}{you have the exact numbers, so use them}. Allowing two, three, four, or five nearest neighbors created 31, 45, 61, or 77 links, and the highest-ranked links changed. Link 17--24 was the only bridge under the three-neighbor choice, which means that removing it would disconnect the network.
+The modeled cost of the 32 priority links was fairly stable, but the exact line taken by the least-cost path was less stable, meaning that the modeled route could shift by more than 1 km in some years. Of 180 route-and-year comparisons, 49 had less than 80 percent overlap within 1 km. This affected 21 of the 32 priority links. The route between cores 17 and 24 had no overlap in 2020. The vegetation assumptions changed the size of the modeled cost change, but not its direction for 43 of 45 links; the median absolute change grew from about 3.6 to 9.3 percent as vegetation was given more weight. Allowing two, three, four, or five nearest neighbors created 31, 45, 61, or 77 links, and the highest-ranked links changed. Link 17--24 was the only bridge under the three-neighbor choice, which means that removing it would disconnect the network.
 
 \subsection{Independent tracking check}
 \label{sec:results_tracking}
-\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE INDEPENDENT TRACKING CHECK (UPDATED 5 OCTOBER 2026 WITH THE STRICTER FOLLOW-UPS).\\
-This now has its own subsection, because it answers a different question from the priority links; rename the heading if you like. Numbers only here; meaning goes in Discussion. Lead with the step check (Table~\ref{tab:limpopo_steps}), because it is the stricter test. Put the first comparison (Table~\ref{tab:limpopo}) after it as background, or move that table to \suppB.\\[0.3em]
-1. THE MAIN RESULT (Table~\ref{tab:limpopo_steps}, panel A). Across 549 day-to-day moves, the place a cheetah actually went had lower modeled resistance than the moves it could have made instead. The real move beat 56 percent of its alternatives (95 percent interval 51 to 61 percent), where 50 would mean no difference, and seven of the nine animals leaned that way. Averaged along the straight line between locations the result was almost the same (55 percent).\\
-2. CURRENT DID NOT HOLD UP. The real move beat 53 percent of alternatives on modeled current, but the interval (47 to 59) includes 50, and only five of nine animals leaned that way. Say this plainly. It also means the 65 percent for current in the first comparison mostly reflected where the cats lived, not the choices they made each day.\\
-3. ALL NINE SURFACES (panel B). Every surface gave 55 to 56 percent, so the result does not depend on which weighting you picked. The four other fence treatments give exactly the same values as the main surface because no mapped fence lies within 20~km of any track.\\
-4. WHICH LAYERS CARRY IT (panel C). Road density did most of the work: on its own it reached 55 percent, about as much as the full surface, and leaving it out dropped the full surface to 54 percent with an interval that just touches 50. Livestock, slope, and night lights each added a small lean (51 to 52 percent). Built-up area did nothing here because there is almost none in this district. Vegetation on its own leaned slightly the wrong way (48 percent, interval 43 to 52, which includes 50). Report that honestly; do not hide it.\\
-5. ROAD CROSSINGS (panel D). 26 percent of real moves crossed a mapped road, against 35 percent of the alternatives; eight of nine animals crossed less than expected. Major roads were crossed too rarely by anyone (1 against 2 percent) to say much.\\
-6. THE FIRST COMPARISON (Table~\ref{tab:limpopo}), as background: against random points across the whole area, cheetah locations had lower resistance 60 percent of the time (7 of 9 animals) and higher current 65 percent of the time (6 of 9). Widening the area by 20~km and using the earlier model gave the same picture.\\[0.3em]
-HOW TO DESCRIBE THE STRENGTH: consistent in direction, modest in size, and mostly carried by roads. 56 percent is a real lean, not a strong one. Say ``consistent with'' the model, not ``confirmed.'' Report the intervals and animal counts, not p-values.\\[0.3em]
-WHAT NOT TO CLAIM: that the model is validated; that it works across the whole region (one district in South Africa); that it says anything about 2020 or 2024 (the tracks end in 2008); or that fences were tested (they were not).}
+
+Across 549 day-to-day moves, the location a cheetah actually reached had lower modeled resistance than most of the alternative moves it could have made (Table~\ref{tab:limpopo_steps}, panel A). On average, the real move had lower resistance than 56 percent of its alternatives (95 percent interval 51--61 percent), where 50 percent would indicate no difference, and seven of the nine animals showed this pattern. Averaged along the straight line between locations, the result was almost the same (55 percent). Modeled current showed no clear pattern: the real move had higher current than 53 percent of its alternatives, but the interval (47--59 percent) included 50, and only five of the nine animals leaned that way.
+
+All nine resistance surfaces gave 55 to 56 percent (panel B). The five fence treatments gave identical values, because no mapped fence lies within 20~km of any track. Road density carried most of the result (panel C): on its own it reached 55 percent, and leaving it out reduced the main surface to 54 percent, with an interval that reached 50. Livestock, slope, and nighttime lights each showed a small lean of 51 to 52 percent. Built-up area barely varied in this district and could not separate real from alternative moves, and vegetation on its own leaned slightly in the opposite direction (48 percent, interval 43--52). Real moves crossed mapped roads less often than their alternatives (26 against 35 percent), and eight of the nine animals crossed fewer roads than expected (panel D).
+
+In the broader comparison against random points across the tracked area (Table~\ref{tab:limpopo}), cheetah locations had lower modeled resistance 60 percent of the time (seven of nine animals) and higher modeled current 65 percent of the time (six of nine animals). Widening the available area by 20~km gave the same picture.
 
 \begin{table}[htbp]\centering
-  \caption{\TODO{Final caption, in your own words: day-to-day moves of nine free-roaming cheetahs (Limpopo, 2003--2008) compared with moves of the same length the animals could have made instead, on the 2012 surfaces. Panels: main surface, all nine surfaces, single input layers, road crossings.}}
+  \caption{Day-to-day moves of nine free-ranging cheetahs (Limpopo, 2003--2008) compared with moves of the same length the animals could have made instead, on the 2012 surfaces. Panels show the main surface, all nine surfaces, single input layers, and road crossings.}
   \label{tab:limpopo_steps}
   \input{tables/table_limpopo_steps}
 \end{table}
 
 \begin{table}[htbp]\centering
-  \caption{\TODO{Final caption, in your own words: modeled resistance and current at
-  daily locations of nine free-roaming cheetahs (Limpopo, 2003--2008) compared with
-  random available points from the same landscape, on the 2012 surfaces. Call it the broader, less strict comparison.}}
+  \caption{Modeled resistance and current at daily locations of nine free-ranging cheetahs (Limpopo, 2003--2008) compared with random available points from the same landscape, on the 2012 surfaces. This is the broader, less strict comparison.}
   \label{tab:limpopo}
   \input{tables/table_limpopo_plausibility}
 \end{table}
 
-\TODO{PLAIN-LANGUAGE WRITING GUIDE FOR THE SAME-ARCHIVE OCCURRENCE CHECK.
-Keep this, but present it after the tracking check as the weaker of the two, because it is not independent.
-What happened: after thinning records to one 10-km cell, the early period had 413
-occupied cells and the later period had 450. Their overlap score was 0.239, showing
-that the two sets were quite different. Later records occurred in slightly higher
-modeled resistance, and a larger share fell inside the fixed cores. Almost no records
-were close to the priority paths: zero early cells and three later cells.
-Why this is a weak check: the same occurrence archive helped create the cores, so this
-is not an independent test. There are also no occurrence records after 2016, so it
-cannot check the 2020 or 2024 results. Report it honestly as a limited comparison, not
-as validation.}
+In the weaker, non-independent comparison using the range archive itself, occupied 10-km cells numbered 413 in 2010--2012 and 450 in 2013--2016, with an overlap score of 0.239. Later records fell in slightly higher modeled resistance, and a larger share fell inside the fixed cores. Almost no records were close to the priority paths (zero early cells and three later cells). No occurrence records were available after 2016, so this comparison cannot speak to the 2020 or 2024 results.
 
-\TODO{Protocol reporting only: the planned cell-level monitoring index was not built and H4 was not tested. Explain this once in \suppA, not as a repeated priority-link result.}
+The monitoring-priority hypothesis was not tested, because the cell-level monitoring index it depended on was not built (Section~\ref{sec:mcda}).
+\FloatBarrier
 
 \subsection{Protected-area coverage of priority connectivity}
 
-In terms of how much of the study area is protected, 31.26 percent of the usable outside-core area was protected. The same general pattern of protected-area coverage appeared in all four years.
-
-\TODO{PLAIN-LANGUAGE WRITING GUIDE.
-Why the cores were removed: the model forces current into and out of the cores, so the
-cores automatically receive very high current. Including them would make protection
-look better without telling us how well the land between cores is protected.
-What happened outside the cores: 31.26 percent of the comparison area is protected.
-Only 23.27 percent of the area above the 80th current percentile was protected in
-2024. Coverage rose to 25.54 percent above the 90th percentile, 33.45 percent above the
-95th, and 44.63 percent above the 99th. In simple terms, the very strongest
-concentrations often reached protected areas, while the broader connecting landscape
-around them was less protected.
-What not to claim: do not report a significance p-value because it changed when the
-size of the spatial blocks changed. Do not call modeled current observed movement. Use
-Table~\ref{tab:pa}. State that H2 was not supported under its full rule because the
-direction changed across current thresholds and the significance result was not
-stable.}
+Of the usable outside-core area, 31.26 percent was protected. In 2024, only 23.27 percent of the area above the 80th percentile of modeled current was protected, rising to 25.54 percent above the 90th percentile, 33.45 percent above the 95th, and 44.63 percent above the 99th (Table~\ref{tab:pa}). The same general pattern appeared in all four years; in 2012 the corresponding values were 24.23, 26.31, 35.57, and 44.17 percent. High-current land outside the cores was therefore less protected than the comparison area up to the 90th percentile and more protected above the 95th. Because the direction changed across thresholds, the protected-area-coverage hypothesis was not supported under its full rule.
 
 \begin{table}[htbp]\centering
   \caption{Protected-area coverage of modeled high-current classes.}
