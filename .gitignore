@@ -23,3 +23,5 @@ tex/main_article.pdf
 tex/main_submission.pdf
 *.fff
 *.ttt
+*.loc
+*.soc

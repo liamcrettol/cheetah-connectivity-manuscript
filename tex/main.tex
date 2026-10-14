@@ -204,6 +204,30 @@
 \else
   \newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
 \fi
+%---------------------------------------- inline suggestions (Google Docs style)
+% Suggested edits show in blue: old text struck through, new text after it,
+% and a short reason in [brackets]. To ACCEPT one, keep the new text and
+% delete the command around it; to REJECT, keep the old text.
+%   \sugrep{new}{old}{why}   suggest replacing old with new
+%   \sugdel{old}{why}        suggest deleting old
+%   \sugadd{new}{why}        suggest adding new
+%   \note{text}              a comment, no change to the text
+% Set \showsuggestionsfalse to preview the paper with every suggestion
+% accepted and every note hidden.
+\newif\ifshowsuggestions
+\showsuggestionstrue   % <-- set to \showsuggestionsfalse for a clean preview
+\ifshowsuggestions
+  \usepackage[markup=default,authormarkup=none]{changes}
+\else
+  \usepackage[final]{changes}
+\fi
+\definechangesauthor[name={Suggestion}, color=blue!70!black]{S}
+\setcommentmarkup{{\color{authorcolor}\footnotesize\itshape\,[#1]}}
+\newcommand{\sugrep}[3]{\deleted[id=S]{#2}\added[id=S,comment={#3}]{#1}}
+\newcommand{\sugdel}[2]{\deleted[id=S,comment={#2}]{#1}}
+\newcommand{\sugadd}[2]{\added[id=S,comment={#2}]{#1}}
+\newcommand{\note}[1]{\comment[id=S]{#1}}
+
 % Run-in heading for a structured abstract (needed only if you ever submit to
 % a journal that requires one, such as Landscape Ecology; Biodiversity and
 % Conservation wants a plain one-paragraph abstract):
