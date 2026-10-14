@@ -4,7 +4,7 @@
   "features": {
     "ghcr.io/devcontainers/features/git-lfs:1": {}
   },
-  "postCreateCommand": "sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-bibtex-extra texlive-fonts-recommended texlive-science lmodern biber latexmk && sudo rm -rf /var/lib/apt/lists/*",
+  "postCreateCommand": "sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-plain-generic texlive-bibtex-extra texlive-fonts-recommended texlive-science lmodern biber latexmk && sudo rm -rf /var/lib/apt/lists/*",
   "customizations": {
     "vscode": {
       "extensions": ["James-Yu.latex-workshop", "streetsidesoftware.code-spell-checker"],

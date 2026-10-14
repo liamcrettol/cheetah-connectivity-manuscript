@@ -216,17 +216,37 @@
 % accepted and every note hidden.
 \newif\ifshowsuggestions
 \showsuggestionstrue   % <-- set to \showsuggestionsfalse for a clean preview
-\ifshowsuggestions
-  \usepackage[markup=default,authormarkup=none]{changes}
+\newif\ifhaveulem
+\IfFileExists{ulem.sty}{\haveulemtrue}{\haveulemfalse}
+\ifhaveulem
+  \ifshowsuggestions
+    \usepackage[markup=default,authormarkup=none]{changes}
+  \else
+    \usepackage[final]{changes}
+  \fi
+  \definechangesauthor[name={Suggestion}, color=blue!70!black]{S}
+  \setcommentmarkup{{\color{authorcolor}\footnotesize\itshape\,[#1]}}
+  \newcommand{\sugrep}[3]{\deleted[id=S]{#2}\added[id=S,comment={#3}]{#1}}
+  \newcommand{\sugdel}[2]{\deleted[id=S,comment={#2}]{#1}}
+  \newcommand{\sugadd}[2]{\added[id=S,comment={#2}]{#1}}
+  \newcommand{\note}[1]{\comment[id=S]{#1}}
 \else
-  \usepackage[final]{changes}
+  % Fallback when ulem (strikethrough) is not installed, e.g. a Codespace
+  % built before texlive-plain-generic was added: old text is shown in grey
+  % brackets instead of struck through, so the build still works.
+  \PackageWarningNoLine{main}{ulem.sty not found; suggestions shown without strikethrough. Install texlive-plain-generic}
+  \ifshowsuggestions
+    \newcommand{\sugrep}[3]{{\color{gray}[#2]}\textcolor{blue!70!black}{#1{\footnotesize\itshape\,[#3]}}}
+    \newcommand{\sugdel}[2]{{\color{gray}[#1]}\textcolor{blue!70!black}{\footnotesize\itshape\,[delete: #2]}}
+    \newcommand{\sugadd}[2]{\textcolor{blue!70!black}{#1{\footnotesize\itshape\,[#2]}}}
+    \newcommand{\note}[1]{\textcolor{blue!70!black}{\footnotesize\itshape\,[#1]}}
+  \else
+    \newcommand{\sugrep}[3]{#1}
+    \newcommand{\sugdel}[2]{}
+    \newcommand{\sugadd}[2]{#1}
+    \newcommand{\note}[1]{}
+  \fi
 \fi
-\definechangesauthor[name={Suggestion}, color=blue!70!black]{S}
-\setcommentmarkup{{\color{authorcolor}\footnotesize\itshape\,[#1]}}
-\newcommand{\sugrep}[3]{\deleted[id=S]{#2}\added[id=S,comment={#3}]{#1}}
-\newcommand{\sugdel}[2]{\deleted[id=S,comment={#2}]{#1}}
-\newcommand{\sugadd}[2]{\added[id=S,comment={#2}]{#1}}
-\newcommand{\note}[1]{\comment[id=S]{#1}}
 
 % Run-in heading for a structured abstract (needed only if you ever submit to
 % a journal that requires one, such as Landscape Ecology; Biodiversity and
